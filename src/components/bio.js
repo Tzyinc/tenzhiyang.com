@@ -53,14 +53,12 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
+      <div>
+        <p><strong>{author}</strong> is a dev in Singapore</p>
         <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+          Follow me on twitter!
         </a>
-      </p>
+      </div>
     </div>
   )
 }

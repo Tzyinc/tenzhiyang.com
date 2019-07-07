@@ -11,13 +11,15 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-
+    const { pathname } = this.props.location
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+          description={post.excerpt}
         />
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3&appId=543521576184898&autoLogAppEvents=1"></script>
         <h1
           style={{
             marginTop: rhythm(1),
@@ -42,7 +44,12 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-
+        <div class="fb-comments" data-href={`https://tenzhiyang.com${pathname}`} data-width="100%" data-numposts="5" />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
         <ul
           style={{
             display: `flex`,
@@ -89,7 +96,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
       }
     }
   }
