@@ -8,4 +8,4 @@ The next few posts are pull requests for jsconf asia's home page, hopefully they
 
 The inspiration for this animation comes from the dvd bouncing logo meme.
 
-<iframe width="100%" height="400px" src="httpserve.tenzhiyang.com/dvdlogo/" />
+<iframe width="100%" height="400px" src="https://httpserve.tenzhiyang.com/dvdlogo/" />
