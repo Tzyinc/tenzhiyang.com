@@ -1,0 +1,28 @@
+:root {
+  --text: #1D3557;
+  --bg: #F1FAEE;
+  --err: #E63946;
+  --alt: #457B9D;
+  --conf: #A8DADC;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--alt);
+}
+
+.body {
+  color: var(--text);
+}
+
+.parallax {
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

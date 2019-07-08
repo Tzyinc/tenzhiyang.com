@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Tzyinc ramblings',
+    title: 'Ten\'s Thoughts',
     author: 'Ten Zhi Yang',
     description: 'Just another Dev blog',
     siteUrl: 'https://blog.tenzhiyang.com',
@@ -60,10 +60,10 @@ module.exports = {
         name: 'Gatsby Starter Blog',
         short_name: 'GatsbyJS',
         start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#663399',
+        background_color: '#F1FAEE',
+        theme_color: '#1D3557',
         display: 'minimal-ui',
-        icon: 'content/assets/gatsby-icon.png',
+        icon: 'content/assets/profile-pic.jpg',
       },
     },
     'gatsby-plugin-offline',

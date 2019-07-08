@@ -1,0 +1,1 @@
+:root{--text:#1d3557;--bg:#f1faee;--err:#e63946;--alt:#457b9d;--conf:#a8dadc}html{background-color:var(--bg);color:var(--text)}a{color:var(--alt)}.body{color:var(--text)}.parallax{background-attachment:fixed;background-position:50%;background-repeat:no-repeat;background-size:cover}

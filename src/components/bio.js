@@ -47,6 +47,7 @@ const Bio = () => {
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
           minWidth: 50,
+          minHeight: 50,
           borderRadius: `100%`,
         }}
         imgStyle={{
@@ -54,10 +55,7 @@ const Bio = () => {
         }}
       />
       <div>
-        <p><strong>{author}</strong> is a dev in Singapore</p>
-        <a href={`https://twitter.com/${social.twitter}`}>
-          Follow me on twitter!
-        </a>
+        <div><a href={`https://twitter.com/tzyinc`}>{author}</a> is a dev in Singapore. He enjoys playing with new technology</div>
       </div>
     </div>
   )
