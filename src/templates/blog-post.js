@@ -14,12 +14,10 @@ class BlogPostTemplate extends React.Component {
     const { pathname } = this.props.location
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
+      <SEO
           title={post.frontmatter.title}
           description={post.excerpt}
         />
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3&appId=543521576184898&autoLogAppEvents=1"></script>
         <h1
           style={{
             marginTop: rhythm(1),

@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Just another dev blog',
+    title: 'Tzyinc ramblings',
     author: 'Ten Zhi Yang',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'http://tenzhiyang.com',
+    description: 'Just another Dev blog',
+    siteUrl: 'https://blog.tenzhiyang.com',
     social: {
       twitter: 'tzyinc',
     },
