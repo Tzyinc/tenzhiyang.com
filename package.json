@@ -8,7 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "gatsby": "^2.13.6",
+    "gatsby": "^2.13.28",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-feed": "^2.3.2",
     "gatsby-plugin-google-analytics": "^2.1.1",
@@ -49,7 +49,9 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
+    "prebuild": "rm -rf public",
     "build": "gatsby build",
+    "postbuild": "rm -rf serve && mv public serve && rm -rf public",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",

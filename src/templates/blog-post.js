@@ -42,7 +42,6 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-        <div class="fb-comments" data-href={`https://blog.tenzhiyang.com${pathname}`} data-width="100%" data-numposts="5" />
         <hr
           style={{
             marginBottom: rhythm(1),

@@ -14,8 +14,6 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body className="body" {...props.bodyAttributes}>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3&appId=543521576184898&autoLogAppEvents=1"></script>
         {props.preBodyComponents}
         <noscript key="noscript" id="gatsby-noscript">
           This app works best with JavaScript enabled.

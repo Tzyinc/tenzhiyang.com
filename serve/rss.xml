@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>RSS for Node</generator><lastBuildDate>Mon, 29 Jul 2019 04:32:09 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[layout: posts
+title: “A race condition in react-redux”
+date: “2019-07-19” TLDR: file that used to be on code base became an API, listen to…]]></description><link>https://blog.tenzhiyang.com/2019-07-19-a-race-cond-in-react-redux/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-07-19-a-race-cond-in-react-redux/</guid><content:encoded>&lt;hr&gt;
+&lt;p&gt;layout: posts
+title: “A race condition in react-redux”
+date: “2019-07-19”&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;TLDR: file that used to be on code base became an API, listen to value changes on redux and send another fetch if neccessary&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;Recently I faced some problems with a component not appearing on live, despite no changes in the component’s code for maybe months! It was very frustrating as this bug only happened in live, and not in staging, not in test, not in UAT. In fact even when I ran the code locally using live data, I could only reproduce the bug maybe once every ten tries. Now this blog post is something I’m trying so maybe it will be too vague because I can’t reveal company code, but I want to try to explain big picture concept without too much details.&lt;/p&gt;
+&lt;p&gt;The major problem I had was due to a site-wide refactor. We had a list of constants that we would use to decide what to show, depending on which locale it was in. Super useful! Naturally, in order to turn some features on and off, we had to change that constant via some tool, and then re-deploy to production. It works, there’s no need to touch the code base,  and now we dont need software engineers to turn on and off features. Natural progression led us to improve this design. Of course, we want to turn features on and off without waiting for another deployment, so therefore this file should just be deployed as an api! We can fetch this file as and when we need it! Brilliant!&lt;/p&gt;
+&lt;p&gt;Except we just created a race condition. Turns out, some logic requires us to alter our fetch in some way due to said toggles. This resulted in my component not displaying anything. Now there were several problems in the component design, either due to legacy reasons, or maybe lack of experience. If we had the time and (mostly QA) resources, we might have wrote this component some other way, but that’s not really the root problem. We need a fix quickly, and then maybe down the road we can fix the architectural problems.&lt;/p&gt;
+&lt;p&gt;Some issues with the implementation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;we used the fetch parameters as keys in our redux store so that we could store multiple results from the same api&lt;/li&gt;
+&lt;li&gt;fetch parameters was generated using the value from the file, which became the API&lt;/li&gt;
+&lt;li&gt;the result from the file value would go through some util and would fail gracefully, when the params were to go into the fetch, we would assume nothing is wrong&lt;/li&gt;
+&lt;li&gt;the generated fetch key and the key used for display were calculated at the point and time where they were needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The best solution I could come up with in a short perood of time was to send another fetch when the value retrieved from the util changed. What this means is that if we sent the fetch on an &lt;code class=&quot;language-text&quot;&gt;UNSAFE_componentWillMount()&lt;/code&gt; (on legacy code) we should check the prop changes in &lt;code class=&quot;language-text&quot;&gt;UNSAFE_componentWillReceiveProps()&lt;/code&gt;, and then send another fetch based on the next props, compared to the currentprops.&lt;/p&gt;
+&lt;p&gt;In cases where we use &lt;code class=&quot;language-text&quot;&gt;getDerivedStateFromProps()&lt;/code&gt;, we don’t have access to the current props. In this scenario, I had to make a copy of the what I need to listen to into the current state, and on next &lt;code class=&quot;language-text&quot;&gt;getDerivedStateFromProps()&lt;/code&gt; I would have a copy of the current props to compare with.&lt;/p&gt;
+&lt;p&gt;I think fundamentally the issue I’m facing is probably an architecture problem, but the way I solved it is probably the fastest and easiest way I know how. Do tweet at me if you have a better quick solution though!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New blog, who dis?]]></title><description><![CDATA[So it all started out with a tweet  Nothing like telling everyone you’re going to do something to force yourself into totally doing it. So I…]]></description><link>https://blog.tenzhiyang.com/2019-07-07-new-blog-who-dis/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-07-07-new-blog-who-dis/</guid><pubDate>Sun, 07 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;So it all started out with a tweet&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2b6f6/tweet.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.43572621035058%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABpUlEQVQoz5VTyU7DQAzNZ/MFnOHOjRNHTogDEohDhQAVUKrSqinN1iyTpGlIszTLw55SKKgUsGLNZMZ+8Xt2lDAQODs9wWDQx2Siw7IsjEYaNE1DmqZga5oGbdv+yRXHtnB8dIhe7wkinGE+T5BlGeI4lkD/sbpuoKxfymUF1/UQzWYSbJ4k8HwfCa1CBAiCEFEUEQMbhmnKO59cCEF5rrxjU1qqIqtbChBUZQ+qqqLbfZCrSu+DwRDTqQPP82mdQtcN6IYh93zuOC4s20YYvgMScWTELKZK+OscJBMpaaXniKjUf6IsNeRNShXSg7woifoquai268e6bvV1UwgXC0LL8gKLjD2BbQ8x7j/C6nVwe3GOu6tLqA/30Cfar12XlF+pqmK5lKBlmSMMbETCQeqbmPafYb6MITyXJiBeAe4aGxnA/MmrbVoZwQbd9kOr7742JVuk6BIdlyrw/dUIOI6DmOcxz1GUJZZV9SVxE2DzjKVQ9BcNB/t7uOlcw6Qu81/CXf4Ao/nkgf0O8COg7CidcZfXlOvmsxrWlQN5dKqq3gnK9gaCu5yukaH82AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tweet i totally dont regret&quot;
+        title=&quot;tweet i totally dont regret&quot;
+        src=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/b9e4f/tweet.png&quot;
+        srcset=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/cf440/tweet.png 148w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/d2d38/tweet.png 295w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/b9e4f/tweet.png 590w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/f9b6a/tweet.png 885w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2d849/tweet.png 1180w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2b6f6/tweet.png 1198w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Nothing like telling everyone you’re going to do something to force yourself into totally doing it.&lt;/p&gt;
+&lt;p&gt;So I started working on this. Right now this is pretty much the default gatsby blog. There are some nice things coming over to gatsby from jekyll, the expressiveness of jsx over some templating engine is always nice. The &lt;code class=&quot;language-text&quot;&gt;automagical&lt;/code&gt; aspect of gatsby is in the source code, I just have to go and learn it.&lt;/p&gt;
+&lt;p&gt;The build process on ubuntu has been far from great. None of the gatsby cli works on my ubuntu instance, maybe it’s my npm setup (I’m experimenting with asdf-vm). Right now I need to &lt;code class=&quot;language-text&quot;&gt;gatsby clean&lt;/code&gt; on my development machine, run &lt;code class=&quot;language-text&quot;&gt;gatsby build&lt;/code&gt;, commit my public folder, and host that on a http-server. Maybe I need to write some hack to make it better, maybe the solution exists, but I sure as heck couldn’t find it.&lt;/p&gt;
+&lt;p&gt;I might publish another post explaining into more details what I’ve done with this blog and also the server this is running on, but for now I will focus on a few posts based on &lt;a href=&quot;https://twitter.com/devdevcharlie&quot;&gt;Charlie Gerard’s&lt;/a&gt; brilliant presentation from jsconf asia.&lt;/p&gt;
+&lt;p&gt;Here’s a &lt;a href=&quot;https://httpserve.tenzhiyang.com/knnTransferLearning/&quot;&gt;sneak peek&lt;/a&gt; at one of my examples that I have in mind.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Telegram ramblings]]></title><description><![CDATA[I have made it a point to write some of my ideas down on telegram, I will need to find a sustainable solution to update this list as and…]]></description><link>https://blog.tenzhiyang.com/2019-06-29-some-telegram-rablings/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-06-29-some-telegram-rablings/</guid><pubDate>Sat, 29 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I have made it a point to write some of my ideas down on telegram, I will need to find a sustainable solution to update this list as and when I write more stuff in it, for now I’ll just write the ideas down here&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“who wrote this project” git crawler&lt;/li&gt;
+&lt;li&gt;graph ui (basically the graphql of ui. write garph query in templating engine, generate ui?)&lt;/li&gt;
+&lt;li&gt;slide controller using posenet&lt;/li&gt;
+&lt;li&gt;shadow boxing guide&lt;/li&gt;
+&lt;li&gt;Text to picture&lt;/li&gt;
+&lt;li&gt;Electric ukulele visualisation&lt;/li&gt;
+&lt;li&gt;Speech to text but with tone (represented with emoji?)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Start of a new Era? maybe?]]></title><description><![CDATA[So maybe I will start blogging? This is part of learning in public from the really inspirational @swyx Here’s to many more bad blogs ahead]]></description><link>https://blog.tenzhiyang.com/2019-06-28-start-of-new-era-maybe-maybenot/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-06-28-start-of-new-era-maybe-maybenot/</guid><pubDate>Fri, 28 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;So maybe I will start blogging? This is part of learning in public from the really inspirational &lt;a href=&quot;https://twitter.com/swyx/status/1009174159690264579&quot;&gt;@swyx&lt;/a&gt; Here’s to many more bad blogs ahead&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Post SEA hackathon 2019]]></title><description><![CDATA[This also spurred me to look into my 2018 success and write a blog about that. First thing out of the way is I won nothing and it sucks but…]]></description><link>https://blog.tenzhiyang.com/2019-06-23-post-hackathon/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-06-23-post-hackathon/</guid><pubDate>Sun, 23 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This also spurred me to look into my 2018 success and write a blog about that.&lt;/p&gt;
+&lt;p&gt;First thing out of the way is&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I won nothing and it sucks&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;but the thing I realised about how it sucks here is that the way it sucks is a different suckage from how it used to suck when I entered hackathons. It sucks not because I didn’t win, not because I think my project was better than the other teams’ but mostly because of how hard we worked and how little results came of it. There’s a few ways of looking at this.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The idea just wasn’t presetable. I don’t really believe this is the case, as another group did something similar (but just better) and achieved great results.&lt;/li&gt;
+&lt;li&gt;I am too unfamiliar with CNNs and transfer learning. This can be easily solved. I will eventually release a library that does all the heavy lifting for us.&lt;/li&gt;
+&lt;li&gt;Our team composition and my delegation wasn’t good. I really think I lucked into my first team where I didn’t have to worry about whatever aspect that I delegated to. This time I think we should have maybe had one more backend and less FE devs. The AI was also kind of easy to implement maybe someone else would have been faster&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Post js conf]]></title><description><![CDATA[I’m writing this about 2 weeks after I’ve attended jsconf, so my memory will be hazy about everything. Here’s a few actionable things I want…]]></description><link>https://blog.tenzhiyang.com/2019-06-16-post-js-conf/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-06-16-post-js-conf/</guid><pubDate>Sun, 16 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’m writing this about 2 weeks after I’ve attended jsconf, so my memory will be hazy about everything. Here’s a few actionable things I want to do after what I’ve learnt at jsconf:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Blog more.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This is really not too related to jsconf, but I did read &lt;a href=&quot;https://www.swyx.io/writing/learn-in-public/&quot;&gt;this brilliant post by swyx&lt;/a&gt; and it’s crazy inspiring. I’m not him and it’s unlikely I will be as active and as motivated as him, but I think this is a good way to be some inbetween, I may not be the second swyx or the second gaow, but at least I can be the first tenzy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Play more with Tensorflow.js (and maybe git gud at AI once and for all)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://twitter.com/devdevcharlie&quot;&gt;Charlie Gerard&lt;/a&gt; made some really cool demos on stage, and after using the tensorflow.js in the hackathon (more on that next post) I realised that AI tools are so accessible now, I really should be doing more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Participate more in twitter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;particularly, write TILs for what I’ve learnt. Initally I wanted to do something every day, but I’m not really keeping up with it, so I will have to fine tune the frequency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use more diverse frameworks&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The talk from &lt;a href=&quot;https://twitter.com/youyuxi&quot;&gt;Evan You&lt;/a&gt; made me rethink about framework loyalty. Every framework solving a different problem is such an obvious conclusion but the fact that I never reached there on my own makes me feel that I actually have some software engineering maturing to do&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Join community events more frequently&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It was after all the super silly hackathon that introduced me to this event and also the free tickets. Not to mention my dvd logo being plastered all over the event. I feel that there’s only good to be had from being in the community events, and in the worst case, maybe I’ll help someone&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Amp Slides]]></title><description><![CDATA[Having “volunteered” to give a talk about my experience in japan, I decided to make my slides out of AMP itself. By using handlebars…]]></description><link>https://blog.tenzhiyang.com/2019-05-28-amp-slides/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-05-28-amp-slides/</guid><pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Having “volunteered” to give a talk about my experience in japan, I decided to make my slides out of AMP itself. By using handlebars templating engine, I wrote &lt;a href=&quot;https://github.com/Tzyinc/amp-playground&quot;&gt;a tool that converted json into slides&lt;/a&gt; if i were to continue this project, I think I would write it in some proper framework and not use the completely uneccessary templating engine.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://httpserve.tenzhiyang.com/AMPslides/&quot;&gt;See the slides&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS Conf Animation: random tiled lines]]></title><description><![CDATA[This entry is for the programming nerds. 10 PRINT, a book about the commandore 64 takes one line of code to demonstrate the concept of…]]></description><link>https://blog.tenzhiyang.com/2018-12-24-js-conf3/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2018-12-24-js-conf3/</guid><pubDate>Mon, 24 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This entry is for the programming nerds. &lt;a href=&quot;https://10print.org/&quot;&gt;10 PRINT&lt;/a&gt;, a book about the commandore 64 takes one line of code to demonstrate the concept of generative art. It is incredibly simple for something that looks so amazing. This is literally only just randomised tiled diagonal lines.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;400px&quot; src=&quot;https://httpserve.tenzhiyang.com/tiledLines/&quot; /&gt;</content:encoded></item><item><title><![CDATA[JS Conf Animation: Cantor Set]]></title><description><![CDATA[The idea for this entry was to hopefully spark a math nerd in the organisers.]]></description><link>https://blog.tenzhiyang.com/2018-12-23-js-conf2/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2018-12-23-js-conf2/</guid><pubDate>Sun, 23 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;The idea for this entry was to hopefully spark a math nerd in the organisers.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;400px&quot; src=&quot;https://httpserve.tenzhiyang.com/cantor/&quot; /&gt;</content:encoded></item><item><title><![CDATA[JS Conf Animation: DVD logo]]></title><description><![CDATA[The next few posts are pull requests for jsconf asia’s home page, hopefully they accept it and I get free tickets! The inspiration for this…]]></description><link>https://blog.tenzhiyang.com/2018-12-22-js-conf/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2018-12-22-js-conf/</guid><pubDate>Sat, 22 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;The next few posts are pull requests for jsconf asia’s home page, hopefully they accept it and I get free tickets!&lt;/p&gt;
+&lt;p&gt;The inspiration for this animation comes from the dvd bouncing logo meme.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;400px&quot; src=&quot;https://httpserve.tenzhiyang.com/dvdlogo/&quot; /&gt;</content:encoded></item><item><title><![CDATA[Sew Many Images]]></title><description><![CDATA[100% JavaScript implementation for CSS image sprite generator. Use it now!]]></description><link>https://blog.tenzhiyang.com/2018-09-10-sew-many-images/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2018-09-10-sew-many-images/</guid><pubDate>Mon, 10 Sep 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;100% JavaScript implementation for CSS image sprite generator.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/sew-many-images&quot;&gt;Use it now!&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Post hackathon 2018]]></title><description><![CDATA[I’m writing this in 2019, although it will be filed in 2018 for my life’s chronological order, but this is more of a reflection on what was…]]></description><link>https://blog.tenzhiyang.com/2018-08-05-post-hackathon/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2018-08-05-post-hackathon/</guid><pubDate>Sun, 05 Aug 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/0a597/hackathon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.74164042585096%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAcHknbrimX//xAAbEAADAAIDAAAAAAAAAAAAAAABAgMABCEzQv/aAAgBAQABBQIWKMtiGlyKZ51+v//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAVEQEBAAAAAAAAAAAAAAAAAAAAAf/aAAgBAgEBPwGq/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAECURARgf/aAAgBAQAGPwJqzURt2LHT/8QAGhAAAgMBAQAAAAAAAAAAAAAAAAERITGhQf/aAAgBAQABPyFSNg+GRG9E9I2I2i4VifQ3Q//aAAwDAQACAAMAAAAQk8//xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQMBAT8QrEf/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EBrLt//EABwQAQACAgMBAAAAAAAAAAAAAAEAESGBMUFRYf/aAAgBAQABPxC9xCgPiUoRN0K93EMA01qYK28cRw5u+3MZcP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;image&quot;
+        title=&quot;image&quot;
+        src=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/c739e/hackathon.jpg&quot;
+        srcset=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/8ee9c/hackathon.jpg 148w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/ebbe7/hackathon.jpg 295w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/c739e/hackathon.jpg 590w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/5413e/hackathon.jpg 885w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/4efde/hackathon.jpg 1180w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/0a597/hackathon.jpg 6669w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I’m writing this in 2019, although it will be filed in 2018 for my life’s chronological order, but this is more of a reflection on what was different here as well as what I think was amazing here.&lt;/p&gt;
+&lt;p&gt;Now apart from the incredible luck of having 1) a good idea delivered right to my team and 2) the really sicko teams were out of topic there’s some really good thing we can take from here.&lt;/p&gt;
+&lt;p&gt;Firstly the fact that our idea was presentable. I think the problem with my 2019 idea was that unless we had a flawless implementation, we couldn’t demonstrate the idea properly. Our 2018 demonstration sucked ass but the idea was very obvious, the presentation itself was also very easy to understand what was going on at the end.&lt;/p&gt;
+&lt;p&gt;Secondly, the project was an incredibly small scope. using a deterministic solution is really the key here. Having something that wasn’t up to chance means debugging is really do-able.&lt;/p&gt;
+&lt;p&gt;Finally I think complexity of UI made this project take just a little bit too much time. UI has to look good, but it has also have to be simple.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Midichlorians]]></title><description><![CDATA[A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-midichlorians/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-midichlorians/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done over a period of 6 weeks, in a team of 4 people. Features include audio synch to dropbox, customised animations, recording playback, and multiple music profiles.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/45751/midi.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAEqmaEo0TX/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADEhMi/9oACAEBAAEFAkv6LTIPNCljUItYVf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPwFsf//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAgEBPwHZHb//xAAdEAABAwUBAAAAAAAAAAAAAAAAAQIRAxIhMTNx/9oACAEBAAY/AnNqP8Oil2yRckH/xAAYEAEAAwEAAAAAAAAAAAAAAAABABEhMf/aAAgBAQABPyFBDZWCtig5oWlEQgUJizs9ilW2Au6n/9oADAMBAAIAAwAAABATz//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxBCCMv/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EB52Um//xAAaEAEBAAMBAQAAAAAAAAAAAAABEQAhMUGh/9oACAEBAAE/EERhW8+I462JKpPOZoUkEYayk3SPMUNjHWW2my89z//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;steps&quot;
+        title=&quot;steps&quot;
+        src=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/c739e/midi.jpg&quot;
+        srcset=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/8ee9c/midi.jpg 148w,
+/static/43006f58db6e792f3af6cb58b0630e5a/ebbe7/midi.jpg 295w,
+/static/43006f58db6e792f3af6cb58b0630e5a/c739e/midi.jpg 590w,
+/static/43006f58db6e792f3af6cb58b0630e5a/5413e/midi.jpg 885w,
+/static/43006f58db6e792f3af6cb58b0630e5a/4efde/midi.jpg 1180w,
+/static/43006f58db6e792f3af6cb58b0630e5a/45751/midi.jpg 1500w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We won first place in our module (of 10 groups) during NUS’s
+&lt;a href=&quot;http://isteps.comp.nus.edu.sg/event/10th-steps/modules&quot;&gt;10th STePS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=_LfiVj5-uJ4&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/_LfiVj5-uJ4/0.jpg&quot; alt=&quot;midichlorians&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/ca/app/midichlorians/id1229585861?mt=8&quot;&gt;Download here&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[@sg_carparks_bot]]></title><description><![CDATA[Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.&lt;/p&gt;
+&lt;h3&gt;bot is now down due to lack of maintenance and changes in api&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[F450 Programmable Drone]]></title><description><![CDATA[This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and…]]></description><link>https://blog.tenzhiyang.com/2017-10-15-f450-drone/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-15-f450-drone/</guid><pubDate>Sun, 15 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and changed the circuitry with 3DR’s pixhawk flight controller, and connected it to a Futaba transmitter and receiver kit.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f7db16470fa99f5b3a89472888d6e377/b3ee8/f450.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAYlWRO0v/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAECEBES/9oACAEBAAEFAuZCemViQ5I//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxABAAMAAAAAAAAAAAAAAAAAEQAgMf/aAAgBAQAGPwJ2Ff/EABoQAAMBAQEBAAAAAAAAAAAAAAABESFBUWH/2gAIAQEAAT8h6G59KYl78HsWrCV7r1lJ/9oADAMBAAIAAwAAABCMz//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EKr/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxAn/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITEQcf/aAAgBAQABPxDA6xTqYoi4BKeAtKq4LMJZTrOyi/J//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;f450&quot;
+        title=&quot;f450&quot;
+        src=&quot;/static/f7db16470fa99f5b3a89472888d6e377/c739e/f450.jpg&quot;
+        srcset=&quot;/static/f7db16470fa99f5b3a89472888d6e377/8ee9c/f450.jpg 148w,
+/static/f7db16470fa99f5b3a89472888d6e377/ebbe7/f450.jpg 295w,
+/static/f7db16470fa99f5b3a89472888d6e377/c739e/f450.jpg 590w,
+/static/f7db16470fa99f5b3a89472888d6e377/5413e/f450.jpg 885w,
+/static/f7db16470fa99f5b3a89472888d6e377/b3ee8/f450.jpg 960w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Give For Free]]></title><description><![CDATA[Give For Free was a project thought up by a good friend of mine. The idea was simple: Snap pictures of your preloved goods on Give For Free…]]></description><link>https://blog.tenzhiyang.com/2017-10-14-giveforfree/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-14-giveforfree/</guid><pubDate>Sat, 14 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Give For Free was a project thought up by a good friend of mine. The idea was simple: Snap pictures of your preloved goods on Give For Free, choose your favourite charity and how much you think your items are worth. When another user wants your item, they will donate to your charity at your listed price. We managed to onboard SPCA and had over 500 users within two weeks of launch.&lt;/p&gt;
+&lt;p&gt;The actual site was taken down due to server costs, and we managed to raise almost 400 dollars for SPCA. &lt;a href=&quot;https://www.facebook.com/give4free/&quot;&gt;Facebook promotional page here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c69aa4e071f329eb83601e0673afdddf/b3ee8/gff.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAGiNdMVoaH/xAAcEAACAgIDAAAAAAAAAAAAAAABAgADBBIREyL/2gAIAQEAAQUCddWBLP2SzI9VPzBXsP/EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oACAEDAQE/AVf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQIBAT8BjH//xAAbEAACAgMBAAAAAAAAAAAAAAAAAQIhERIxIv/aAAgBAQAGPwJJEfJwqyLZtnp//8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERITFBUf/aAAgBAQABPyHUbbTZ8O9Q2rlwlfblFQJnhqKej//aAAwDAQACAAMAAAAQKy//xAAWEQADAAAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QbpD/AP/EABYRAAMAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxAQn//EABoQAQADAQEBAAAAAAAAAAAAAAEAESFBUTH/2gAIAQEAAT8QvCKNKK4seVCgR97BA5SWPZg4qOhkMtiqPS/IZK0rCf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;gff&quot;
+        title=&quot;gff&quot;
+        src=&quot;/static/c69aa4e071f329eb83601e0673afdddf/c739e/gff.jpg&quot;
+        srcset=&quot;/static/c69aa4e071f329eb83601e0673afdddf/8ee9c/gff.jpg 148w,
+/static/c69aa4e071f329eb83601e0673afdddf/ebbe7/gff.jpg 295w,
+/static/c69aa4e071f329eb83601e0673afdddf/c739e/gff.jpg 590w,
+/static/c69aa4e071f329eb83601e0673afdddf/5413e/gff.jpg 885w,
+/static/c69aa4e071f329eb83601e0673afdddf/b3ee8/gff.jpg 960w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[USB Game Controller (From Old Portfolio)]]></title><description><![CDATA[When playing Binding of Isaac which was a dual thumb stick shooter (control character with one thumb stick, control direction of your…]]></description><link>https://blog.tenzhiyang.com/2017-10-12-usb-controller/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-12-usb-controller/</guid><pubDate>Thu, 12 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;When playing Binding of Isaac which was a dual thumb stick shooter (control character with one thumb stick, control direction of your bullets with another) , I realised that the market does not really sell a controller that has dual thumb sticks in the center, most are either too far down (PS style) or at offset positions (Xbox style). As I wanted to make some custom controllers for a while (more on that when the parts arrive!), I decided to make a USB controller specifically for this game.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2994a5cb3bff99c5b2b517068345e137/d6728/contro1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.22263914946842%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABWthuXKGQ/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAAxETIjH/2gAIAQEAAQUC1plVQw4Mr9Q9WDv/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPwGH/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECERAhcf/aAAgBAQAGPwKm61IyZfp2iuGf/8QAGhABAAIDAQAAAAAAAAAAAAAAAQAhETFhcf/aAAgBAQABPyFBVpJDb3GRahSweMNfkQINMIIJ/9oADAMBAAIAAwAAABBbL//EABcRAAMBAAAAAAAAAAAAAAAAAAABIRH/2gAIAQMBAT8QVWlP/8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QSCX/xAAbEAEBAQADAQEAAAAAAAAAAAABEQAhMUGBof/aAAgBAQABPxCdC/S1zxFvoCclPbqEITtP3FwiRz66fzgQwSAHf//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;usb&quot;
+        title=&quot;usb&quot;
+        src=&quot;/static/2994a5cb3bff99c5b2b517068345e137/c739e/contro1.jpg&quot;
+        srcset=&quot;/static/2994a5cb3bff99c5b2b517068345e137/8ee9c/contro1.jpg 148w,
+/static/2994a5cb3bff99c5b2b517068345e137/ebbe7/contro1.jpg 295w,
+/static/2994a5cb3bff99c5b2b517068345e137/c739e/contro1.jpg 590w,
+/static/2994a5cb3bff99c5b2b517068345e137/5413e/contro1.jpg 885w,
+/static/2994a5cb3bff99c5b2b517068345e137/4efde/contro1.jpg 1180w,
+/static/2994a5cb3bff99c5b2b517068345e137/d6728/contro1.jpg 1599w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/d6728/contro2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.22263914946842%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAA//aAAwDAQACEAMQAAABjskzMcQn/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBAxESIf/aAAgBAQABBQKtRkiFF4btk//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABAxAP/aAAgBAQAGPwLVp//EABkQAAMBAQEAAAAAAAAAAAAAAAABETFRgf/aAAgBAQABPyG2souD0Z4KQ2Kf/9oADAMBAAIAAwAAABCXz//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxBtf//EABcRAAMBAAAAAAAAAAAAAAAAAAEQMRH/2gAIAQIBAT8QGG1f/8QAGBABAQEBAQAAAAAAAAAAAAAAAREAITH/2gAIAQEAAT8Q7zp6syApSomWPI0xUXjlNI8mUvd//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;usb&quot;
+        title=&quot;usb&quot;
+        src=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/c739e/contro2.jpg&quot;
+        srcset=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/8ee9c/contro2.jpg 148w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/ebbe7/contro2.jpg 295w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/c739e/contro2.jpg 590w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/5413e/contro2.jpg 885w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/4efde/contro2.jpg 1180w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/d6728/contro2.jpg 1599w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/d6728/contro3.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.22263914946842%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwABBP/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAEdDoKaCc//xAAZEAACAwEAAAAAAAAAAAAAAAABAgADISL/2gAIAQEAAQUCqPLjVuKA46aAJ//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/AUf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAARARIjH/2gAIAQEABj8C0zLKopcG3H//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEhMUFRof/aAAgBAQABPyGleGJzlEsldFvM6dYgNwDEBNT/2gAMAwEAAgADAAAAEMDv/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERUf/aAAgBAwEBPxB1laf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EFEVYf/EABkQAQEBAQEBAAAAAAAAAAAAAAERACExQf/aAAgBAQABPxCx+kKgNMPMIvE9MdBrqYjCBA99DGRZl5O54td3/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;usb&quot;
+        title=&quot;usb&quot;
+        src=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/c739e/contro3.jpg&quot;
+        srcset=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/8ee9c/contro3.jpg 148w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/ebbe7/contro3.jpg 295w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/c739e/contro3.jpg 590w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/5413e/contro3.jpg 885w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/4efde/contro3.jpg 1180w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/d6728/contro3.jpg 1599w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aac4692f482b300d11086c64feeb68d2/d6728/contro4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.22263914946842%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAABrkQUMxP/xAAZEAACAwEAAAAAAAAAAAAAAAABAgADIjP/2gAIAQEAAQUCrClXyumlPK0mCf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEv/aAAgBAwEBPwFm1//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPwFsf//EABoQAAICAwAAAAAAAAAAAAAAAAABEBEiUXH/2gAIAQEABj8C2Ylpi7P/xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhUWExQf/aAAgBAQABPyEaVQ3K/IaiZCcnn6gihmZmf//aAAwDAQACAAMAAAAQCz//xAAYEQEBAAMAAAAAAAAAAAAAAAABABEhMf/aAAgBAwEBPxAMbuwb/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/ELqD/8QAHBABAAIDAAMAAAAAAAAAAAAAAQARITFBUWFx/9oACAEBAAE/ECM7WfrsBAWteDHQim2KY15G33TLiQdhBctUUtZ//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;usb&quot;
+        title=&quot;usb&quot;
+        src=&quot;/static/aac4692f482b300d11086c64feeb68d2/c739e/contro4.jpg&quot;
+        srcset=&quot;/static/aac4692f482b300d11086c64feeb68d2/8ee9c/contro4.jpg 148w,
+/static/aac4692f482b300d11086c64feeb68d2/ebbe7/contro4.jpg 295w,
+/static/aac4692f482b300d11086c64feeb68d2/c739e/contro4.jpg 590w,
+/static/aac4692f482b300d11086c64feeb68d2/5413e/contro4.jpg 885w,
+/static/aac4692f482b300d11086c64feeb68d2/4efde/contro4.jpg 1180w,
+/static/aac4692f482b300d11086c64feeb68d2/d6728/contro4.jpg 1599w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Project Dawn (From Old Portfolio)]]></title><description><![CDATA[My first foray into Internet Of Things, this was quite a leap of faith for me. A friend (Hi Wei Lun!) asked me “is it possible to feel what…]]></description><link>https://blog.tenzhiyang.com/2017-10-11-Project-Dawn/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-11-Project-Dawn/</guid><pubDate>Wed, 11 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;My first foray into Internet Of Things, this was quite a leap of faith for me. A friend (Hi Wei Lun!) asked me “is it possible to feel what it is like to be in another persons shoes?” This would be the start of my involvement in Project Dawn.&lt;/p&gt;
+&lt;p&gt;Project Dawn aimed to present a novel and innovative experiential approach to learning about the stigma surrounding mental illnesses. Essentially, Project dawn was an interactive exhibition. Powered by an Arduino Mega (clone), I had android phones connected via tcp sockets to my computer which was acting as the command center of the whole set up. The android phones would play a narration, asking participants to interact with various objects and would pause until they did the required action, after which the mobile app would continue playing the narration&lt;/p&gt;
+&lt;p&gt;For Interaction with the objects, I used RFID tags and Sensors. When the object was picked up, the Sensor would stop reading signal from the RFID. The mega would then listen for when the object was placed back on again.&lt;/p&gt;
+&lt;p&gt;To track which room the participants were in, I set up laser pointers wired to be permanently on, and put LDRs on the other side. This crude set up was due to my failure at implementing an Indoor Positioning System with Bluetooth, and running out of time. I could have used better forms of Proximity sensors, but waiting for delivery would have been too long. I intend to come back to IPS one day.&lt;/p&gt;
+&lt;p&gt;Unfortunately I was not wise enough to take pictures of the set up, but here are a couple of pictures of the event:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8f868/dawn1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAGPVTslI8H/xAAaEAADAAMBAAAAAAAAAAAAAAABAgMAEiIR/9oACAEBAAEFAh00rEKvWRTR0CLTT0//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPwGH/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BWf/EABoQAAMBAAMAAAAAAAAAAAAAAAABEQISMVH/2gAIAQEABj8CiXZxwmO+kebo0pC5Z//EABoQAAMBAQEBAAAAAAAAAAAAAAABESExUWH/2gAIAQEAAT8hqCXg5Gvo2ixhaMjbeFKUiaGrMTe30//aAAwDAQACAAMAAAAQA+//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEx/9oACAEDAQE/EBGr/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERQf/aAAgBAgEBPxDCFv/EABwQAQADAAIDAAAAAAAAAAAAAAEAESExUUFxof/aAAgBAQABPxBguAKbUFkBtWtveTJooS7gWmXBH49wiAbN0Jw96czdVH6J/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dawn&quot;
+        title=&quot;dawn&quot;
+        src=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/c739e/dawn1.jpg&quot;
+        srcset=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8ee9c/dawn1.jpg 148w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/ebbe7/dawn1.jpg 295w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/c739e/dawn1.jpg 590w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/5413e/dawn1.jpg 885w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/4efde/dawn1.jpg 1180w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8f868/dawn1.jpg 3264w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ab7de6bec45778f99398a68f58a48470/8f868/dawn2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABVmpbFpigh//EABoQAAMBAAMAAAAAAAAAAAAAAAECAxEAEjH/2gAIAQEAAQUCodKhlLzcGftK7btz/8QAFREBAQAAAAAAAAAAAAAAAAAAACL/2gAIAQMBAT8BU//EABYRAQEBAAAAAAAAAAAAAAAAAAARIf/aAAgBAgEBPwGRj//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEhMUFx/9oACAEBAAY/AlFMjjZhWL0vhbWz/8QAGxABAAMBAAMAAAAAAAAAAAAAAQARITFBgeH/2gAIAQEAAT8hbBnWGb36ym+hEtXaTWctVAoI8sfs/9oADAMBAAIAAwAAABArH//EABcRAQEBAQAAAAAAAAAAAAAAAAEAIRH/2gAIAQMBAT8QyTvEv//EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAgEBPxBpLhz/xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhMVGRof/aAAgBAQABPxAcASoW2OSsQVGF859lZBDXgfNgugwem9uUNrSrwYtOiimnD8T/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dawn&quot;
+        title=&quot;dawn&quot;
+        src=&quot;/static/ab7de6bec45778f99398a68f58a48470/c739e/dawn2.jpg&quot;
+        srcset=&quot;/static/ab7de6bec45778f99398a68f58a48470/8ee9c/dawn2.jpg 148w,
+/static/ab7de6bec45778f99398a68f58a48470/ebbe7/dawn2.jpg 295w,
+/static/ab7de6bec45778f99398a68f58a48470/c739e/dawn2.jpg 590w,
+/static/ab7de6bec45778f99398a68f58a48470/5413e/dawn2.jpg 885w,
+/static/ab7de6bec45778f99398a68f58a48470/4efde/dawn2.jpg 1180w,
+/static/ab7de6bec45778f99398a68f58a48470/8f868/dawn2.jpg 3264w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[IoT Scale (From Old Portfolio)]]></title><description><![CDATA[This is a project for my internship at Boon Software for Breadtalk. Powered by an Arduino clone(again), this device uses and ESP8266 which…]]></description><link>https://blog.tenzhiyang.com/2017-10-10-iot-scale/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-10-iot-scale/</guid><pubDate>Tue, 10 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a project for my internship at Boon Software for Breadtalk. Powered by an Arduino clone(again), this device uses and ESP8266 which communicates to the Arduino via Serial i/o. I wrote my own TCP Sender and Receiver on both the Arduino side as well as the Java side. There are many things that could be improved, but this is the first version.&lt;/p&gt;
+&lt;p&gt;The idea of this Weighing scale is that whenever the number of bread (teabags are used in the video) falls below a certain threshold, the bakers will get a message in their kitchen that they need to bake more. This is especially useful for promotional items, such as the currently running salted egg yolk croissant where the manager is unable to use previous sales value (because it is a one-off item) to estimate how much bread each outlet needs.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=wi4-E1bA4Mc&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/wi4-E1bA4Mc/0.jpg&quot; alt=&quot;IoT Scale&quot;&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[LiPo USB Charger (From Old Portfolio)]]></title><description><![CDATA[Another quick but more useful project, I used what I learnt from the bench top power supply to make this USB power-cutter (for lack of a…]]></description><link>https://blog.tenzhiyang.com/2017-10-09-drone-charger-v1/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-09-drone-charger-v1/</guid><pubDate>Mon, 09 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Another quick but more useful project, I used what I learnt from the bench top power supply to make this USB power-cutter (for lack of a better name). I needed a Device to turn off power after charging my Hubsan X4 for exactly 1 hour, as over charging the batteries was highly discouraged. I got a cheap Arduino micro clone I had lying around and attached it to a couple of female jumper wires. This was then connected to a relay. The timer is hardcoded into the Arduino. Maybe one day I will upgrade it with an LCD and some buttons, maybe use a one channel relay since that is all I need and put it in a proper enclosure. In the meantime, this will do!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8298575e0b879741c17850d516abac1b/d6728/lipo.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.22263914946842%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBf/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAELgdUtlmM//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAMBAhEhIjL/2gAIAQEAAQUC6qVq4VkTEWP/xAAXEQADAQAAAAAAAAAAAAAAAAACEBES/9oACAEDAQE/ARmV/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BZ//EABgQAAIDAAAAAAAAAAAAAAAAAAAQESGB/9oACAEBAAY/AjFZK//EABsQAAMAAgMAAAAAAAAAAAAAAAABERAhMUGB/9oACAEBAAE/IYvWCyWo4GhL7bZQhVPnH//aAAwDAQACAAMAAAAQv+//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EEpdIf/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAgEBPxDcV//EABoQAQEBAQEBAQAAAAAAAAAAAAERACExQZH/2gAIAQEAAT8QFL+vw5o3XQ8fMNxUFUuclmhHQ1d//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;lipo&quot;
+        title=&quot;lipo&quot;
+        src=&quot;/static/8298575e0b879741c17850d516abac1b/c739e/lipo.jpg&quot;
+        srcset=&quot;/static/8298575e0b879741c17850d516abac1b/8ee9c/lipo.jpg 148w,
+/static/8298575e0b879741c17850d516abac1b/ebbe7/lipo.jpg 295w,
+/static/8298575e0b879741c17850d516abac1b/c739e/lipo.jpg 590w,
+/static/8298575e0b879741c17850d516abac1b/5413e/lipo.jpg 885w,
+/static/8298575e0b879741c17850d516abac1b/4efde/lipo.jpg 1180w,
+/static/8298575e0b879741c17850d516abac1b/d6728/lipo.jpg 1599w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Bottle Dynamo (From Old Portfolio)]]></title><description><![CDATA[I saw this bottle dynamo on sale at Sim Lim towers and learnt that bottle dynamos could be retrofitted on most bicycles and decided to try…]]></description><link>https://blog.tenzhiyang.com/2017-10-08-Bottle-Dynamo/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-08-Bottle-Dynamo/</guid><pubDate>Sun, 08 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I saw this bottle dynamo on sale at Sim Lim towers and learnt that bottle dynamos could be retrofitted on most bicycles and decided to try to add it on my bike. I learnt to make a diode bridge to change the AC circuit into DC, and put a capacitor over the circuit so that the light would not blink. Pretty simple circuit, and the results were decent although not very pretty.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/cad07/bike.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 177.77777777777777%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQCBQP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABs5fRhSVSjecXLh7COoTQX//EABwQAAIBBQEAAAAAAAAAAAAAAAABAgMQERIhIv/aAAgBAQABBQKt0kjUmVEaE8xFGTEuSErY82//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwEr/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAGxAAAgIDAQAAAAAAAAAAAAAAARAAEQIgIUH/2gAIAQEABj8C0oerhMtW84F//8QAHRAAAwACAgMAAAAAAAAAAAAAAAERITEQUUFhcf/aAAgBAQABPyGc0hZBl5ERMyEiUOkvbpIfZPJtstvKKmjrhpSdi188f//aAAwDAQACAAMAAAAQi/qNDC//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEg/9oACAEDAQE/EBWRx//EABcRAQEBAQAAAAAAAAAAAAAAAAEAESD/2gAIAQIBAT8QW2eP/8QAHhABAQEBAQABBQAAAAAAAAAAAREAITFBYXGBkaH/2gAIAQEAAT8QTLD7kyFuabj6mewXkfgwj1CVMerI6WZlMmC9/OgnzBq9ylXMU9e9/RMAmReaBybhij3u0+h/mVu//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;BottleDynamo&quot;
+        title=&quot;BottleDynamo&quot;
+        src=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/c739e/bike.jpg&quot;
+        srcset=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/8ee9c/bike.jpg 148w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/ebbe7/bike.jpg 295w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/c739e/bike.jpg 590w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/cad07/bike.jpg 720w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
