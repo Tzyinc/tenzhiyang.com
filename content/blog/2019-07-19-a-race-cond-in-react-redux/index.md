@@ -1,4 +1,4 @@
- ---
+---
 layout: posts
 title: "A race condition in react-redux"
 date: "2019-07-19"
