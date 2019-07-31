@@ -143,3 +143,5 @@ woah, that last one seems a bit too on the nose doesn't it? That's because it's 
 ![corpus extract](./corpus.png)
 
 So here lies a decision we must make. The more fluent we want our robot to be, the more previous words we want to use to predict the next words. However the more words we use, the more we directly lift from the source text. I find that a good number of previous words to look back on is between 1 to 3. You can try the [gumshoos speech generator](https://httpserve.tenzhiyang.com/gumshoos/) with 2 previous words (bi-gram).
+
+That's three different case studies of analysing three different AI solvable problems, (mis)quoting portal: now you're thinking in AI, with this part 1 I hope you manage to gain some insight on how people approach real world problems and breaking them down into numbers, then trying to solve it in one of the three above methods. It comes with practice and there are definitely more than one way to categorise, make decisions or generate problems, so keep at it, get to know more AI tools available and you can evantually make great AI applications in short periods of time!
