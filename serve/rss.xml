@@ -1,4 +1,256 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>RSS for Node</generator><lastBuildDate>Wed, 31 Jul 2019 04:07:37 GMT</lastBuildDate><item><title><![CDATA[AI for FE devs (Part 1)]]></title><description><![CDATA[This article is a complement to my presentation in React Knowledgable. Introduction Artificial Intelligence is all the rage now, with the…]]></description><link>https://blog.tenzhiyang.com/2019-07-31-ai-for-fe/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-07-31-ai-for-fe/</guid><pubDate>Wed, 31 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>RSS for Node</generator><lastBuildDate>Thu, 01 Aug 2019 11:08:17 GMT</lastBuildDate><item><title><![CDATA[AI for FE devs (Part 2)]]></title><description><![CDATA[Part 1 here This article is a complement to my presentation in React Knowledgable. Now that we know how to approach problems, we can look at…]]></description><link>https://blog.tenzhiyang.com/2019-08-01-ai-for-fe-2/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-08-01-ai-for-fe-2/</guid><pubDate>Thu, 01 Aug 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;&lt;a href=&quot;https://blog.tenzhiyang.com/2019-07-31-ai-for-fe/&quot;&gt;Part 1 here&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now that we know how to approach problems, we can look at what’s available. For this section I want to go through some big idea explanations of algorithms and what kind of input/output you expect from and implementation from the web. The goal here is that when you see a problem that you want to solve with AI, you have a rough idea what to google,and how to transform your data to pass into these algorithms.&lt;/p&gt;
+&lt;h2&gt;Fantastic algorithms and how to use them&lt;/h2&gt;
+&lt;h3&gt;Markov Process (Markov Models)&lt;/h3&gt;
+&lt;p&gt;The previous part made use of a &lt;code class=&quot;language-text&quot;&gt;Markov Chain&lt;/code&gt;. The main idea for how Markov Processes work is that the future state is based on the current state and not anything more. We can define what is the “current” state like how we did with the text generation, where we defined the “current state” most recent two words to predict the next word. Markov Models are great if you have lots of data with relatively few “states”. So how do we define what is a ‘state’? Basically the very thing that you want to be predicted from a Markov model. Since the english language has 171,476 unique words (according to a google search), it is a relatively small number of states. This is why markov models are used very often in text prediction, such as those in your android and iphone keyboards.&lt;/p&gt;
+&lt;p&gt;Implementation details may vary, but the general idea taking a series of &lt;code class=&quot;language-text&quot;&gt;A -&amp;gt; B&lt;/code&gt; (A leads to B, or mathematically, A implies B) and passing it into a Markov Process. If you are dealing with something like a source text, where the states can be very long strings like &lt;code class=&quot;language-text&quot;&gt;A -&amp;gt; B -&amp;gt; C -&amp;gt; ... -&amp;gt; Z&lt;/code&gt; you can just pass the whole data into some Markov chain library. Another example that isn’t text is something like weather prediction. If it has been raining today, it will be less likely to rain tomorrow. So you can just pass the weather over the past 10 years or so in the form of &lt;code class=&quot;language-text&quot;&gt;sunny, cloudy, rain, rain, sunny, ..., sunny&lt;/code&gt; into the Markov process. Then after the data transformation is done, given the current weather, you’ll get a prediction of what’s the next weather. &lt;/p&gt;
+&lt;p&gt;As you might observe, real life is not so obvious that you can predict X given Y and get a correct prediction all the time. Hence markov processes are very useful for problems that give you a list of what’s the probablity of things happening after Y has happened, and a user makes an informed decision. Alternatively it can also be used for things where randomness is a bonus side effect, such as in the text generator, where I just chose a random word from the list of X predicted from Ys.&lt;/p&gt;
+&lt;h3&gt;K Nearest Neighbours (KNN)&lt;/h3&gt;
+&lt;p&gt;This algorithm is really a very simple one. Going back to our 2-dimensional space of data, we plot all these points on the graph, and then we add a label to each one. There’s no calculations being done during the “training” time, really it’s just data entry. So when we actually need to classify a new point, what we do is that we iterate through all the data, and then we find the K (some constant that you will input) nearest neighbours, using a simple straight-line (Euclidean) distance calculation. To use a KNN library, you should really only need to pass in the parameter and the label. Just note that some libraries do not accept negative parameter values.&lt;/p&gt;
+&lt;p&gt;The great thing about KNN is that adding data really doesn’t cost anything at all, as there’s no computation. KNN scales linearly with large number of data, and large number of parameters, and this calculation is only done during the categorising process.&lt;/p&gt;
+&lt;h3&gt;Random Forest Classification&lt;/h3&gt;
+&lt;p&gt;Random forests comes as a variant of &lt;code class=&quot;language-text&quot;&gt;decision trees&lt;/code&gt;. A decision tree is built using some source dataset, split based on some rules based on the parameters. Each split that we make creates a “branch” with some probabilites on each branch. Eventually all branches have smaller branches until we form what looks like an upside down tree: &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d3e1067cf318eb8febb657cad57be757/a296c/dectree.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHuxQbAx1CQf//EABsQAAEEAwAAAAAAAAAAAAAAAAEAAhEhEDFB/9oACAEBAAEFAnaFFONzODa4v//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAAMBAAAAAAAAAAAAAAAAAAAQEQL/2gAIAQEABj8CI6tP/8QAHBAAAQQDAQAAAAAAAAAAAAAAAQAQETEhQWHB/9oACAEBAAE/ISjpFIRbwqzbDBLmkANG/9oADAMBAAIAAwAAABBzyDz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAeEAEAAgICAwEAAAAAAAAAAAABESEAMRBhUZGh0f/aAAgBAQABPxCmGFR73iSlIJ4OuJEOil9K/QxEEoIJ7v8AMGSTWWFSAQqKmcjBDITW+P/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;decision tree&quot;
+        title=&quot;decision tree&quot;
+        src=&quot;/static/d3e1067cf318eb8febb657cad57be757/c739e/dectree.jpg&quot;
+        srcset=&quot;/static/d3e1067cf318eb8febb657cad57be757/8ee9c/dectree.jpg 148w,
+/static/d3e1067cf318eb8febb657cad57be757/ebbe7/dectree.jpg 295w,
+/static/d3e1067cf318eb8febb657cad57be757/c739e/dectree.jpg 590w,
+/static/d3e1067cf318eb8febb657cad57be757/a296c/dectree.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;A random forest is just the same process, but splitting the data into random subsets of parameters, and creating a separate tree for each of them, hence the term random forest classification. The algorithm will then return a list of different classifications with some number from 0-1, this number is known as the &lt;code class=&quot;language-text&quot;&gt;confidence&lt;/code&gt; for the purpose of this blog post, you can think of confidence as exactly what it sounds like. How confident the algorithm is that this is the classification.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/a296c/randomforest.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe/ki0C8Cgf/xAAYEAACAwAAAAAAAAAAAAAAAAAAEAEhQv/aAAgBAQABBQJ6LUL/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAcEAABBAMBAAAAAAAAAAAAAAABABARIUFRgbH/2gAIAQEAAT8hlSblrQ50gAFR1g9b/9oADAMBAAIAAwAAABAjyAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMUFhEFFx/9oACAEBAAE/EGjW14gGhpzRqDZiU1oDJ8hQYPB7zCoKekxBMwMrblt78f/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;random forest&quot;
+        title=&quot;random forest&quot;
+        src=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/c739e/randomforest.jpg&quot;
+        srcset=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/8ee9c/randomforest.jpg 148w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/ebbe7/randomforest.jpg 295w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/c739e/randomforest.jpg 590w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/a296c/randomforest.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;One great thing about Random forest classification is since you have a list of results of different confidences, if you have non mutually exclusive groups to classify into (eg: it can be &lt;strong&gt;both&lt;/strong&gt; raining and sunny), you can actually choose to accept results above some level of confidence. Random forest algorithms normally take in an array of parameters and an array of output. The parameters need not be the same length, but parameter order matters if you want fairly accurate (greater than 90 percent) results. The output order doesn’t matter for most implementations.&lt;/p&gt;
+&lt;h3&gt;Neural Networks&lt;/h3&gt;
+&lt;p&gt;The absolute coolest kid on the block, nerual networks has already been explained in a previous talk, but the general idea is that we are trying to simulate how the brain works. Starting from a neuron, each neuron takes in a large number of inputs, multiply each input by some number (called weights, which define how important each input is), sums these inputs together, runs a type of mathematical function (called activation function) such that the result is between 0-1. the output of this neuron is then passed to another neuron, and so on and so forth. Each group of neurons that passes on to the next group of neurons is known as a “layer”. See how similar a NN neuron is to a brain neuron:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/a296c/neuron.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7UNoJQA//EABYQAQEBAAAAAAAAAAAAAAAAACARIf/aAAgBAQABBQLRT//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABkQAQADAQEAAAAAAAAAAAAAAAEQESEAMf/aAAgBAQABPyF1nF7bC0958YS5/9oADAMBAAIAAwAAABBQxzz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMRBBUWGB/9oACAEBAAE/ECr2A97huiR0BrjpF+Q2dHiGoCzbmUVVY4//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;brain vs nn&quot;
+        title=&quot;brain vs nn&quot;
+        src=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/c739e/neuron.jpg&quot;
+        srcset=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/8ee9c/neuron.jpg 148w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/ebbe7/neuron.jpg 295w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/c739e/neuron.jpg 590w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/a296c/neuron.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The training algorithm will take in some input and pass it through the neural network, with all the weights randomised, and gets a prediction, which can be one or more numbers, depending on how many labels you want. It will then use the correct label and compare with the current label and tweak the weights such that the next time we pass the input, we are more likely to get a result closer to the correct label. We don’t alter the weights such that it definitely gives us the correct label because we do not want the neural net work to only work on the training set, we want it to work in real life scenarios with ambiguous input that is similar but not exactly the same with the dataset.&lt;/p&gt;
+&lt;p&gt;I don’t recommend training your own neural network when you’re just beginning as you need a huge amount of data (at least 500 samples of each label) and creating a neural network is really more of an art than a science. It takes experience and some intuition to really know how many layers and how big a layer you want for a neural network. However, there’s proably a pre-trained model that solves for your problem, and using it should be easy enough, just that every model has different requirements. You’ll need to read their respective documentation to use them.&lt;/p&gt;
+&lt;h3&gt;Convolutional Neural Networks&lt;/h3&gt;
+&lt;p&gt;The idea of convolutional nerual networks is simple in implementation but not very intuitive to understand. Basically for an image, Each pixel is a parameter (or rather, 3 or 4, with Red Green Blue and transparency values). You can &lt;strong&gt;technically&lt;/strong&gt; pass in the entire image into a Neural network, but it usually doesnt work out well, as a normal neural network does not understand the relations between pixels. Another problem is that having each pixel as a parameter is too large an input and would take forever to train.&lt;/p&gt;
+&lt;p&gt;This is where the convolutional layer and pooling layer comes in. Basically the convolutional layer applies a filter, which transforms &lt;code class=&quot;language-text&quot;&gt;n * n&lt;/code&gt;pixels (a square) into 1, using some matrix manipulation mathemagic. The pooling layer comes immediately after the convolutional layer, and its job is to reduce the input space further, by taking the max or the average value in &lt;code class=&quot;language-text&quot;&gt;n * n&lt;/code&gt; pixels. These are called &lt;code class=&quot;language-text&quot;&gt;Max Pooling&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;Average Pooling&lt;/code&gt;. Max pooling by nature tends to reduce noise in the data while Average pooling is a simple &lt;code class=&quot;language-text&quot;&gt;dimension reduction&lt;/code&gt; (reducing the input size by &lt;code class=&quot;language-text&quot;&gt;x&lt;/code&gt; dimensions). The two layers together will be inserted in between some layers of a nerual network. It is possible to have more than one such convolution+pooling layer, but that increases computation time.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/073155acbd5405378a4882395a963ac7/a296c/cnn.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAECAwQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAe8pijaQpULg/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQACEx/9oACAEBAAEFAsGpcjpoK//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABoQAAIDAQEAAAAAAAAAAAAAAAERABBRITH/2gAIAQEAAT8hJKwxgrtDG0FewAdf/9oADAMBAAIAAwAAABAkzwD/xAAVEQEBAAAAAAAAAAAAAAAAAAAgIf/aAAgBAwEBPxCD/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQEg/9oACAECAQE/EGpj/8QAGxABAAIDAQEAAAAAAAAAAAAAARExABBBIVH/2gAIAQEAAT8Qk4PgvphFKL3RtPemQlpRpAQkmOoue6//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;convolution and pooling layer&quot;
+        title=&quot;convolution and pooling layer&quot;
+        src=&quot;/static/073155acbd5405378a4882395a963ac7/c739e/cnn.jpg&quot;
+        srcset=&quot;/static/073155acbd5405378a4882395a963ac7/8ee9c/cnn.jpg 148w,
+/static/073155acbd5405378a4882395a963ac7/ebbe7/cnn.jpg 295w,
+/static/073155acbd5405378a4882395a963ac7/c739e/cnn.jpg 590w,
+/static/073155acbd5405378a4882395a963ac7/a296c/cnn.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;There are plenty of pre-trained convolutional neural networks that recognises objects, animals, drawings or even individual hand written characters, so if you just need to identify what is inside an image, you can just leverage on the existing neural nets to classify what you need. For example, during the most recent hackathon I wanted to know if the user has drawn a circle, square or diamond, my team used google quickdraw’s net to identify what it was and re-draw a perfect circle square or diamond in its place. I did some additional neural net on top of that, which causes the lag, but you can try it &lt;a href=&quot;https://hackathon.flowdi.tenzhiyang.com/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Recurrent Neural network&lt;/h3&gt;
+&lt;p&gt;As you might notice from the Neural networks and CNN sections, the way we simulate the human brain may be a bit simplified, and RNN aims to improve on one aspect. Recurrent Neural Networks aim to add a “short term memory” by making each neuron pass its output back to itself, for the next computation. This allows information to persist inside the network where the previously input data will affect the next few predictions. There is a commonly used variant of RNN called Long Short-Term Memory (&lt;code class=&quot;language-text&quot;&gt;LTSM&lt;/code&gt;) network which works differently but produces better results.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/eccf8bf44a10fd21843ce203fd146772/a296c/recc.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe/ENggKD//EABcQAQADAAAAAAAAAAAAAAAAAAEAECD/2gAIAQEAAQUChZn/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAZEAADAQEBAAAAAAAAAAAAAAABEBEAIUH/2gAIAQEAAT8h1dqIu9sCL//aAAwDAQACAAMAAAAQ8AgA/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAGxAAAQUBAQAAAAAAAAAAAAAAAQAQETFBIVH/2gAIAQEAAT8QWhvGGInDIQQAuDfrgoG//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Recurrent Neural Network&quot;
+        title=&quot;Recurrent Neural Network&quot;
+        src=&quot;/static/eccf8bf44a10fd21843ce203fd146772/c739e/recc.jpg&quot;
+        srcset=&quot;/static/eccf8bf44a10fd21843ce203fd146772/8ee9c/recc.jpg 148w,
+/static/eccf8bf44a10fd21843ce203fd146772/ebbe7/recc.jpg 295w,
+/static/eccf8bf44a10fd21843ce203fd146772/c739e/recc.jpg 590w,
+/static/eccf8bf44a10fd21843ce203fd146772/a296c/recc.jpg 800w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The nature of having some form of short term memory makes RNN especially useful for things like speech recognition, language modeling, image captioning or even some time-based data (known as &lt;code class=&quot;language-text&quot;&gt;time-series&lt;/code&gt;) such as stock price of a company. I haven’t really used RNN yet, but it’s good to know what its capable of.&lt;/p&gt;
+&lt;h3&gt;Transfer Learning&lt;/h3&gt;
+&lt;p&gt;Earlier I mentioned about not training your own neural network because it (probably) already exists, but here’s something we can do to make a neural network solve more domain specific problems. Transfer learning is basically using an existing neural net, and training the top (few) layers of the neural net, so that you retain the pattern-recognition capabilities of your neural network, but optimised to your specific problem. There are plenty of tutorials and methods differ between various libraries, so I won’t go into the details of implementation.&lt;/p&gt;
+&lt;p&gt;However, one interesting take on transfer learning was something I learnt from the &lt;a href=&quot;https://www.tensorflow.org/js/tutorials/transfer/image_classification&quot;&gt;tensorflowjs transfer learning tutorial&lt;/a&gt;. Essentially what this method does is that it takes a representation (they call it an &lt;code class=&quot;language-text&quot;&gt;activation&lt;/code&gt;) of the neural network, and uses it as the parameter of a K-Nearest Neighbour. I asked some data scientist friends of mine and they have confirmed that this is not really a traditional implementation of transfer learning, although it’s a vert interesting idea.&lt;/p&gt;
+&lt;p&gt;The idea behind this concept is perhaps best explained in an example. &lt;a href=&quot;https://httpserve.tenzhiyang.com/imageRecognition/&quot;&gt;This Project&lt;/a&gt; uses image net, which is trained to recognise object from images. Even if the net is not trained to recognise something, for example which direction my head is facing, when the image changes drastically, there are some neurons in the network that will have a high value and some neurons that wont change at all. Therefore knowing which are the “triggered” and “non-triggered” neurons as parameters, we are able to categorise new objects using KNN, using a model that learnt from another data set.&lt;/p&gt;
+&lt;h2&gt;Example Projects&lt;/h2&gt;
+&lt;p&gt;Here are a few projects that I’ve been doing in the past couple of weeks, where each project takes about a couple of hours to build, I do try to add something on top of just consuming the api, so that you can catch a glimpse of how I make use of existing tools to do something else instead of following tutorials or documentation to solve a problem that someone has already solved before.&lt;/p&gt;
+&lt;p&gt;All of these projects are running entirely on the front end, they are all static sites served off a simple http server.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://httpserve.tenzhiyang.com/gumshoos/&quot;&gt;Gumshoos&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken: 45 mins, of which maybe 30 was looking for a super simple no frills implementation of markov chains.&lt;/li&gt;
+&lt;li&gt;Libraries: &lt;code class=&quot;language-text&quot;&gt;nlp_compromise&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a href=&quot;https://httpserve.tenzhiyang.com/imageRecognition/&quot;&gt;Image Recognition&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken: 1.5 hours, half of the time spent following the google codelab tutorial&lt;/li&gt;
+&lt;li&gt;Libraries/models: &lt;code class=&quot;language-text&quot;&gt;tensorflowjs&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;mobilenet&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;knn-classifier&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a href=&quot;https://httpserve.tenzhiyang.com/greenScreen/&quot;&gt;Green Screen&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken: 1.5 hours&lt;/li&gt;
+&lt;li&gt;Libraries/models: &lt;code class=&quot;language-text&quot;&gt;tensorflowjs&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;body-pix&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;jscolor&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Body-pix is a model that is used for segmenting body parts in an image. Here I made use of a function &lt;code class=&quot;language-text&quot;&gt;toMaskImageData&lt;/code&gt; which basically gives me a “silhouette” of a person in the image. I use a few composite methods available from the canvas context api (webcam input, overlay silhouette with &lt;code class=&quot;language-text&quot;&gt;destination-in&lt;/code&gt;) to remove the background. Then green screen in the background is really just setting a background color. Theoretically we can overlay the greenscreen effect over anything, as long as they’re both in the same webpage.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://httpserve.tenzhiyang.com/mocap/&quot;&gt;Mocap&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken: 1 hour&lt;/li&gt;
+&lt;li&gt;Libraries/models: &lt;code class=&quot;language-text&quot;&gt;tensorflowjs&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;posenet&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I really didn’t do anything for this. Passing in the webcam-feed into &lt;code class=&quot;language-text&quot;&gt;posenet&lt;/code&gt; I receive a list of bodyparts followed by their x and y coordinates and a confidence score. I then drew red squares where each body part was. I can go a step further to remove those body parts with low confidence, but that’s just from analysing the input and output and using some constant value that works well enough.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://httpserve.tenzhiyang.com/jojoPose/&quot;&gt;Jojo’s Bizarre Poses&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken: 1 hour (excluding the time required to build mocap)&lt;/li&gt;
+&lt;li&gt;Libraries/models: &lt;code class=&quot;language-text&quot;&gt;tensorflowjs&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;posenet&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;knn-classifier&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is like a combination of &lt;code class=&quot;language-text&quot;&gt;mocap&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;image recognition&lt;/code&gt; projects above, but since the KNN classifier I used was from the tensorflow libraries, it takes in a certain data type &lt;code class=&quot;language-text&quot;&gt;tensors&lt;/code&gt; as input. I had to modify the data to fit the KNN classifier.&lt;/p&gt;
+&lt;h2&gt;Some useful tools&lt;/h2&gt;
+&lt;p&gt;What I went through in the past two blog posts cannot possibly cover all the use cases you might want to work on, so I’ve decided to compile a list of useful libraries and data sets that you can use in your own personal projects.&lt;/p&gt;
+&lt;h3&gt;Some famous Datasets&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Brown Corpus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Known formally as the &lt;strong&gt;Brown University Standard Corpus of Present-Day American English&lt;/strong&gt; this dataset contains about 500 samples of english-language text and is used frequently in NLP projects.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quick draw&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Remember &lt;a href=&quot;https://quickdraw.withgoogle.com/?locale=en_US&quot;&gt;this game&lt;/a&gt;? It was all a data collection exercise, and they’ve open sourced all the drawings together with the draw order!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ImageNet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A database of pictures that are labeled by crowd-sourcing, this dataset contains more than 20,000 categories, with bounding boxes to highlight the objects being labeled.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MS-COCO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Common Objects in COntext&lt;/strong&gt;, this is a dataset of common objects are taken from every day scenes. Instead of bounding boxes like in ImageNet, they have object segmentation, just like my green-screen example, but for objects.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MNIST&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;MNIST database (&lt;strong&gt;Modified National Institute of Standards and Technology&lt;/strong&gt; database) Is a database of handwritten digits and is used very frequently to practice creating handwritten character recognition algorithms&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Free Spoken Digit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is the MNIST of Speech recognition basically.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Free Music Archive&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just an archive of royalty free music!&lt;/p&gt;
+&lt;h3&gt;Some famous Libraries&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;ML.js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The scikit AI toolset, now replicated in js, has lots of learning algorithms and some useful data transforming utilities.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;compromise&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A fast NLP library which helps format text. Uses some outdated techniques in favour of speed over accuracy, aims to solve 90% of usecases.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tensorflowjs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A re-write of the famous tensorflow in js. There’s quite an established community supporting and I can find very good models written for or compatible with tensorflowjs&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kerasjs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A fairly popular neural network library, the models produced by keras can be imported into tensorflowjs also.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ML5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another Nerual Network library. It is actually a high-level interfact for tensorflowjs. I’ve heard that ML 5 has more beginner friendly jargon and documentation, but I don’t have experience with it yet.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[AI for FE devs (Part 1)]]></title><description><![CDATA[This article is a complement to my presentation in React Knowledgable. Introduction Artificial Intelligence is all the rage now, with the…]]></description><link>https://blog.tenzhiyang.com/2019-07-31-ai-for-fe/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-07-31-ai-for-fe/</guid><pubDate>Wed, 31 Jul 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Artificial Intelligence is all the rage now, with the craze starting from Deepmind’s alpha go. Although I hate people misusing the terms “artificial intelligence” and “machine learning” for things that do not need AI and ML to solve, I do think that using AI makes certain problems quicker to solve, and also can add some “wow factor” to an idea. I hope with this article (and subsequent presentation) people will understand what are problems that AI can solve, and maybe make AI more approachable so that the overall quality of hackathon projects get better.&lt;/p&gt;
 &lt;p&gt;First off, a disclaimer: &lt;strong&gt;I am by no means an expert in AI. I do have an undergrad level understanding of artificial intelligence, but I was never great at it.&lt;/strong&gt; Feel free to correct me on any wrong concepts that I might write in this article. I will also try to explain AI in english and not technobable, so for the real AI masters out there, you might cringe at me using wrong analogies or even butchering terminologies in an attempt to make AI easier to understand.&lt;/p&gt;
@@ -10,7 +262,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;I wish I did more AI related things in University, I feel like I missed out&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This is &lt;strong&gt;the&lt;/strong&gt; comment that prompted me to come up with this article. I always wanted to present something about AI to my team, given that I do have &lt;em&gt;some&lt;/em&gt; understanding of AI, but someone else did an introduction to Neural Networks that was more detailed than what I could come up with and I felt that that person would be more suited to carry on doing AI related talks. However from this comment I realised that &lt;strong&gt;because&lt;/strong&gt; I am kinda shit in AI, but yet I kSnow how to &lt;strong&gt;use&lt;/strong&gt; AI libraries, I can absolutely add value to this topic. &lt;/p&gt;
+&lt;p&gt;This is &lt;strong&gt;the&lt;/strong&gt; comment that prompted me to come up with this article. I always wanted to present something about AI to my team, given that I do have &lt;em&gt;some&lt;/em&gt; understanding of AI, but someone else did an introduction to Neural Networks that was more detailed than what I could come up with and I felt that that person would be more suited to carry on doing AI related talks. However from this comment I realised that &lt;strong&gt;because&lt;/strong&gt; I am kinda shit in AI, but yet I know how to &lt;strong&gt;use&lt;/strong&gt; AI libraries, I can absolutely add value to this topic. &lt;/p&gt;
 &lt;p&gt;So here’s what I hope people will gain from this article:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Approaching Problems with AI&lt;/li&gt;
@@ -344,7 +596,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Summing up the heuristics and then multiplying by some constant weights to them, we have something like:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;c_1 * linesCleared + c_2 * sumColHeight + (-1 * c_3) * numBends&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;latex&quot;&gt;&lt;pre class=&quot;language-latex&quot;&gt;&lt;code class=&quot;language-latex&quot;&gt;c_1 * linesCleared + c_2 * sumColHeight + (-1 * c_3) * numBends&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So now we have a bot that analyses tetris like how an almost perfect human would, except the analysis needs to be weighted. All details aside, we can look for some algorithm that takes in &lt;code class=&quot;language-text&quot;&gt;c_1, c_2, c_3&lt;/code&gt;, runs a game of tetris, gets the score, modifies &lt;code class=&quot;language-text&quot;&gt;c_1, c_2, c_3&lt;/code&gt; a little bit and runs the game again. rinse and repeat until &lt;code class=&quot;language-text&quot;&gt;c_1, c2, c3&lt;/code&gt; is fairly stagnant, or you dont have time to train anymore. In unviversity my teammates used a library which provided something called &lt;code class=&quot;language-text&quot;&gt;particle swarm optimisation&lt;/code&gt; which brought my team’s AI score up from ten thousands to millions just by running a optimisation algorithm on the weights.&lt;/p&gt;
 &lt;h2&gt;Content Generation Problem&lt;/h2&gt;
 &lt;p&gt;For the final type of problem, unfortunately there are too many different ways for diffent domains. Generating an Image is quite different from generating sounds or text. There is some headway being made in the form of neural networks which pit two neural networks against each other, but that’s a whole article and presentation by itself. However for  text generation, there are some probability-based state machines (known as &lt;code class=&quot;language-text&quot;&gt;Markov model&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;Markov process&lt;/code&gt;) that is easy to program, and also gives us reasonable results.&lt;/p&gt;

@@ -20,7 +20,7 @@ This came from a very creative person whose idea not only allowed me to win the 
 
 > I wish I did more AI related things in University, I feel like I missed out
 
-This is **the** comment that prompted me to come up with this article. I always wanted to present something about AI to my team, given that I do have *some* understanding of AI, but someone else did an introduction to Neural Networks that was more detailed than what I could come up with and I felt that that person would be more suited to carry on doing AI related talks. However from this comment I realised that **because** I am kinda shit in AI, but yet I kSnow how to **use** AI libraries, I can absolutely add value to this topic. 
+This is **the** comment that prompted me to come up with this article. I always wanted to present something about AI to my team, given that I do have *some* understanding of AI, but someone else did an introduction to Neural Networks that was more detailed than what I could come up with and I felt that that person would be more suited to carry on doing AI related talks. However from this comment I realised that **because** I am kinda shit in AI, but yet I know how to **use** AI libraries, I can absolutely add value to this topic. 
 
 So here's what I hope people will gain from this article:
 - Approaching Problems with AI
@@ -110,7 +110,7 @@ But I think we can do better. This heuristics takes care of how many gaps there 
 
 Summing up the heuristics and then multiplying by some constant weights to them, we have something like:
 
-```
+```latex
 c_1 * linesCleared + c_2 * sumColHeight + (-1 * c_3) * numBends
 ```
 
