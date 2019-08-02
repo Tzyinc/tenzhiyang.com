@@ -29,7 +29,7 @@ So here's what I hope people will gain from this article:
 - Famous APIs that we can use for the next hackathon/prototype of things that we wanna work on
 
 Here's what I will **not** go through
-- How Nerual networks work
+- How Neural networks work
 - How to build an AI from scratch
 - How to beat the no.1 go player with AI
 - How famous algorithms work
@@ -111,16 +111,16 @@ But I think we can do better. This heuristics takes care of how many gaps there 
 Summing up the heuristics and then multiplying by some constant weights to them, we have something like:
 
 ```latex
-c_1 * linesCleared + c_2 * sumColHeight + (-1 * c_3) * numBends
+c_1 * linesCleared + (-1 * c_2) * sumColHeight + (-1 * c_3) * numBends
 ```
 
-So now we have a bot that analyses tetris like how an almost perfect human would, except the analysis needs to be weighted. All details aside, we can look for some algorithm that takes in `c_1, c_2, c_3`, runs a game of tetris, gets the score, modifies `c_1, c_2, c_3` a little bit and runs the game again. rinse and repeat until `c_1, c2, c3` is fairly stagnant, or you dont have time to train anymore. In unviversity my teammates used a library which provided something called `particle swarm optimisation` which brought my team's AI score up from ten thousands to millions just by running a optimisation algorithm on the weights.
+So now we have a bot that analyses tetris like how an almost perfect human would, except the analysis needs to be weighted. All details aside, we can look for some algorithm that takes in `c_1, c_2, c_3`, runs a game of tetris, gets the score, modifies `c_1, c_2, c_3` a little bit and runs the game again. rinse and repeat until `c_1, c_2, c_3` is fairly stagnant, or you dont have time to train anymore. In unviversity my teammates used a library which provided something called `particle swarm optimisation` which brought my team's AI score up from ten thousands to millions just by running a optimisation algorithm on the weights.
 
 ## Content Generation Problem
 
 For the final type of problem, unfortunately there are too many different ways for diffent domains. Generating an Image is quite different from generating sounds or text. There is some headway being made in the form of neural networks which pit two neural networks against each other, but that's a whole article and presentation by itself. However for  text generation, there are some probability-based state machines (known as `Markov model` or `Markov process`) that is easy to program, and also gives us reasonable results.
 
-I wont go through the process of writing a `Markov model` but the general idea for text generation will be something like. "What is the most likely word to appear next, given that the words before are `a` and `b` (and `c` and `d` etc etc etc..)?" So what we will do is to find a markov model, and find sufficiently big dataset. An example that I want to use is something like a Donald Trump text generator. 
+I won't go through the process of writing a `Markov model` but the general idea for text generation will be something like. "What is the most likely word to appear next, given that the words before are `a` and `b` (and `c` and `d` etc etc etc..)?" So what we will do is to find a markov model, and find sufficiently big dataset. An example that I want to use is something like a Donald Trump text generator. 
 
 First things first, I need a dataset. In the domain of Natural Language Processing, we call a file with lots of sentances a corpus, so I found [1mb worth of trump speeches](https://github.com/ryanmcdermott/trump-speeches) from [@ryconoclast](https://twitter.com/ryconoclast). We can do some cleanining up of the data, like changing all text to lowercase, and grouping words that come from the same word together(`stemming`, eg: consultant, consulting, consults -> consult) but I won't be using it for my example, just to showcase how decent the results are without much effort.
 
