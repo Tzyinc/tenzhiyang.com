@@ -25,12 +25,18 @@ a {
   font-family: 'Ubuntu Mono', sans-serif;
 }
 
-.gatsby-highlight .language-text {
+.gatsby-highlight {
   background-color: var(--text);
   color: var(--bg);
   border-radius: 3px;
   overflow-x: scroll;
 }
+
+ .language-text {
+    background-color: var(--text);
+    color: var(--bg);
+    border-radius: 3px;
+ }
 
 .parallax {
   /* Create the parallax scrolling effect */
