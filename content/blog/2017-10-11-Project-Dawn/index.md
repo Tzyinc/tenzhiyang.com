@@ -14,5 +14,5 @@ To track which room the participants were in, I set up laser pointers wired to b
 
 Unfortunately I was not wise enough to take pictures of the set up, but here are a couple of pictures of the event:
 
-![dawn](/dawn1.jpg)
-![dawn](/dawn2.jpg)
+![dawn](./dawn1.jpg)
+![dawn](./dawn2.jpg)

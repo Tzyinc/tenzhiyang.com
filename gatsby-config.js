@@ -28,11 +28,11 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-relative-images`,
-          },
-          {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images-anywhere`,
             options: {
+              staticDir: 'static',
+              sharpMethod: 'fluid',
+              quality: 50,
               maxWidth: 590,
             },
           },

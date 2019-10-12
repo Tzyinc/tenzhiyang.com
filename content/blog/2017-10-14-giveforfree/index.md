@@ -8,4 +8,4 @@ Give For Free was a project thought up by a good friend of mine. The idea was si
 
 The actual site was taken down due to server costs, and we managed to raise almost 400 dollars for SPCA. [Facebook promotional page here](https://www.facebook.com/give4free/)
 
-![gff](/gff.jpg)
+![gff](./gff.jpg)

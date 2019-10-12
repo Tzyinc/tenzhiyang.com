@@ -54,7 +54,7 @@ The idea of Convolutional Nerual Networks is simple in implementation but not ve
 
 This is where the convolutional layer and pooling layer comes in. Basically the convolutional layer applies a filter, which transforms `n * n`pixels (a square) into 1, using some matrix manipulation mathemagic. The pooling layer comes immediately after the convolutional layer, and its job is to reduce the input space further, by taking the max or the average value in `n * n` pixels. These are called `Max Pooling` and `Average Pooling`. Max pooling by nature tends to reduce noise in the data while Average pooling is a simple `dimension reduction` (reducing the input size by `x` dimensions). The two layers together will be inserted in between some layers of a nerual network. It is possible to have more than one such convolution+pooling layer, but that increases computation time.
 
-![convolution and pooling layer](cnn.jpg)
+![convolution and pooling layer](./cnn.jpg)
 
 There are plenty of pre-trained convolutional neural networks that recognises objects, animals, drawings or even individual hand written characters, so if you just need to identify what is inside an image, you can leverage on the existing neural nets to classify what you need. For example, during the most recent hackathon I wanted to know if the user has drawn a circle, square or diamond, my team used Google Quickdraw's net to identify what it was and re-draw a perfect circle square or diamond in its place. I did some additional neural net on top of that, which causes the lag, but you can try it [here](https://hackathon.flowdi.tenzhiyang.com/).
 
@@ -62,7 +62,7 @@ There are plenty of pre-trained convolutional neural networks that recognises ob
 
 As you might notice from the Neural networks and CNN sections, the way we simulate the human brain may be a bit simplified, and RNN aims to improve on one aspect. Recurrent Neural Networks aim to add a "short term memory" by making each neuron pass its output back to itself, for the next computation. This allows information to persist inside the network where the previously input data will affect the next few predictions. There is a commonly used variant of RNN called Long Short-Term Memory (`LTSM`) network which works differently but produces better results.
 
-![Recurrent Neural Network](recc.jpg)
+![Recurrent Neural Network](./recc.jpg)
 
 The nature of having some form of short term memory makes RNN especially useful for things like speech recognition, language modeling, image captioning or even some time-based data (known as `time-series`) such as stock price of a company. I haven't really used RNN yet, but it's good to know what its capable of.
 

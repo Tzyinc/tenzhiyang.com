@@ -6,7 +6,7 @@ date: "2017-10-16"
 
 A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done over a period of 6 weeks, in a team of 4 people. Features include audio synch to dropbox, customised animations, recording playback, and multiple music profiles.
 
-![steps](/midi.jpg)
+![steps](./midi.jpg)
 
 We won first place in our module (of 10 groups) during NUS's
 [10th STePS](http://isteps.comp.nus.edu.sg/event/10th-steps/modules)

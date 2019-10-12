@@ -28,7 +28,7 @@ To my dismay, few people in Singapore used the edge router x, in favor of the ed
 
 Like every other tech nerd, the first thing I did when using a new technology was to not read any documentation and use it. I connected my modem to the ER-X and connected my laptop to the ER-X, and typed in `192.168.1.1` into my browser. I was greeted by my good friend:
 
-![chrome's no internet t rex game](chromerex.png)
+![chrome's no internet t rex game](./chromerex.png)
 
 After actually reading some tutorials, I realised I had to connect my computer to eth0, set my laptop to request for a static IP (no default dhcp) and open the setup wizard (for noobs like me) to set up some basic configs. I applied all the default settings and changed the password of the default user. As part of the wizard and default settings, I had to disconnect my laptop from eth0 and connect to any other port, then connect my modem to eth0. I had some rx and tx going on the webgui, but I was not getting any internet. Dang. After some trial and error and about an hour of research, I found the solution to all things in tech support: turning everything off and on again. The key thing that made it work was restarting the modem, allowing my router to request a new IP from my ISP. Everything was working with minimal setup.
 
@@ -38,4 +38,12 @@ Finally everything is up. Connecting my mesh routers to this router was seamless
 
 ![Rasberry pi, not much smaller than the edge router x next to it](./raspierx.jpg)
 
-All in all, ER-X is incredibly tiny for what it does and is comparitively cheap. Paired with the tenda m5, I have full coverage of my house, no uncessessary 2.4g or 5g noise from multiple routers and also reduce the clutter on my tv console. I cannot say that I am a network expert, but I think this setup is both affordable and fast.
+All in all, ER-X is incredibly tiny for what it does and is comparitively cheap. Paired with the tenda m5, I have full coverage of my house, no uncessessary 2.4g or 5g noise from multiple routers and also reduce the clutter on my tv console. I cannot say that I am a network expert, but I think this setup is both affordable and performant. Having the flexibility to configure whatever the heck you want is a nice add on too. 
+
+Special mention to [Ken Lee](https://twitter.com/kenleesm) and [Jonathan Lim](https://twitter.com/jonathanlimsc) who advised me on whether I really needed an enterprise grade router.
+
+Update on measurements taken during off peak timings:
+
+![300Mbps on wifi](./fast.png)
+
+I am getting 300 Mbps on wifi while seated next to my first AP. Is this a stepdown from orbi's maxspeed? yes. Is this still fast enough for me? yes.

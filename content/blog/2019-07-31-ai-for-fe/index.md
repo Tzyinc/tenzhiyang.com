@@ -110,7 +110,7 @@ But I think we can do better. This heuristics takes care of how many gaps there 
 
 Summing up the heuristics and then multiplying by some constant weights to them, we have something like:
 
-```latex
+```
 c_1 * linesCleared + (-1 * c_2) * sumColHeight + (-1 * c_3) * numBends
 ```
 
