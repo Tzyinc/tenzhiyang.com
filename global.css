@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+
 :root {
-  --text: #1D3557;
-  --bg: #F1FAEE;
+  --text: #474350;
+  --bg: #FFF8F0;
   --err: #E63946;
-  --alt: #457B9D;
+  --alt: #392F5A;
   --conf: #A8DADC;
 }
 
 html {
   background-color: var(--bg);
   color: var(--text);
+  font-family: 'Ubuntu Mono', sans-serif;
 }
 
 a {
   color: var(--alt);
+  font-family: 'Ubuntu Mono', sans-serif;
 }
 
 .body {
   color: var(--text);
+  font-family: 'Ubuntu Mono', sans-serif;
 }
 
 .parallax {

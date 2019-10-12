@@ -32,7 +32,7 @@ const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata
   return (
     <div
       style={{
@@ -55,7 +55,7 @@ const Bio = () => {
         }}
       />
       <div>
-        <div><a href={`https://twitter.com/tzyinc`}>{author}</a> is a dev in Singapore. He enjoys playing with new technology</div>
+        <div>{author} is a dev in Singapore. Disagree with me? <a href={`https://twitter.com/tzyinc`}>@ me on twitter</a>. Like my post? <a href={`https://twitter.com/tzyinc`}>@ me on twitter too</a>! </div>
       </div>
     </div>
   )

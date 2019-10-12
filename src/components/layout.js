@@ -18,10 +18,9 @@ class Layout extends React.Component {
             marginTop: 0,
             width: '100%',
             padding: 20,
-            background: `linear-gradient(white 2px, transparent 2px)-2px -2px/100px 100px,
-linear-gradient(90deg, white 2px, transparent 2px)-2px -2px/100px 100px,
-linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px)-1px -1px/20px 20px,
-linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)-1px -1px/20px 20px, #457B9D`,
+            backgroundColor: "white",
+            backgroundImage: `linear-gradient(#eee .1em, transparent .1em)`,
+            backgroundSize: `100% 0.5em`,
             color: 'white',
             textShadow: `-1px -1px 0 #1D3557,
               1px -1px 0 #1D3557,
@@ -68,7 +67,7 @@ linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)-1px -1px/20px 
     return (
       <div
         style={{
-          marginLeft: `auto`,
+          // marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(24),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
