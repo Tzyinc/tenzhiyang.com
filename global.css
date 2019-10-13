@@ -10,7 +10,10 @@
 }
 
 html {
-  background-color: var(--bg);
+  background: linear-gradient(to right, var(--bg) 600px, transparent),
+    radial-gradient(var(--alt) 15%, transparent 16%) 0 0/16px 16px,
+    radial-gradient(var(--alt) 15%, transparent 16%) 8px 8px/16px 16px,
+    var(--bg);
   color: var(--text);
   font-family: 'Ubuntu Mono', sans-serif;
 }

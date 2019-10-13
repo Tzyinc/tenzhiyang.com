@@ -18,9 +18,9 @@ class Layout extends React.Component {
             marginTop: 0,
             width: '100%',
             padding: 20,
-            backgroundColor: "white",
-            backgroundImage: `linear-gradient(#eee .1em, transparent .1em)`,
-            backgroundSize: `100% 0.5em`,
+            backgroundColor: 'var(--alt)',
+            // backgroundImage: `linear-gradient(#eee .1em, transparent .1em)`,
+            // backgroundSize: `100% 0.5em`
             color: 'white',
             textShadow: `-1px -1px 0 #1D3557,
               1px -1px 0 #1D3557,
@@ -85,6 +85,10 @@ class Layout extends React.Component {
           {" • "}
           <a href={"https://drive.google.com/open?id=1iVoWXxYpAlL2QG3O9bFFXqX6lJw-JbdcX9gfYw7gIzU"}>
             CV
+          </a>
+          {" • "}
+          <a href={"https://httpserve.tenzhiyang.com"}>
+            Projects and experiements
           </a>
         </footer>
       </div>
