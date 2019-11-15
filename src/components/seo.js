@@ -72,7 +72,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: avatar.childImageSharp.fixed,
+          content: avatar.childImageSharp.fixed.src,
         },
         {
           name: `twitter:description`,
