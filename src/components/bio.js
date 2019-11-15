@@ -41,7 +41,7 @@ const Bio = () => {
       }}
     >
       <Image
-        fixed={data.avatar.childImageSharp.fixed}
+        fixed={data.avatar.childImageSharp.fixed.src}
         alt={author}
         style={{
           marginRight: rhythm(1 / 2),
