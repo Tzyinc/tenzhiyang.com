@@ -41,6 +41,17 @@ a {
     border-radius: 3px;
  }
 
+ .katex-display {
+    background-color: var(--text);
+    color: var(--bg);
+    border-radius: 3px;
+ }
+
+ .katex {
+    background-color: var(--text);
+    color: var(--bg);
+    border-radius: 3px;
+ }
 .parallax {
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
