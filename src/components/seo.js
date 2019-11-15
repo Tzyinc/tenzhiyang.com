@@ -16,7 +16,7 @@ function SEO({ description, lang, meta, title }) {
       query {
         avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
           childImageSharp {
-            fixed(width: 50, height: 50) {
+            fixed(width: 200, height: 200) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -72,7 +72,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: avatar.childImageSharp.fixed.src,
+          content: `https://tenzhiyang.com${avatar.childImageSharp.fixed.src}`,
         },
         {
           name: `twitter:description`,
