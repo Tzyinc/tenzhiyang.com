@@ -23,6 +23,14 @@ a {
   font-family: 'Ubuntu Mono', sans-serif;
 }
 
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .body {
   color: var(--text);
   font-family: 'Ubuntu Mono', sans-serif;

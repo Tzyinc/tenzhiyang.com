@@ -2,6 +2,7 @@
 layout: posts
 title: "New blog, who dis?"
 date: "2019-07-07"
+type: "post"
 ---
 
 So it all started out with a tweet

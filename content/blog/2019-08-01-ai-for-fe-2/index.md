@@ -2,6 +2,7 @@
 layout: posts
 title: "AI for FE devs (Part 2)"
 date: "2019-08-01"
+type: "post"
 ---
 
 ## [Part 1 here](https://blog.tenzhiyang.com/2019-07-31-ai-for-fe/)

@@ -2,6 +2,7 @@
 layout: posts
 title: "JS Conf Animation: Cantor Set"
 date: "2018-12-23"
+type: "post"
 ---
 
 The idea for this entry was to hopefully spark a math nerd in the organisers.

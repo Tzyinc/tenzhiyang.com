@@ -2,6 +2,7 @@
 layout: posts
 title: "Synth til it hertz"
 date: "2019-11-15"
+type: "post"
 ---
 
 **This article is a complement to my presentation in React Knowledgable.**

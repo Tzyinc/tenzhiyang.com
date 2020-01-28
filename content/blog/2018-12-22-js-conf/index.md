@@ -2,6 +2,7 @@
 layout: posts
 title: "JS Conf Animation: DVD logo"
 date: "2018-12-22"
+type: "post"
 ---
 
 The next few posts are pull requests for jsconf asia's home page, hopefully they accept it and I get free tickets!

@@ -2,6 +2,7 @@
 layout: posts
 title: "Post js conf"
 date: "2019-06-16"
+type: "post"
 ---
 
 I'm writing this about 2 weeks after I've attended jsconf, so my memory will be hazy about everything. Here's a few actionable things I want to do after what I've learnt at jsconf:

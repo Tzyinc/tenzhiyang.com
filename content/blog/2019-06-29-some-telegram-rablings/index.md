@@ -2,6 +2,7 @@
 layout: posts
 title: "Telegram ramblings"
 date: "2019-06-29"
+type: "post"
 ---
 
 I have made it a point to write some of my ideas down on telegram, I will need to find a sustainable solution to update this list as and when I write more stuff in it, for now I'll just write the ideas down here

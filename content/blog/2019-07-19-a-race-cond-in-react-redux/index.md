@@ -2,6 +2,7 @@
 layout: posts
 title: "A race condition in react-redux"
 date: "2019-07-19"
+type: "post"
 ---
 
 **TLDR: file that used to be on code base became an API, listen to value changes on redux and send another fetch if neccessary** 

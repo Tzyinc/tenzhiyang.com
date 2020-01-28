@@ -2,6 +2,7 @@
 layout: posts
 title: "Post SEA hackathon 2019"
 date: "2019-06-23"
+type: "post"
 ---
 
 This also spurred me to look into my 2018 success and write a blog about that.

@@ -2,6 +2,7 @@
 layout: posts
 title: "IoT Scale (From Old Portfolio)"
 date: "2017-10-10"
+type: "post"
 ---
 This is a project for my internship at Boon Software for Breadtalk. Powered by an Arduino clone(again), this device uses and ESP8266 which communicates to the Arduino via Serial i/o. I wrote my own TCP Sender and Receiver on both the Arduino side as well as the Java side. There are many things that could be improved, but this is the first version.
 

@@ -2,6 +2,7 @@
 layout: posts
 title: "Post hackathon 2018"
 date: "2018-08-05"
+type: "post"
 ---
 
 ![image](./hackathon.jpg)

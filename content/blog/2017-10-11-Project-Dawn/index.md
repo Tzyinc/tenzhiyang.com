@@ -2,6 +2,7 @@
 layout: posts
 title: "Project Dawn (From Old Portfolio)"
 date: "2017-10-11"
+type: "post"
 ---
 
 My first foray into Internet Of Things, this was quite a leap of faith for me. A friend (Hi Wei Lun!) asked me "is it possible to feel what it is like to be in another persons shoes?" This would be the start of my involvement in Project Dawn.

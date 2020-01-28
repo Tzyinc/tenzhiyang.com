@@ -2,6 +2,7 @@
 layout: posts
 title: "Wi is a good router so hard to Fi"
 date: "2019-10-12"
+type: "post"
 ---
 
 In the past five years or so, I've been using the netgear orbi at my home. It gave us incredible speeds in a mesh network, but it costs upwards of 600SGD for two units (one router and one satallite), and it just couldn't provide the cover I needed, nor could it daisy chain. Every time there was a firmware update, I had to restore factory settings and set up everything all over again. Definitely not a great experience. When my setup started dropping wifi connections every day, I needed a replacement, with better bang for my buck.

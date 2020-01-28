@@ -2,6 +2,7 @@
 layout: posts
 title: "AI for FE devs (Part 1)"
 date: "2019-07-31"
+type: "post"
 ---
 
 **This article is a complement to my presentation in React Knowledgable.**
