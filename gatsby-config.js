@@ -105,13 +105,6 @@ module.exports = {
               tweet_mode: "extended",
             },
           },
-          gatsbyHashtag: {
-            endpoint: "search/tweets",
-            params: {
-              q: "#gatsbyjs",
-              tweet_mode: "extended",
-            },
-          },
         },
       },
     },

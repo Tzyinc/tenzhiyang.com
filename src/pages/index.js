@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -12,21 +12,30 @@ function BlogIndex (props) {
   const [blogCount, setBlogCount] = useState(1);
   const [bakedCount, setBakedCount] = useState(1);
   const [tweetCount, setTweetCount] = useState(1);
+  const [tweetList, setTweetList] = useState([]);
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.type === "post")
   const baked = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.type === "baked")
-  
-  const tweets = data.allTwitterStatusesUserTimelineTzyincquery.edges.filter(({ node }) => !node.quoted_status);
+  const tweets = tweetList.filter(item => !item.in_reply_to_status_id && !item.quoted_status && !item.retweeted_status);
+
+  useEffect(() => {
+    // get data from GitHub api
+    fetch(`https://blogbackend.tenzhiyang.com/tweets`)
+      .then(response => response.json()) // parse JSON from request
+      .then(result => {
+        setTweetList(result)
+      }) // set data for the number of stars
+  }, [])
   
   return (
     <Layout location={props.location}  title={siteTitle}>
       <SEO title="Ten's Thoughts" />
       <Bio />
-      <h2>Half-Baked Ideas 👨‍🍳</h2>
+      <h2>Half-Baked Ideas <span role="img" aria-label="male chef">👨‍🍳</span></h2>
       {BlogList({ posts: baked, blogCount: bakedCount, setBlogCount: setBakedCount })}
-      <h2>Writings ✍️</h2>
+      <h2>Writings <span role="img" aria-label="writing hand">✍️</span></h2>
       {BlogList({ posts, blogCount, setBlogCount })}
-      <h2>Brain farts 🧠💨</h2>
+      <h2>Brain farts <span role="img" aria-label="brain and wind">🧠💨</span></h2>
       {Tweets({ posts: tweets, blogCount: tweetCount, setBlogCount: setTweetCount})}
     </Layout>
   );
@@ -47,7 +56,7 @@ function Tweets({ posts, blogCount, setBlogCount }) {
       {(((blogCount + 1) * 5) - 5 < posts.length) ? <button onClick={() => (((blogCount + 1) * 5) - 5 < posts.length) ? setBlogCount(blogCount + 1) : setBlogCount(1)}>{`next >`}</button> : <div />}
     </div>
     {
-      posts.filter((_, index) => index >= (blogCount * 5 - 5) && index < blogCount * 5).map(({node}, index) => {
+      posts.filter((_, index) => index >= (blogCount * 5 - 5) && index < blogCount * 5).map((node, index) => {
         return (
           <div key={node.id} style={
            index !== 0 ? {
@@ -61,7 +70,7 @@ function Tweets({ posts, blogCount, setBlogCount }) {
             <small>{generateDate(node.created_at)}</small>
             <p>
               <a style={{ boxShadow: `none`, textDecoration: `none` }} href={generateUrl(node.id_str)}>
-                {node.full_text}
+                {node.text}
               </a>
             </p>
           </div>
@@ -148,26 +157,6 @@ export const pageQuery = graphql`
           }
         }
       }
-    }
-    allTwitterStatusesUserTimelineTzyincquery {
-      edges {
-        node {
-          created_at
-          full_text
-          id_str
-          quoted_status {
-            created_at
-            full_text
-            id_str
-            user {
-              screen_name
-              name
-              profile_image_url_https
-            }
-          }
-        }
-      }
-      totalCount
     }
   }
 `
