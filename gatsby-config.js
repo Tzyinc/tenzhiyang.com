@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Ten\'s Thoughts',
@@ -59,7 +63,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GA_TRACKING,
       },
     },
     'gatsby-plugin-feed',
@@ -81,6 +85,34 @@ module.exports = {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography',
+      },
+    },
+    {
+      resolve: `gatsby-source-twitter`,
+      options: {
+        credentials: {
+          consumer_key: process.env.TWITTER_API,
+          consumer_secret: process.env.TWITTER_SECRET,
+          bearer_token: process.env.TWITTER_BEARER_TOKEN,
+        },
+        queries: {
+          tzyincquery: {
+            endpoint: "statuses/user_timeline",
+            params: {
+              screen_name: "tzyinc",
+              include_rts: false,
+              exclude_replies: true,
+              tweet_mode: "extended",
+            },
+          },
+          gatsbyHashtag: {
+            endpoint: "search/tweets",
+            params: {
+              q: "#gatsbyjs",
+              tweet_mode: "extended",
+            },
+          },
+        },
       },
     },
   ],
