@@ -12,10 +12,12 @@ function BlogIndex (props) {
   const [blogCount, setBlogCount] = useState(1);
   const [bakedCount, setBakedCount] = useState(1);
   const [tweetCount, setTweetCount] = useState(1);
+  const [talkCount, setTalkCount] = useState(1);
   const [tweetList, setTweetList] = useState([]);
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.type === "post")
   const baked = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.type === "baked")
+  const talks = data.allMarkdownRemark.edges.filter(item => item.node.frontmatter.type === "talk")
   const tweets = tweetList.filter(item => !item.in_reply_to_status_id && !item.quoted_status && !item.retweeted_status);
 
   useEffect(() => {
@@ -31,18 +33,43 @@ function BlogIndex (props) {
     <Layout location={props.location}  title={siteTitle}>
       <SEO title="Ten's Thoughts" />
       <Bio />
-      <h2>Half-Baked Ideas <span role="img" aria-label="male chef">👨‍🍳</span></h2>
-      {BlogList({ posts: baked, blogCount: bakedCount, setBlogCount: setBakedCount })}
-      <h2>Writings <span role="img" aria-label="writing hand">✍️</span></h2>
-      {BlogList({ posts, blogCount, setBlogCount })}
-      <h2>Brain farts <span role="img" aria-label="brain and wind">🧠💨</span></h2>
-      {Tweets({ posts: tweets, blogCount: tweetCount, setBlogCount: setTweetCount})}
+      {
+        baked.length > 0 && (
+          <React.Fragment>
+            <h2>Half-Baked Ideas <span role="img" aria-label="male chef">👨‍🍳</span></h2>
+            {BlogList({ posts: baked, blogCount: bakedCount, setBlogCount: setBakedCount })}
+          </React.Fragment>
+        )
+      }
+      {
+        posts.length > 0 && (
+          <React.Fragment>
+            <h2>Writings <span role="img" aria-label="writing hand">✍️</span></h2>
+            {BlogList({ posts, blogCount, setBlogCount })}
+          </React.Fragment>
+        )
+      }
+      {
+        talks.length > 0 && (
+          <React.Fragment>
+            <h2>Talks <span role="img" aria-label="talking head">🗣️</span></h2>
+            {BlogList({ posts: talks, blogCount: talkCount, setBlogCount: setTalkCount })}
+          </React.Fragment>
+        )
+      }
+      {
+        tweets.length > 0 && (
+          <React.Fragment>
+            <h2>Brain farts <span role="img" aria-label="brain and wind">🧠💨</span></h2>
+            {Tweets({ posts: tweets, blogCount: tweetCount, setBlogCount: setTweetCount})}
+          </React.Fragment>
+        )
+      }
     </Layout>
   );
 }
 
 function Tweets({ posts, blogCount, setBlogCount }) {
-  console.log(posts);
 
   return (<React.Fragment>
     <div style={
@@ -58,15 +85,17 @@ function Tweets({ posts, blogCount, setBlogCount }) {
     {
       posts.filter((_, index) => index >= (blogCount * 5 - 5) && index < blogCount * 5).map((node, index) => {
         return (
-          <div key={node.id} style={
-           index !== 0 ? {
-              paddingTop: "20px",
-              borderTop: "1px solid var(--alt)",
-              marginTop: "20px",
-           } : {
+          <div key={node.id}
+            style={
+            index !== 0 ? {
+                paddingTop: "20px",
+                borderTop: "1px solid var(--alt)",
+                marginTop: "20px",
+            } : {
 
-           }
-          }>
+            }}
+            className="tweetSection"
+          >
             <small>{generateDate(node.created_at)}</small>
             <p>
               <a style={{ boxShadow: `none`, textDecoration: `none` }} href={generateUrl(node.id_str)}>

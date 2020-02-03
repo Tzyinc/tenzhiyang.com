@@ -43,27 +43,32 @@ button {
   overflow-x: scroll;
 }
 
- .language-text {
-    background-color: var(--text);
-    color: var(--bg);
-    border-radius: 3px;
- }
+.language-text {
+  background-color: var(--text);
+  color: var(--bg);
+  border-radius: 3px;
+}
 
- .katex-display {
-    background-color: var(--text);
-    color: var(--bg);
-    border-radius: 3px;
- }
+.katex-display {
+  background-color: var(--text);
+  color: var(--bg);
+  border-radius: 3px;
+}
 
- .katex {
-    background-color: var(--text);
-    color: var(--bg);
-    border-radius: 3px;
- }
+.katex {
+  background-color: var(--text);
+  color: var(--bg);
+  border-radius: 3px;
+}
+
 .parallax {
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.tweetSection:hover{
+  text-decoration: underline;
 }
