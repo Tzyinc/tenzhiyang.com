@@ -18,4 +18,4 @@ Of course I would have liked to write some solution that identifies chords, but 
 
 Playing around with it, I found that when playing a note on a guitar, it was fairly consistent in pitch, although the attack and decay might be messed up. My solution to remove noise from deliberate notes is to have a queue that I constantly check. If the entire queue is of that same note, I can assume that that's a deliberate note. The next thing is generating scales. For this I wrote a [helper function](https://codepen.io/Tzyinc/pen/QWweQXa) to generate scales from a root note and a step pattern like `4-H-W-4-H` where W is a whole step and H is a half step (and numbers are just the number of steps).
 
-Here's my [https://app.tenzhiyang.com/tuner/](scale practicing prototype)
+Here's my [scale practicing prototype](https://app.tenzhiyang.com/tuner/)
