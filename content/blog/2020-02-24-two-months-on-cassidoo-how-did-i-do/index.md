@@ -1,7 +1,7 @@
 ---
 layout: posts
 title: "Two months on rendezvous with @cassidoo , how did I do?"
-date: "2020-02-03"
+date: "2020-02-24"
 type: "baked"
 ---
 
