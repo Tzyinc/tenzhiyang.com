@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Sep 2020 11:26:35 GMT</lastBuildDate><item><title><![CDATA[Music in browser basics]]></title><description><![CDATA[I’ve recently started a tech in music interest group within Shopee that will run for 8 weeks, and I want to have some content out for the…]]></description><link>https://blog.tenzhiyang.com/2020-09-30-music-in-browser-basics/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-09-30-music-in-browser-basics/</guid><pubDate>Wed, 30 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’ve recently started a tech in music interest group within Shopee that will run for 8 weeks, and I want to have some content out for the first week as we will be doing mostly introductions. So this shall be my welcome and beginner starting kit to my 3 amigos Adriel, Stanley and James.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 30 Sep 2020 12:06:57 GMT</lastBuildDate><item><title><![CDATA[Music in browser basics]]></title><description><![CDATA[I’ve recently started a tech in music interest group within Shopee that will run for 8 weeks, and I want to have some content out for the…]]></description><link>https://blog.tenzhiyang.com/2020-09-30-music-in-browser-basics/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-09-30-music-in-browser-basics/</guid><pubDate>Wed, 30 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’ve recently started a tech in music interest group within Shopee that will run for 8 weeks, and I want to have some content out for the first week as we will be doing mostly introductions. So this shall be my welcome and beginner starting kit to my 3 amigos Adriel, Stanley and James.&lt;/p&gt;
 &lt;p&gt;This post will try to provide an non technical explanation for some of the magic behind the web audio api so that we know what to google and research on our own. &lt;strong&gt;This article is suitable for people comfortable with working in JS, with minimal to no signal processing background knowledge&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API&quot;&gt;reference&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Web audio api&lt;/h1&gt;
@@ -25,65 +24,10 @@
 &lt;h2&gt;Destination (Output)&lt;/h2&gt;
 &lt;p&gt;We can use &lt;code class=&quot;language-text&quot;&gt;AudioDestinationNode&lt;/code&gt; to select the audio source, usually for speakers of the device. Alternatively we can have &lt;code class=&quot;language-text&quot;&gt;MediaStreamAudioDestinationNode&lt;/code&gt; it uses &lt;code class=&quot;language-text&quot;&gt;WebRTC&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;MediaStream&lt;/code&gt; under the hood. An interesting thing we can do with audio output is to have &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics&quot;&gt;spatialization effects&lt;/a&gt; to simulate where the sound is coming from.&lt;/p&gt;
 &lt;h2&gt;Analysis&lt;/h2&gt;
-&lt;p&gt;The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode&quot;&gt;AnalyserNode&lt;/a&gt; allows us to take numerical representations of the audio context. This is usually used for [visualizations] (&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API&lt;/a&gt;)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SVGs are good butt can you style them]]></title><description><![CDATA[Script for the above slides Hi everyone I’m Ten Zhi Yang, Front end Engineer at Shopee. For my talk today, I really want everyone to know…]]></description><link>https://blog.tenzhiyang.com/2020-02-26-svgs-are-good-butt-can-you-style-them/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-02-26-svgs-are-good-butt-can-you-style-them/</guid><pubDate>Wed, 26 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/FJfCL3TCCHQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
-=======
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 07 Jun 2020 09:09:30 GMT</lastBuildDate><item><title><![CDATA[A look into building twatter]]></title><link>https://blog.tenzhiyang.com/2020-06-06-twatter-talk/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-06-06-twatter-talk/</guid><pubDate>Sat, 06 Jun 2020 00:00:00 GMT</pubDate><content:encoded>
-          &lt;div
-            class=&quot;gatsby-resp-iframe-wrapper&quot;
-            style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
-          &gt;
-            &lt;iframe src=&quot;https://www.youtube.com/watch?v=Mut4F3C_dv8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          &quot;&gt;&lt;/iframe&gt;
-          &lt;/div&gt;
-          </content:encoded></item><item><title><![CDATA[froot loops]]></title><description><![CDATA[A look into js loops]]></description><link>https://blog.tenzhiyang.com/2020-04-24-froot-loops/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-04-24-froot-loops/</guid><pubDate>Fri, 24 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A look into js loops&lt;/p&gt;
-
-          &lt;div
-            class=&quot;gatsby-resp-iframe-wrapper&quot;
-            style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
-          &gt;
-            &lt;iframe src=&quot;https://youtu.be/UxkI6dF06R8?t=675&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          &quot;&gt;&lt;/iframe&gt;
-          &lt;/div&gt;
-          </content:encoded></item><item><title><![CDATA[butt is a valid css value]]></title><link>https://blog.tenzhiyang.com/2020-03-04-five-months-into-LIP/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-03-04-five-months-into-LIP/</guid><pubDate>Wed, 04 Mar 2020 00:00:00 GMT</pubDate><content:encoded>
-          &lt;div
-            class=&quot;gatsby-resp-iframe-wrapper&quot;
-            style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
-          &gt;
-            &lt;iframe src=&quot;https://youtu.be/FJfCL3TCCHQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          &quot;&gt;&lt;/iframe&gt;
-          &lt;/div&gt;
-          </content:encoded></item><item><title><![CDATA[SVGs are good butt can you style them]]></title><description><![CDATA[Script for the above slides Hi everyone I’m Ten Zhi Yang, Front end Engineer at Shopee. For my talk today, I really want everyone to know…]]></description><link>https://blog.tenzhiyang.com/2020-02-26-svgs-are-good-butt-can-you-style-them/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-02-26-svgs-are-good-butt-can-you-style-them/</guid><pubDate>Wed, 26 Feb 2020 00:00:00 GMT</pubDate><content:encoded>
-          &lt;div
-            class=&quot;gatsby-resp-iframe-wrapper&quot;
-            style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
-          &gt;
-            &lt;iframe src=&quot;https://www.youtube.com/embed/FJfCL3TCCHQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          &quot;&gt;&lt;/iframe&gt;
-          &lt;/div&gt;
-          
->>>>>>> 9c17802cfd0e1babe0cc55c9a231fd22ad17df3c
+&lt;p&gt;The &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode&quot;&gt;AnalyserNode&lt;/a&gt; allows us to take numerical representations of the audio context. This is usually used for [visualizations] (&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API&quot;&gt;https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API&lt;/a&gt;)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A look into building twatter]]></title><link>https://blog.tenzhiyang.com/2020-06-06-twatter-talk/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-06-06-twatter-talk/</guid><pubDate>Sat, 06 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/watch?v=Mut4F3C_dv8&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;</content:encoded></item><item><title><![CDATA[froot loops]]></title><description><![CDATA[A look into js loops]]></description><link>https://blog.tenzhiyang.com/2020-04-24-froot-loops/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-04-24-froot-loops/</guid><pubDate>Fri, 24 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A look into js loops&lt;/p&gt;
+&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://youtu.be/UxkI6dF06R8?t=675&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;</content:encoded></item><item><title><![CDATA[butt is a valid css value]]></title><link>https://blog.tenzhiyang.com/2020-03-04-five-months-into-LIP/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-03-04-five-months-into-LIP/</guid><pubDate>Wed, 04 Mar 2020 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://youtu.be/FJfCL3TCCHQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;</content:encoded></item><item><title><![CDATA[SVGs are good butt can you style them]]></title><description><![CDATA[Script for the above slides Hi everyone I’m Ten Zhi Yang, Front end Engineer at Shopee. For my talk today, I really want everyone to know…]]></description><link>https://blog.tenzhiyang.com/2020-02-26-svgs-are-good-butt-can-you-style-them/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-02-26-svgs-are-good-butt-can-you-style-them/</guid><pubDate>Wed, 26 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/FJfCL3TCCHQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 &lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;
-  &lt;source src=&quot;/pechakuchafix-669c7bb37ff5345b62a946f77bde4cb1.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;/669c7bb37ff5345b62a946f77bde4cb1/pechakuchafix.mp4&quot; type=&quot;video/mp4&quot;&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;
 &lt;h1&gt;Script for the above slides&lt;/h1&gt;
@@ -166,24 +110,7 @@ Your browser does not support the video tag.
 &lt;/ul&gt;
 &lt;p&gt;Of course I would have liked to write some solution that identifies chords, but after some research, I found that multi tonal pitch detection is a very difficult problem to solve, and JS likely isn’t the best tool for that job (I like writing “serverless” apps). I stumbled across this really &lt;a href=&quot;https://github.com/cwilso/PitchDetect&quot;&gt;short and sweet repo for guitar tuning&lt;/a&gt; by &lt;a href=&quot;https:twitter.com/cwilso&quot;&gt;@cwilso&lt;/a&gt; and found that it was really well written and easy to re-purpose.&lt;/p&gt;
 &lt;p&gt;Playing around with it, I found that when playing a note on a guitar, it was fairly consistent in pitch, although the attack and decay might be messed up. My solution to remove noise from deliberate notes is to have a queue that I constantly check. If the entire queue is of that same note, I can assume that that’s a deliberate note. The next thing is generating scales. For this I wrote a &lt;a href=&quot;https://codepen.io/Tzyinc/pen/QWweQXa&quot;&gt;helper function&lt;/a&gt; to generate scales from a root note and a step pattern like &lt;code class=&quot;language-text&quot;&gt;4-H-W-4-H&lt;/code&gt; where W is a whole step and H is a half step (and numbers are just the number of steps).&lt;/p&gt;
-<<<<<<< HEAD
-&lt;p&gt;Here’s my &lt;a href=&quot;https://app.tenzhiyang.com/tuner/&quot;&gt;scale practicing prototype&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Adding a bot to post updates to twitter]]></title><description><![CDATA[Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Adding twitter feed to my blog]]></title><description><![CDATA[Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for…]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here’s to a better blog layout!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New section here!]]></title><description><![CDATA[Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!]]></description><link>https://blog.tenzhiyang.com/2020-01-28-half-baked/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-28-half-baked/</guid><pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Five months into Lip]]></title><link>https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</guid><pubDate>Fri, 13 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/0TUP5qEBYhQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;</content:encoded></item><item><title><![CDATA[Synth til it hertz]]></title><description><![CDATA[This article is a complement to my presentation in React Knowledgable. Before we go into the specifics, I’d like to disclose that I am no…]]></description><link>https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
-=======
-&lt;p&gt;Here’s my &lt;a href=&quot;https://app.tenzhiyang.com/tuner/&quot;&gt;scale practicing prototype&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Adding twitter feed to my blog]]></title><description><![CDATA[Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for…]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here’s to a better blog layout!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Adding a bot to post updates to twitter]]></title><description><![CDATA[Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New section here!]]></title><description><![CDATA[Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!]]></description><link>https://blog.tenzhiyang.com/2020-01-28-half-baked/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-28-half-baked/</guid><pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Five months into Lip]]></title><link>https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</guid><pubDate>Fri, 13 Dec 2019 00:00:00 GMT</pubDate><content:encoded>
-          &lt;div
-            class=&quot;gatsby-resp-iframe-wrapper&quot;
-            style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden;margin-bottom: 1.0725rem&quot;
-          &gt;
-            &lt;iframe src=&quot;https://www.youtube.com/embed/0TUP5qEBYhQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          &quot;&gt;&lt;/iframe&gt;
-          &lt;/div&gt;
-          </content:encoded></item><item><title><![CDATA[Synth til it hertz]]></title><description><![CDATA[This article is a complement to my presentation in React Knowledgable. Before we go into the specifics, I’d like to disclose that I am no…]]></description><link>https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
->>>>>>> 9c17802cfd0e1babe0cc55c9a231fd22ad17df3c
+&lt;p&gt;Here’s my &lt;a href=&quot;https://app.tenzhiyang.com/tuner/&quot;&gt;scale practicing prototype&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Adding twitter feed to my blog]]></title><description><![CDATA[Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for…]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here’s to a better blog layout!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Adding a bot to post updates to twitter]]></title><description><![CDATA[Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New section here!]]></title><description><![CDATA[Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!]]></description><link>https://blog.tenzhiyang.com/2020-01-28-half-baked/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-28-half-baked/</guid><pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Five months into Lip]]></title><link>https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</guid><pubDate>Fri, 13 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/0TUP5qEBYhQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;</content:encoded></item><item><title><![CDATA[Synth til it hertz]]></title><description><![CDATA[This article is a complement to my presentation in React Knowledgable. Before we go into the specifics, I’d like to disclose that I am no…]]></description><link>https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Before we go into the specifics, I’d like to disclose that I am no musician. I make sounds on an ukulele and sometimes it sounds like music. Whatever music theory I know is from Youtube videos. I have a fascination with electric musical instruments, from things like my electric ukulele, to synthesizers like the theremin.&lt;/p&gt;
 &lt;p&gt;
       &lt;div class=&quot;gria-image-wrapper&quot; style=&quot;
@@ -195,7 +122,7 @@ Your browser does not support the video tag.
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 124.5742092457421%;
+        padding-bottom: 124.32432432432432%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -214,17 +141,17 @@ Your browser does not support the video tag.
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/26f567f493557b8052e85192be634e53/8ee9c/Theramin-Alexandra-Stepanoff-1930.jpg 148w,
-/static/26f567f493557b8052e85192be634e53/ebbe7/Theramin-Alexandra-Stepanoff-1930.jpg 295w,
-/static/26f567f493557b8052e85192be634e53/c739e/Theramin-Alexandra-Stepanoff-1930.jpg 590w,
-/static/26f567f493557b8052e85192be634e53/31f8d/Theramin-Alexandra-Stepanoff-1930.jpg 822w&quot;&gt;
+      &lt;source srcset=&quot;/static/26f567f493557b8052e85192be634e53/a80bd/Theramin-Alexandra-Stepanoff-1930.jpg 148w,
+/static/26f567f493557b8052e85192be634e53/1c91a/Theramin-Alexandra-Stepanoff-1930.jpg 295w,
+/static/26f567f493557b8052e85192be634e53/1c72d/Theramin-Alexandra-Stepanoff-1930.jpg 590w,
+/static/26f567f493557b8052e85192be634e53/75474/Theramin-Alexandra-Stepanoff-1930.jpg 822w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/26f567f493557b8052e85192be634e53/c739e/Theramin-Alexandra-Stepanoff-1930.jpg&quot;
-        srcset=&quot;/static/26f567f493557b8052e85192be634e53/8ee9c/Theramin-Alexandra-Stepanoff-1930.jpg 148w,
-/static/26f567f493557b8052e85192be634e53/ebbe7/Theramin-Alexandra-Stepanoff-1930.jpg 295w,
-/static/26f567f493557b8052e85192be634e53/c739e/Theramin-Alexandra-Stepanoff-1930.jpg 590w,
-/static/26f567f493557b8052e85192be634e53/31f8d/Theramin-Alexandra-Stepanoff-1930.jpg 822w&quot;
+        src=&quot;/static/26f567f493557b8052e85192be634e53/1c72d/Theramin-Alexandra-Stepanoff-1930.jpg&quot;
+        srcset=&quot;/static/26f567f493557b8052e85192be634e53/a80bd/Theramin-Alexandra-Stepanoff-1930.jpg 148w,
+/static/26f567f493557b8052e85192be634e53/1c91a/Theramin-Alexandra-Stepanoff-1930.jpg 295w,
+/static/26f567f493557b8052e85192be634e53/1c72d/Theramin-Alexandra-Stepanoff-1930.jpg 590w,
+/static/26f567f493557b8052e85192be634e53/75474/Theramin-Alexandra-Stepanoff-1930.jpg 822w&quot;
         title=&quot;theremin&quot;
         alt=&quot;theremin&quot;
         loading=&quot;lazy&quot;
@@ -253,7 +180,7 @@ Your browser does not support the video tag.
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 177.77777777777777%;
+        padding-bottom: 177.70270270270268%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -272,17 +199,17 @@ Your browser does not support the video tag.
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/3b36257ff63367dfd34a3f71352c064a/8ee9c/ota.jpg 148w,
-/static/3b36257ff63367dfd34a3f71352c064a/ebbe7/ota.jpg 295w,
-/static/3b36257ff63367dfd34a3f71352c064a/c739e/ota.jpg 590w,
-/static/3b36257ff63367dfd34a3f71352c064a/cad07/ota.jpg 720w&quot;&gt;
+      &lt;source srcset=&quot;/static/3b36257ff63367dfd34a3f71352c064a/a80bd/ota.jpg 148w,
+/static/3b36257ff63367dfd34a3f71352c064a/1c91a/ota.jpg 295w,
+/static/3b36257ff63367dfd34a3f71352c064a/1c72d/ota.jpg 590w,
+/static/3b36257ff63367dfd34a3f71352c064a/80e3c/ota.jpg 720w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/3b36257ff63367dfd34a3f71352c064a/c739e/ota.jpg&quot;
-        srcset=&quot;/static/3b36257ff63367dfd34a3f71352c064a/8ee9c/ota.jpg 148w,
-/static/3b36257ff63367dfd34a3f71352c064a/ebbe7/ota.jpg 295w,
-/static/3b36257ff63367dfd34a3f71352c064a/c739e/ota.jpg 590w,
-/static/3b36257ff63367dfd34a3f71352c064a/cad07/ota.jpg 720w&quot;
+        src=&quot;/static/3b36257ff63367dfd34a3f71352c064a/1c72d/ota.jpg&quot;
+        srcset=&quot;/static/3b36257ff63367dfd34a3f71352c064a/a80bd/ota.jpg 148w,
+/static/3b36257ff63367dfd34a3f71352c064a/1c91a/ota.jpg 295w,
+/static/3b36257ff63367dfd34a3f71352c064a/1c72d/ota.jpg 590w,
+/static/3b36257ff63367dfd34a3f71352c064a/80e3c/ota.jpg 720w&quot;
         title=&quot;drawing of an otamatone&quot;
         alt=&quot;drawing of an otamatone&quot;
         loading=&quot;lazy&quot;
@@ -302,7 +229,7 @@ Your browser does not support the video tag.
     &lt;/p&gt;
 &lt;h2&gt;The science of music&lt;/h2&gt;
 &lt;p&gt;In our early science education, we have learnt that sounds are vibrations that is sent through some medium (usually air) to our eardrums. The vibrations in our eardrums are then converted into electrical pulses and sent through our nerves. Here’s a visualization of the vibration as it appears in real life.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/soundvibration-986aa36e7d7ef78d05b645b6c1abc760.gif&quot; alt=&quot;sound vibration gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/986aa36e7d7ef78d05b645b6c1abc760/soundvibration.gif&quot; alt=&quot;sound vibration gif&quot;&gt;&lt;/p&gt;
 &lt;p&gt;However this isn’t very useful for analysis so we represent these vibrations in the form of waves like so:&lt;/p&gt;
 &lt;p&gt;
       &lt;div class=&quot;gria-image-wrapper&quot; style=&quot;
@@ -314,7 +241,7 @@ Your browser does not support the video tag.
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 51.07212475633528%;
+        padding-bottom: 51.35135135135135%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -333,19 +260,19 @@ Your browser does not support the video tag.
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/7cb75dd133c11c8b134ad324f9b548da/cf440/coswave.png 148w,
-/static/7cb75dd133c11c8b134ad324f9b548da/d2d38/coswave.png 295w,
-/static/7cb75dd133c11c8b134ad324f9b548da/b9e4f/coswave.png 590w,
-/static/7cb75dd133c11c8b134ad324f9b548da/f9b6a/coswave.png 885w,
-/static/7cb75dd133c11c8b134ad324f9b548da/751e3/coswave.png 1026w&quot;&gt;
+      &lt;source srcset=&quot;/static/7cb75dd133c11c8b134ad324f9b548da/12f09/coswave.png 148w,
+/static/7cb75dd133c11c8b134ad324f9b548da/e4a3f/coswave.png 295w,
+/static/7cb75dd133c11c8b134ad324f9b548da/fcda8/coswave.png 590w,
+/static/7cb75dd133c11c8b134ad324f9b548da/efc66/coswave.png 885w,
+/static/7cb75dd133c11c8b134ad324f9b548da/eb3fa/coswave.png 1026w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/7cb75dd133c11c8b134ad324f9b548da/b9e4f/coswave.png&quot;
-        srcset=&quot;/static/7cb75dd133c11c8b134ad324f9b548da/cf440/coswave.png 148w,
-/static/7cb75dd133c11c8b134ad324f9b548da/d2d38/coswave.png 295w,
-/static/7cb75dd133c11c8b134ad324f9b548da/b9e4f/coswave.png 590w,
-/static/7cb75dd133c11c8b134ad324f9b548da/f9b6a/coswave.png 885w,
-/static/7cb75dd133c11c8b134ad324f9b548da/751e3/coswave.png 1026w&quot;
+        src=&quot;/static/7cb75dd133c11c8b134ad324f9b548da/fcda8/coswave.png&quot;
+        srcset=&quot;/static/7cb75dd133c11c8b134ad324f9b548da/12f09/coswave.png 148w,
+/static/7cb75dd133c11c8b134ad324f9b548da/e4a3f/coswave.png 295w,
+/static/7cb75dd133c11c8b134ad324f9b548da/fcda8/coswave.png 590w,
+/static/7cb75dd133c11c8b134ad324f9b548da/efc66/coswave.png 885w,
+/static/7cb75dd133c11c8b134ad324f9b548da/eb3fa/coswave.png 1026w&quot;
         title=&quot;cosine wave&quot;
         alt=&quot;cosine wave&quot;
         loading=&quot;lazy&quot;
@@ -381,7 +308,7 @@ Your browser does not support the video tag.
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 97.16024340770791%;
+        padding-bottom: 97.2972972972973%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -395,24 +322,24 @@ Your browser does not support the video tag.
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAAEbElEQVQ4y1WU60/TZxTH+Sv2cia7xiV7MbMsW8zii73QMaPG4SVxOl3QqYiumzpQV7wUHaAwe3FgGCCCoNCKNxCZFS0O8FZxAgrYUqAolELFQu/97Pk9P9pkJ/ldnnOe8z3P+Z5znpR4PE4sFmNqNsDoyDDdljN4RodRJBaNEpuzy32Jf/HEhN3tneKxzcrksIOwWMfF/hTFOB0M8crloKlIx43833hSrMM7PqaCJsAiYQEUlbrZUJjnThe2urOYSwwMXjjFpDiEYk2Ji9eLgX4aTSewGY7y7ykdjbm/8qCqWG6IiqjhSBR7Qw39nW1S98Y/Q8NfxVwtL6F2Xwb2s0aGrtcSCIVIUSL2tlzBnJXB43I9D4q01B/Owtn9hJCIFonGmfH7uVthpPd+pzzh8/Y7nElfyY3TRdhrSyjVabl6rpopn08FdNnv8bRwP9bcPVjyDmNvbmJ06rUgJSYBXI4XVOoLk+tpzxjPjVqq0ldQXnScOpMJa3MrwXBY5VBJ2911n57zZdyymOlzuaVjJBKR3472DnK0B+V/OByW3wlnP60lhVj+LMXe1SuLpGClJEhXQL3+WSbezEgHxZgAbLXeorCgIBlE8VEkFAwy7nYTDMzOFVCpsgALiU1+UWnf1BQTExO4x8ZlRKUgitSdv4BRb/jfCc9XVmDQbKG9IItWQy4jz7qlPiUqooXjcRLS3tHJ/Pkf0dp4OakrKy2loqw8ubY/srNowad8/MGH/L59EzadhjZjLrMzfrUoVlsbK1etwX6zSRRFS+biz2k4oiEcVVPLz8un1GRMAlrE6RZ9soCV3yzn/XnvkLl6Bbfzs/GIXpaA1SUmPnv7LSp2ruPmwS1c16Rh1edIZ/+Ig0MZm/kjYxPTI4NSN9x1j7y1qaxeksqyxam8N+9dfliWyqxvUgX0ul3cPLqT+q1LqdzwFecy0hjp65HOzjvXsR7awSXNOkYfq304HQjwqOY0pZtXkfblQpZ8sZBL56pUDhMV8016efagHadw8r+eJBBTeR1ouUjL/s1Ytn3Ly/4eQnPjGBH2SUcf/1y9SNeTp8kxTQL6vR4xMZd5dK2BUYdDtpFSz676Mi7s2kDNtjV4h51JHpVW6b3bQu+NenyObhlA6RiZ8phzgPJt33HZdBzblQYMO7bSd09N78rJXLYvWyLSS8M/5k6CtZoO07hnDZf2rqdiaxo9zWY1ZeVlPnYQ7fq16ItP090/gK3xGhV7NASUpi7I5lr615h//h6PuIGUkz/ruEVT9nqemg5Qu387G5cuxnpUg8/zSgU8kb4Rve6IaF492pwcqkWLlO3LljzaKw2YBX/NB34k9MYnAR1tzVT9tIHMVcu5k7+b23m/YNXtYnxwQAWsM+gpyM6iu6eHixYLtr+tDA6NymkJicnwjI9LjmNzk/N6dIgGbQbH0tfSVrCbNl0mnWUnCCaur6Bog+L849RU1+IaGsI3EyCkOMdVohOi3tgq6NDDuzw05tB58gAPq0x4X45I/X9UtPOaPRDa4gAAAABJRU5ErkJggg==) center / cover no-repeat;
+          background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAAEbElEQVQ4y1WU60/TZxTH+Sv2cia7xiV7MbMsW8zii73QMaPG4SVxOl3QqYiumzpQV7wUHaAwe3FgGCCCoNCKNxCZFS0O8FZxAgrYUqAolELFQu/97Pk9P9pkJ/ldnnOe8z3P+Z5znpR4PE4sFmNqNsDoyDDdljN4RodRJBaNEpuzy32Jf/HEhN3tneKxzcrksIOwWMfF/hTFOB0M8crloKlIx43833hSrMM7PqaCJsAiYQEUlbrZUJjnThe2urOYSwwMXjjFpDiEYk2Ji9eLgX4aTSewGY7y7ykdjbm/8qCqWG6IiqjhSBR7Qw39nW1S98Y/Q8NfxVwtL6F2Xwb2s0aGrtcSCIVIUSL2tlzBnJXB43I9D4q01B/Owtn9hJCIFonGmPH7uVthpPd+pzzh8/Y7nElfyY3TRdhrSyjVabl6rpopn08FdNnv8bRwP9bcPVjyDmNvbmJ06rUgJSYBXI4XVOoLk+tpzxjPjVqq0ldQXnScOpMJa3MrwXBY5VBJ2911n57zZdyymOlzuaVjJBKR3472DnK0B+V/OByW3wlnP60lhVj+LMXe1SuLpGClJEhXQL3+WSbezEgHxZgAbLXeorCgIBlE8VEkFAwy7nYTDMzOFVCpsgALiU1+UWnf1BQTExO4x8ZlRKUgitSdv4BRb/jfCc9XVmDQbKG9IItWQy4jz7qlPiUqooXjcRLS3tHJ/Pkf0dp4OakrKy2loqw8ubY/srNowad8/MGH/L59EzadhjZjLrMzfrUoVlsbK1etwX6zSRRFS+biz2k4oiEcVVPLz8un1GRMAlrE6RZ9soCV3yzn/XnvkLl6Bbfzs/GIXpaA1SUmPnv7LSp2ruPmwS1c16Rh1edIZ/+Ig0MZm/kjYxPTI4NSN9x1j7y1qaxeksqyxam8N+9dfliWyqxvUgX0ul3cPLqT+q1LqdzwFecy0hjp65HOzjvXsR7awSXNOkYfq304HQjwqOY0pZtXkfblQpZ8sZBL56pUDhMV8016efagHadw8r+eJBBTeR1ouUjL/s1Ytn3Ly/4eQnPjGBH2SUcf/1y9SNeTp8kxTQL6vR4xMZd5dK2BUYdDtpFSz676Mi7s2kDNtjV4h51JHpVW6b3bQu+NenyObhlA6RiZ8phzgPJt33HZdBzblQYMO7bSd09N78rJXLYvWyLSS8M/5k6CtZoO07hnDZf2rqdiaxo9zWY1ZeVlPnYQ7fq16ItP090/gK3xGhV7NASUpi7I5lr615h//h6PuIGUkz/ruEVT9nqemg5Qu387G5cuxnpUg8/zSgU8kb4Rve6IaF492pwcqkWLlO3LljzaKw2YBX/NB34k9MYnAR1tzVT9tIHMVcu5k7+b23m/YNXtYnxwQAWsM+gpyM6iu6eHixYLtr+tDA6NymkJicnwjI9LjmNzk/N6dIgGbQbH0tfSVrCbNl0mnWUnCCaur6Bog+L849RU1+IaGsI3EyCkOMdVohOi3tgq6NDDuzw05tB58gAPq0x4X45I/X9Px/OZmqpa9QAAAABJRU5ErkJggg==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/459a98a27c007bc8d5483cb1f60ce98b/cf440/electricukulele.png 148w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/d2d38/electricukulele.png 295w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/b9e4f/electricukulele.png 590w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/f9b6a/electricukulele.png 885w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/59146/electricukulele.png 986w&quot;&gt;
+      &lt;source srcset=&quot;/static/459a98a27c007bc8d5483cb1f60ce98b/12f09/electricukulele.png 148w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/e4a3f/electricukulele.png 295w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/fcda8/electricukulele.png 590w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/efc66/electricukulele.png 885w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/0a867/electricukulele.png 986w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/459a98a27c007bc8d5483cb1f60ce98b/b9e4f/electricukulele.png&quot;
-        srcset=&quot;/static/459a98a27c007bc8d5483cb1f60ce98b/cf440/electricukulele.png 148w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/d2d38/electricukulele.png 295w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/b9e4f/electricukulele.png 590w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/f9b6a/electricukulele.png 885w,
-/static/459a98a27c007bc8d5483cb1f60ce98b/59146/electricukulele.png 986w&quot;
+        src=&quot;/static/459a98a27c007bc8d5483cb1f60ce98b/fcda8/electricukulele.png&quot;
+        srcset=&quot;/static/459a98a27c007bc8d5483cb1f60ce98b/12f09/electricukulele.png 148w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/e4a3f/electricukulele.png 295w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/fcda8/electricukulele.png 590w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/efc66/electricukulele.png 885w,
+/static/459a98a27c007bc8d5483cb1f60ce98b/0a867/electricukulele.png 986w&quot;
         title=&quot;the electric ukulele that I own&quot;
         alt=&quot;the electric ukulele that I own&quot;
         loading=&quot;lazy&quot;
@@ -494,7 +421,7 @@ function stopNote() {
 &lt;h2&gt;It’s going down, I’m telling timbre&lt;/h2&gt;
 &lt;p&gt;From wikipedia, timbre is what makes a particular musical sound have a different sound from another. In order to change the timbre, we need to change how the waves look like. Web audio api provides us a function &lt;code class=&quot;language-text&quot;&gt;OscillatorNode.setPeriodicWave()&lt;/code&gt; which accepts a periodicWave object that can be &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createPeriodicWave&quot;&gt;created&lt;/a&gt; using &lt;code class=&quot;language-text&quot;&gt;AudioContext.createPeriodicWave(real, imag[, constraints]);&lt;/code&gt;. In order to understand the inputs, we need to have a rough understanding of fourier series. &lt;/p&gt;
 &lt;p&gt;The main concept we need to know is that all waves is either sinusoidal (derived from sine) or can be approximated from the summation of sinusoidal waves. All these waves can be represented in the form of fourier series&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/bartgif-0ba07fafcccac50d42d6167038c7f630.gif&quot; alt=&quot;bart simpson drawn using epicycles&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/0ba07fafcccac50d42d6167038c7f630/bartgif.gif&quot; alt=&quot;bart simpson drawn using epicycles&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Looking at how the (non-normalised) waveform is generated from &lt;a href=&quot;https://webaudio.github.io/web-audio-api/#waveform-generation&quot;&gt;the specifications&lt;/a&gt;:&lt;/p&gt;
 &lt;p&gt;Let a and b represent the &lt;code class=&quot;language-text&quot;&gt;[real]&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;[imag]&lt;/code&gt; arrays of length &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;L&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;L&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; respectively. then the basic time-domain waveform, &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;x(t)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; can be computed using:&lt;/p&gt;
 &lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;munderover&gt;&lt;mo&gt;∑&lt;/mo&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;L&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munderover&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;mi&gt;cos&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;mi&gt;sin&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;π&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;x(t) = \sum^{L-1}_{k=1} [a[k]\cos 2\pi kt + b[k]\sin 2\pi kt]&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:3.1304490000000005em;vertical-align:-1.302113em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.8283360000000002em;&quot;&gt;&lt;span style=&quot;top:-1.8478869999999998em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3.05em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.0500049999999996em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3.05em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop op-symbol large-op&quot;&gt;∑&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-4.300005em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3.05em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;mbin mtight&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.302113em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;cos&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;π&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;sin&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;π&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
@@ -509,7 +436,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 78.86497064579255%;
+        padding-bottom: 79.05405405405406%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -528,19 +455,19 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/ed5824084d7a551bad7b7cefc774c7f4/cf440/periodicwave.png 148w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/d2d38/periodicwave.png 295w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/b9e4f/periodicwave.png 590w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/f9b6a/periodicwave.png 885w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/e8f76/periodicwave.png 1022w&quot;&gt;
+      &lt;source srcset=&quot;/static/ed5824084d7a551bad7b7cefc774c7f4/12f09/periodicwave.png 148w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/e4a3f/periodicwave.png 295w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/fcda8/periodicwave.png 590w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/efc66/periodicwave.png 885w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/1ac29/periodicwave.png 1022w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/ed5824084d7a551bad7b7cefc774c7f4/b9e4f/periodicwave.png&quot;
-        srcset=&quot;/static/ed5824084d7a551bad7b7cefc774c7f4/cf440/periodicwave.png 148w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/d2d38/periodicwave.png 295w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/b9e4f/periodicwave.png 590w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/f9b6a/periodicwave.png 885w,
-/static/ed5824084d7a551bad7b7cefc774c7f4/e8f76/periodicwave.png 1022w&quot;
+        src=&quot;/static/ed5824084d7a551bad7b7cefc774c7f4/fcda8/periodicwave.png&quot;
+        srcset=&quot;/static/ed5824084d7a551bad7b7cefc774c7f4/12f09/periodicwave.png 148w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/e4a3f/periodicwave.png 295w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/fcda8/periodicwave.png 590w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/efc66/periodicwave.png 885w,
+/static/ed5824084d7a551bad7b7cefc774c7f4/1ac29/periodicwave.png 1022w&quot;
         title=&quot;screenshot of my fourier series visualizer tool&quot;
         alt=&quot;screenshot of my fourier series visualizer tool&quot;
         loading=&quot;lazy&quot;
@@ -569,7 +496,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 121.82254196642685%;
+        padding-bottom: 121.62162162162163%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -588,17 +515,17 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f671bd6e0c83f4933eb1962da5256092/cf440/goodenough.png 148w,
-/static/f671bd6e0c83f4933eb1962da5256092/d2d38/goodenough.png 295w,
-/static/f671bd6e0c83f4933eb1962da5256092/b9e4f/goodenough.png 590w,
-/static/f671bd6e0c83f4933eb1962da5256092/1d25d/goodenough.png 834w&quot;&gt;
+      &lt;source srcset=&quot;/static/f671bd6e0c83f4933eb1962da5256092/12f09/goodenough.png 148w,
+/static/f671bd6e0c83f4933eb1962da5256092/e4a3f/goodenough.png 295w,
+/static/f671bd6e0c83f4933eb1962da5256092/fcda8/goodenough.png 590w,
+/static/f671bd6e0c83f4933eb1962da5256092/5d72a/goodenough.png 834w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f671bd6e0c83f4933eb1962da5256092/b9e4f/goodenough.png&quot;
-        srcset=&quot;/static/f671bd6e0c83f4933eb1962da5256092/cf440/goodenough.png 148w,
-/static/f671bd6e0c83f4933eb1962da5256092/d2d38/goodenough.png 295w,
-/static/f671bd6e0c83f4933eb1962da5256092/b9e4f/goodenough.png 590w,
-/static/f671bd6e0c83f4933eb1962da5256092/1d25d/goodenough.png 834w&quot;
+        src=&quot;/static/f671bd6e0c83f4933eb1962da5256092/fcda8/goodenough.png&quot;
+        srcset=&quot;/static/f671bd6e0c83f4933eb1962da5256092/12f09/goodenough.png 148w,
+/static/f671bd6e0c83f4933eb1962da5256092/e4a3f/goodenough.png 295w,
+/static/f671bd6e0c83f4933eb1962da5256092/fcda8/goodenough.png 590w,
+/static/f671bd6e0c83f4933eb1962da5256092/5d72a/goodenough.png 834w&quot;
         title=&quot;my good enough attempt&quot;
         alt=&quot;my good enough attempt&quot;
         loading=&quot;lazy&quot;
@@ -627,7 +554,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 165.26548672566372%;
+        padding-bottom: 165.54054054054052%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -646,19 +573,19 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f5c5eb10e749d35029d79c5e95381f3d/cf440/otamascreen.png 148w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/d2d38/otamascreen.png 295w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/b9e4f/otamascreen.png 590w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/f9b6a/otamascreen.png 885w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/756ed/otamascreen.png 904w&quot;&gt;
+      &lt;source srcset=&quot;/static/f5c5eb10e749d35029d79c5e95381f3d/12f09/otamascreen.png 148w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/e4a3f/otamascreen.png 295w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/fcda8/otamascreen.png 590w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/efc66/otamascreen.png 885w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/d9217/otamascreen.png 904w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f5c5eb10e749d35029d79c5e95381f3d/b9e4f/otamascreen.png&quot;
-        srcset=&quot;/static/f5c5eb10e749d35029d79c5e95381f3d/cf440/otamascreen.png 148w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/d2d38/otamascreen.png 295w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/b9e4f/otamascreen.png 590w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/f9b6a/otamascreen.png 885w,
-/static/f5c5eb10e749d35029d79c5e95381f3d/756ed/otamascreen.png 904w&quot;
+        src=&quot;/static/f5c5eb10e749d35029d79c5e95381f3d/fcda8/otamascreen.png&quot;
+        srcset=&quot;/static/f5c5eb10e749d35029d79c5e95381f3d/12f09/otamascreen.png 148w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/e4a3f/otamascreen.png 295w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/fcda8/otamascreen.png 590w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/efc66/otamascreen.png 885w,
+/static/f5c5eb10e749d35029d79c5e95381f3d/d9217/otamascreen.png 904w&quot;
         title=&quot;screenshot of otamaphone&quot;
         alt=&quot;screenshot of otamaphone&quot;
         loading=&quot;lazy&quot;
@@ -708,15 +635,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/a4c6952dacc63ac092a696b1334b1e89/8ee9c/tenda.jpg 148w,
-/static/a4c6952dacc63ac092a696b1334b1e89/ebbe7/tenda.jpg 295w,
-/static/a4c6952dacc63ac092a696b1334b1e89/ab422/tenda.jpg 512w&quot;&gt;
+      &lt;source srcset=&quot;/static/a4c6952dacc63ac092a696b1334b1e89/a80bd/tenda.jpg 148w,
+/static/a4c6952dacc63ac092a696b1334b1e89/1c91a/tenda.jpg 295w,
+/static/a4c6952dacc63ac092a696b1334b1e89/36dd4/tenda.jpg 512w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/a4c6952dacc63ac092a696b1334b1e89/ab422/tenda.jpg&quot;
-        srcset=&quot;/static/a4c6952dacc63ac092a696b1334b1e89/8ee9c/tenda.jpg 148w,
-/static/a4c6952dacc63ac092a696b1334b1e89/ebbe7/tenda.jpg 295w,
-/static/a4c6952dacc63ac092a696b1334b1e89/ab422/tenda.jpg 512w&quot;
+        src=&quot;/static/a4c6952dacc63ac092a696b1334b1e89/36dd4/tenda.jpg&quot;
+        srcset=&quot;/static/a4c6952dacc63ac092a696b1334b1e89/a80bd/tenda.jpg 148w,
+/static/a4c6952dacc63ac092a696b1334b1e89/1c91a/tenda.jpg 295w,
+/static/a4c6952dacc63ac092a696b1334b1e89/36dd4/tenda.jpg 512w&quot;
         title=&quot;the tenda m5&quot;
         alt=&quot;the tenda m5&quot;
         loading=&quot;lazy&quot;
@@ -761,20 +688,20 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQIG/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB1ua1E9CoDRgJB//EABwQAAIDAAMBAAAAAAAAAAAAAAIDAAEEEBESFP/aAAgBAQABBQI3rCDpUUq6uMydz5Gel5aAef/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EAB0QAAIBBAMAAAAAAAAAAAAAAAARAQIgIZEiMnH/2gAIAQEABj8CzVo7L0wcZ2RCE7P/xAAbEAEAAwADAQAAAAAAAAAAAAABABEhIFFhQf/aAAgBAQABPyH7o9amNVdZgFoTyC1r8jS57vJfDVbzh//aAAwDAQACAAMAAAAQ48cA/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAHxABAAEEAQUAAAAAAAAAAAAAAREAITFBIFFhkbHR/9oACAEBAAE/EJIIe8pglWh97ULasKEqeOVdV2cnylkai4z2z03TOWBGAsEHjh//2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQIG/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB1ua1E9CoDRgJB//EABwQAAIDAAMBAAAAAAAAAAAAAAIDAAEEEBESFP/aAAgBAQABBQI3rCDpUUq6uMydz5Gel5aAef/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EAB0QAAIBBAMAAAAAAAAAAAAAAAARAQIgIZEiMnH/2gAIAQEABj8CzVo7L0wcZ2RCE7P/xAAbEAEAAwADAQAAAAAAAAAAAAABABEhIFFhQf/aAAgBAQABPyH7o9amNVdYgFoTyC1r8jQ57vJfDVbzh//aAAwDAQACAAMAAAAQ48cA/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAHxABAAEEAQUAAAAAAAAAAAAAAREAITFBIFFhkbHR/9oACAEBAAE/EJIIe8pglWl97ULasKEqeOVdV2cnymaai4z2z03TOWBGAsEHjh//2Q==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/fac4e61f2f1cf1273452414965df19f3/8ee9c/erx.jpg 148w,
-/static/fac4e61f2f1cf1273452414965df19f3/ebbe7/erx.jpg 295w,
-/static/fac4e61f2f1cf1273452414965df19f3/48a11/erx.jpg 500w&quot;&gt;
+      &lt;source srcset=&quot;/static/fac4e61f2f1cf1273452414965df19f3/a80bd/erx.jpg 148w,
+/static/fac4e61f2f1cf1273452414965df19f3/1c91a/erx.jpg 295w,
+/static/fac4e61f2f1cf1273452414965df19f3/41099/erx.jpg 500w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/fac4e61f2f1cf1273452414965df19f3/48a11/erx.jpg&quot;
-        srcset=&quot;/static/fac4e61f2f1cf1273452414965df19f3/8ee9c/erx.jpg 148w,
-/static/fac4e61f2f1cf1273452414965df19f3/ebbe7/erx.jpg 295w,
-/static/fac4e61f2f1cf1273452414965df19f3/48a11/erx.jpg 500w&quot;
+        src=&quot;/static/fac4e61f2f1cf1273452414965df19f3/41099/erx.jpg&quot;
+        srcset=&quot;/static/fac4e61f2f1cf1273452414965df19f3/a80bd/erx.jpg 148w,
+/static/fac4e61f2f1cf1273452414965df19f3/1c91a/erx.jpg 295w,
+/static/fac4e61f2f1cf1273452414965df19f3/41099/erx.jpg 500w&quot;
         title=&quot;the edge router x&quot;
         alt=&quot;the edge router x&quot;
         loading=&quot;lazy&quot;
@@ -824,15 +751,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/a4841ffc5664bdc74657d2bee6683b4e/cf440/chromerex.png 148w,
-/static/a4841ffc5664bdc74657d2bee6683b4e/d2d38/chromerex.png 295w,
-/static/a4841ffc5664bdc74657d2bee6683b4e/135ae/chromerex.png 300w&quot;&gt;
+      &lt;source srcset=&quot;/static/a4841ffc5664bdc74657d2bee6683b4e/12f09/chromerex.png 148w,
+/static/a4841ffc5664bdc74657d2bee6683b4e/e4a3f/chromerex.png 295w,
+/static/a4841ffc5664bdc74657d2bee6683b4e/5a46d/chromerex.png 300w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/a4841ffc5664bdc74657d2bee6683b4e/135ae/chromerex.png&quot;
-        srcset=&quot;/static/a4841ffc5664bdc74657d2bee6683b4e/cf440/chromerex.png 148w,
-/static/a4841ffc5664bdc74657d2bee6683b4e/d2d38/chromerex.png 295w,
-/static/a4841ffc5664bdc74657d2bee6683b4e/135ae/chromerex.png 300w&quot;
+        src=&quot;/static/a4841ffc5664bdc74657d2bee6683b4e/5a46d/chromerex.png&quot;
+        srcset=&quot;/static/a4841ffc5664bdc74657d2bee6683b4e/12f09/chromerex.png 148w,
+/static/a4841ffc5664bdc74657d2bee6683b4e/e4a3f/chromerex.png 295w,
+/static/a4841ffc5664bdc74657d2bee6683b4e/5a46d/chromerex.png 300w&quot;
         title=&quot;chrome&apos;s no internet t rex game&quot;
         alt=&quot;chrome&apos;s no internet t rex game&quot;
         loading=&quot;lazy&quot;
@@ -863,7 +790,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 44.77064220183486%;
+        padding-bottom: 44.5945945945946%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -877,20 +804,20 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABhw2XKLJR/8QAHBAAAQMFAAAAAAAAAAAAAAAAAwABAhESMTIz/9oACAEBAAEFAhbHrKNpHQUTBOn/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFH/8QAGhABAQACAwAAAAAAAAAAAAAAAQARIUFxkf/aAAgBAQAGPwIjHFpfZnqb/8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAITEgcf/aAAgBAQABPyEmAUPYxtomBnBXEC//2gAMAwEAAgADAAAAEFzv/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAh/9oACAEDAQE/EDV//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qo//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExcaFRsfH/2gAIAQEAAT8QEaiXhYfEFcEjWnX2OIIsGlY5JrwJ3s7h6J//2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABhw2XKLJR/8QAHBAAAQMFAAAAAAAAAAAAAAAAAwABAhESMTIz/9oACAEBAAEFAhbHrKNpHQUTBOn/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFH/8QAGhABAQACAwAAAAAAAAAAAAAAAQARIUFxkf/aAAgBAQAGPwIjHFpfZnqb/8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAITEgcf/aAAgBAQABPyEmAUPYxtom4GcFcQL/AP/aAAwDAQACAAMAAAAQXO//xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8QNX//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCj/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFxoVGx8f/aAAgBAQABPxARqJeFh8QVwSNo6+xhBFg0rHJNeBO9ncPRP//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f7e42143667e22fbd90711aba4fe3279/8ee9c/raspierx.jpg 148w,
-/static/f7e42143667e22fbd90711aba4fe3279/ebbe7/raspierx.jpg 295w,
-/static/f7e42143667e22fbd90711aba4fe3279/1c045/raspierx.jpg 545w&quot;&gt;
+      &lt;source srcset=&quot;/static/f7e42143667e22fbd90711aba4fe3279/a80bd/raspierx.jpg 148w,
+/static/f7e42143667e22fbd90711aba4fe3279/1c91a/raspierx.jpg 295w,
+/static/f7e42143667e22fbd90711aba4fe3279/95118/raspierx.jpg 545w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f7e42143667e22fbd90711aba4fe3279/1c045/raspierx.jpg&quot;
-        srcset=&quot;/static/f7e42143667e22fbd90711aba4fe3279/8ee9c/raspierx.jpg 148w,
-/static/f7e42143667e22fbd90711aba4fe3279/ebbe7/raspierx.jpg 295w,
-/static/f7e42143667e22fbd90711aba4fe3279/1c045/raspierx.jpg 545w&quot;
+        src=&quot;/static/f7e42143667e22fbd90711aba4fe3279/95118/raspierx.jpg&quot;
+        srcset=&quot;/static/f7e42143667e22fbd90711aba4fe3279/a80bd/raspierx.jpg 148w,
+/static/f7e42143667e22fbd90711aba4fe3279/1c91a/raspierx.jpg 295w,
+/static/f7e42143667e22fbd90711aba4fe3279/95118/raspierx.jpg 545w&quot;
         title=&quot;Raspberry pi, not much smaller than the edge router x next to it&quot;
         alt=&quot;Raspberry pi, not much smaller than the edge router x next to it&quot;
         loading=&quot;lazy&quot;
@@ -921,7 +848,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 70.99236641221374%;
+        padding-bottom: 70.94594594594594%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -940,21 +867,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/ceecdae147aa5ba0d0b876e434dc15f0/cf440/fast.png 148w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/d2d38/fast.png 295w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/b9e4f/fast.png 590w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/f9b6a/fast.png 885w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/2d849/fast.png 1180w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/03181/fast.png 1572w&quot;&gt;
+      &lt;source srcset=&quot;/static/ceecdae147aa5ba0d0b876e434dc15f0/12f09/fast.png 148w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/e4a3f/fast.png 295w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/fcda8/fast.png 590w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/efc66/fast.png 885w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/c83ae/fast.png 1180w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/5df5d/fast.png 1572w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/ceecdae147aa5ba0d0b876e434dc15f0/b9e4f/fast.png&quot;
-        srcset=&quot;/static/ceecdae147aa5ba0d0b876e434dc15f0/cf440/fast.png 148w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/d2d38/fast.png 295w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/b9e4f/fast.png 590w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/f9b6a/fast.png 885w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/2d849/fast.png 1180w,
-/static/ceecdae147aa5ba0d0b876e434dc15f0/03181/fast.png 1572w&quot;
+        src=&quot;/static/ceecdae147aa5ba0d0b876e434dc15f0/fcda8/fast.png&quot;
+        srcset=&quot;/static/ceecdae147aa5ba0d0b876e434dc15f0/12f09/fast.png 148w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/e4a3f/fast.png 295w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/fcda8/fast.png 590w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/efc66/fast.png 885w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/c83ae/fast.png 1180w,
+/static/ceecdae147aa5ba0d0b876e434dc15f0/5df5d/fast.png 1572w&quot;
         title=&quot;300Mbps on wifi&quot;
         alt=&quot;300Mbps on wifi&quot;
         loading=&quot;lazy&quot;
@@ -1014,17 +941,17 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/d3e1067cf318eb8febb657cad57be757/8ee9c/dectree.jpg 148w,
-/static/d3e1067cf318eb8febb657cad57be757/ebbe7/dectree.jpg 295w,
-/static/d3e1067cf318eb8febb657cad57be757/c739e/dectree.jpg 590w,
-/static/d3e1067cf318eb8febb657cad57be757/a296c/dectree.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/d3e1067cf318eb8febb657cad57be757/a80bd/dectree.jpg 148w,
+/static/d3e1067cf318eb8febb657cad57be757/1c91a/dectree.jpg 295w,
+/static/d3e1067cf318eb8febb657cad57be757/1c72d/dectree.jpg 590w,
+/static/d3e1067cf318eb8febb657cad57be757/4b190/dectree.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/d3e1067cf318eb8febb657cad57be757/c739e/dectree.jpg&quot;
-        srcset=&quot;/static/d3e1067cf318eb8febb657cad57be757/8ee9c/dectree.jpg 148w,
-/static/d3e1067cf318eb8febb657cad57be757/ebbe7/dectree.jpg 295w,
-/static/d3e1067cf318eb8febb657cad57be757/c739e/dectree.jpg 590w,
-/static/d3e1067cf318eb8febb657cad57be757/a296c/dectree.jpg 800w&quot;
+        src=&quot;/static/d3e1067cf318eb8febb657cad57be757/1c72d/dectree.jpg&quot;
+        srcset=&quot;/static/d3e1067cf318eb8febb657cad57be757/a80bd/dectree.jpg 148w,
+/static/d3e1067cf318eb8febb657cad57be757/1c91a/dectree.jpg 295w,
+/static/d3e1067cf318eb8febb657cad57be757/1c72d/dectree.jpg 590w,
+/static/d3e1067cf318eb8febb657cad57be757/4b190/dectree.jpg 800w&quot;
         title=&quot;decision tree&quot;
         alt=&quot;decision tree&quot;
         loading=&quot;lazy&quot;
@@ -1067,22 +994,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe/ki0C8Cgf/xAAYEAACAwAAAAAAAAAAAAAAAAAAEAEhQv/aAAgBAQABBQJ6LUL/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAcEAABBAMBAAAAAAAAAAAAAAABABARIUFRgbH/2gAIAQEAAT8hlSblrQ50gAFR1g9b/9oADAMBAAIAAwAAABAjyAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMUFhEFFx/9oACAEBAAE/EGjW14gGhpzRqDZiU1oDJ8hQYPB7zCoKekxBMwMrblt78f/Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe/ki0C8Cgf/xAAYEAACAwAAAAAAAAAAAAAAAAAAEAEhQf/aAAgBAQABBQJ6WoX/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAbEAACAwADAAAAAAAAAAAAAAABEQAQIUFRsf/aAAgBAQABPyFxnXWyeeoAAxUHtf/aAAwDAQACAAMAAAAQI8gA/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFRYRBBcf/aAAgBAQABPxBo1t4gGhp9GoZ1Kb0Bk+QoMOD3CoKdrEEzAytuW3vx/9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/8ee9c/randomforest.jpg 148w,
-/static/6692c4276cc9790d3bf0b66d620f0c3b/ebbe7/randomforest.jpg 295w,
-/static/6692c4276cc9790d3bf0b66d620f0c3b/c739e/randomforest.jpg 590w,
-/static/6692c4276cc9790d3bf0b66d620f0c3b/a296c/randomforest.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/a80bd/randomforest.jpg 148w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/1c91a/randomforest.jpg 295w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/1c72d/randomforest.jpg 590w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/4b190/randomforest.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/c739e/randomforest.jpg&quot;
-        srcset=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/8ee9c/randomforest.jpg 148w,
-/static/6692c4276cc9790d3bf0b66d620f0c3b/ebbe7/randomforest.jpg 295w,
-/static/6692c4276cc9790d3bf0b66d620f0c3b/c739e/randomforest.jpg 590w,
-/static/6692c4276cc9790d3bf0b66d620f0c3b/a296c/randomforest.jpg 800w&quot;
+        src=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/1c72d/randomforest.jpg&quot;
+        srcset=&quot;/static/6692c4276cc9790d3bf0b66d620f0c3b/a80bd/randomforest.jpg 148w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/1c91a/randomforest.jpg 295w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/1c72d/randomforest.jpg 590w,
+/static/6692c4276cc9790d3bf0b66d620f0c3b/4b190/randomforest.jpg 800w&quot;
         title=&quot;random forest&quot;
         alt=&quot;random forest&quot;
         loading=&quot;lazy&quot;
@@ -1127,22 +1054,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7UNoJQA//EABYQAQEBAAAAAAAAAAAAAAAAACARIf/aAAgBAQABBQLRT//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABkQAQADAQEAAAAAAAAAAAAAAAEQESEAMf/aAAgBAQABPyF1nF7bC0958YS5/9oADAMBAAIAAwAAABBQxzz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMRBBUWGB/9oACAEBAAE/ECr2A97huiR0BrjpF+Q2dHiGoCzbmUVVY4//2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe7UNoJQA//EABYQAQEBAAAAAAAAAAAAAAAAACARIf/aAAgBAQABBQLRT//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABoQAAIDAQEAAAAAAAAAAAAAAAERABAhMUH/2gAIAQEAAT8hOsgfpolTnhpO/wD/2gAMAwEAAgADAAAAENDHPP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExEEFRYYH/2gAIAQEAAT8QKvYD3uG6kjoDXFrS/J2dHiGohZzmUVVY4//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/8ee9c/neuron.jpg 148w,
-/static/ac83c7e7d2ce969673ce8b48fb237ca1/ebbe7/neuron.jpg 295w,
-/static/ac83c7e7d2ce969673ce8b48fb237ca1/c739e/neuron.jpg 590w,
-/static/ac83c7e7d2ce969673ce8b48fb237ca1/a296c/neuron.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/a80bd/neuron.jpg 148w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/1c91a/neuron.jpg 295w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/1c72d/neuron.jpg 590w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/4b190/neuron.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/c739e/neuron.jpg&quot;
-        srcset=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/8ee9c/neuron.jpg 148w,
-/static/ac83c7e7d2ce969673ce8b48fb237ca1/ebbe7/neuron.jpg 295w,
-/static/ac83c7e7d2ce969673ce8b48fb237ca1/c739e/neuron.jpg 590w,
-/static/ac83c7e7d2ce969673ce8b48fb237ca1/a296c/neuron.jpg 800w&quot;
+        src=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/1c72d/neuron.jpg&quot;
+        srcset=&quot;/static/ac83c7e7d2ce969673ce8b48fb237ca1/a80bd/neuron.jpg 148w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/1c91a/neuron.jpg 295w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/1c72d/neuron.jpg 590w,
+/static/ac83c7e7d2ce969673ce8b48fb237ca1/4b190/neuron.jpg 800w&quot;
         title=&quot;brain vs nn&quot;
         alt=&quot;brain vs nn&quot;
         loading=&quot;lazy&quot;
@@ -1189,22 +1116,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAECAwQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAe8pijaQpULg/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQACEx/9oACAEBAAEFAsGpcjpoK//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABoQAAIDAQEAAAAAAAAAAAAAAAERABBRITH/2gAIAQEAAT8hJKwxgrtDG0FewAdf/9oADAMBAAIAAwAAABAkzwD/xAAVEQEBAAAAAAAAAAAAAAAAAAAgIf/aAAgBAwEBPxCD/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQEg/9oACAECAQE/EGpj/8QAGxABAAIDAQEAAAAAAAAAAAAAARExABBBIVH/2gAIAQEAAT8Qk4PgvphFKL3RtPemQlpRpAQkmOoue6//2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAECAwQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAe8pijaQpULg/8QAGRABAAIDAAAAAAAAAAAAAAAAAQAQAiEx/9oACAEBAAEFAoNZcNNBX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABkQAQADAQEAAAAAAAAAAAAAAAEAEBFRIf/aAAgBAQABPyFXOM0K94ZvoWBtf//aAAwDAQACAAMAAAAQNM8A/8QAFREBAQAAAAAAAAAAAAAAAAAAICH/2gAIAQMBAT8Qg//EABYRAQEBAAAAAAAAAAAAAAAAABEBIP/aAAgBAgEBPxBqY//EABsQAQACAwEBAAAAAAAAAAAAAAERMQAQQSFR/9oACAEBAAE/EJGD4LWEUovdG096ZGWlGkEhJMdRc91//9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/073155acbd5405378a4882395a963ac7/8ee9c/cnn.jpg 148w,
-/static/073155acbd5405378a4882395a963ac7/ebbe7/cnn.jpg 295w,
-/static/073155acbd5405378a4882395a963ac7/c739e/cnn.jpg 590w,
-/static/073155acbd5405378a4882395a963ac7/a296c/cnn.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/073155acbd5405378a4882395a963ac7/a80bd/cnn.jpg 148w,
+/static/073155acbd5405378a4882395a963ac7/1c91a/cnn.jpg 295w,
+/static/073155acbd5405378a4882395a963ac7/1c72d/cnn.jpg 590w,
+/static/073155acbd5405378a4882395a963ac7/4b190/cnn.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/073155acbd5405378a4882395a963ac7/c739e/cnn.jpg&quot;
-        srcset=&quot;/static/073155acbd5405378a4882395a963ac7/8ee9c/cnn.jpg 148w,
-/static/073155acbd5405378a4882395a963ac7/ebbe7/cnn.jpg 295w,
-/static/073155acbd5405378a4882395a963ac7/c739e/cnn.jpg 590w,
-/static/073155acbd5405378a4882395a963ac7/a296c/cnn.jpg 800w&quot;
+        src=&quot;/static/073155acbd5405378a4882395a963ac7/1c72d/cnn.jpg&quot;
+        srcset=&quot;/static/073155acbd5405378a4882395a963ac7/a80bd/cnn.jpg 148w,
+/static/073155acbd5405378a4882395a963ac7/1c91a/cnn.jpg 295w,
+/static/073155acbd5405378a4882395a963ac7/1c72d/cnn.jpg 590w,
+/static/073155acbd5405378a4882395a963ac7/4b190/cnn.jpg 800w&quot;
         title=&quot;convolution and pooling layer&quot;
         alt=&quot;convolution and pooling layer&quot;
         loading=&quot;lazy&quot;
@@ -1249,22 +1176,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe/ENggKD//EABcQAQADAAAAAAAAAAAAAAAAAAEAECD/2gAIAQEAAQUChZn/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAZEAADAQEBAAAAAAAAAAAAAAABEBEAIUH/2gAIAQEAAT8h1dqIu9sCL//aAAwDAQACAAMAAAAQ8AgA/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAGxAAAQUBAQAAAAAAAAAAAAAAAQAQETFBIVH/2gAIAQEAAT8QWhvGGInDIQQAuDfrgoG//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe/Lk2CAoP/EABcQAQADAAAAAAAAAAAAAAAAAAEAECD/2gAIAQEAAQUChZn/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAUEAEAAAAAAAAAAAAAAAAAAAAw/9oACAEBAAY/Ah//xAAZEAADAAMAAAAAAAAAAAAAAAABEBEAICH/2gAIAQEAAT8hyu1EXSBF/9oADAMBAAIAAwAAABDQCAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAbEAEAAgMBAQAAAAAAAAAAAAABEBEAMUEhUf/aAAgBAQABPxDOh3yDJfGzBQm6d/ZDQj//2Q==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/eccf8bf44a10fd21843ce203fd146772/8ee9c/recc.jpg 148w,
-/static/eccf8bf44a10fd21843ce203fd146772/ebbe7/recc.jpg 295w,
-/static/eccf8bf44a10fd21843ce203fd146772/c739e/recc.jpg 590w,
-/static/eccf8bf44a10fd21843ce203fd146772/a296c/recc.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/eccf8bf44a10fd21843ce203fd146772/a80bd/recc.jpg 148w,
+/static/eccf8bf44a10fd21843ce203fd146772/1c91a/recc.jpg 295w,
+/static/eccf8bf44a10fd21843ce203fd146772/1c72d/recc.jpg 590w,
+/static/eccf8bf44a10fd21843ce203fd146772/4b190/recc.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/eccf8bf44a10fd21843ce203fd146772/c739e/recc.jpg&quot;
-        srcset=&quot;/static/eccf8bf44a10fd21843ce203fd146772/8ee9c/recc.jpg 148w,
-/static/eccf8bf44a10fd21843ce203fd146772/ebbe7/recc.jpg 295w,
-/static/eccf8bf44a10fd21843ce203fd146772/c739e/recc.jpg 590w,
-/static/eccf8bf44a10fd21843ce203fd146772/a296c/recc.jpg 800w&quot;
+        src=&quot;/static/eccf8bf44a10fd21843ce203fd146772/1c72d/recc.jpg&quot;
+        srcset=&quot;/static/eccf8bf44a10fd21843ce203fd146772/a80bd/recc.jpg 148w,
+/static/eccf8bf44a10fd21843ce203fd146772/1c91a/recc.jpg 295w,
+/static/eccf8bf44a10fd21843ce203fd146772/1c72d/recc.jpg 590w,
+/static/eccf8bf44a10fd21843ce203fd146772/4b190/recc.jpg 800w&quot;
         title=&quot;Recurrent Neural Network&quot;
         alt=&quot;Recurrent Neural Network&quot;
         loading=&quot;lazy&quot;
@@ -1421,7 +1348,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 63.00669027941755%;
+        padding-bottom: 62.83783783783784%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -1440,21 +1367,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/ac238eb1b7ab61a0f7f2463db59bb051/cf440/datapoint.png 148w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/d2d38/datapoint.png 295w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/b9e4f/datapoint.png 590w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/f9b6a/datapoint.png 885w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/2d849/datapoint.png 1180w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/d371d/datapoint.png 2541w&quot;&gt;
+      &lt;source srcset=&quot;/static/ac238eb1b7ab61a0f7f2463db59bb051/12f09/datapoint.png 148w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/e4a3f/datapoint.png 295w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/fcda8/datapoint.png 590w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/efc66/datapoint.png 885w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/c83ae/datapoint.png 1180w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/05428/datapoint.png 2541w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/ac238eb1b7ab61a0f7f2463db59bb051/b9e4f/datapoint.png&quot;
-        srcset=&quot;/static/ac238eb1b7ab61a0f7f2463db59bb051/cf440/datapoint.png 148w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/d2d38/datapoint.png 295w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/b9e4f/datapoint.png 590w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/f9b6a/datapoint.png 885w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/2d849/datapoint.png 1180w,
-/static/ac238eb1b7ab61a0f7f2463db59bb051/d371d/datapoint.png 2541w&quot;
+        src=&quot;/static/ac238eb1b7ab61a0f7f2463db59bb051/fcda8/datapoint.png&quot;
+        srcset=&quot;/static/ac238eb1b7ab61a0f7f2463db59bb051/12f09/datapoint.png 148w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/e4a3f/datapoint.png 295w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/fcda8/datapoint.png 590w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/efc66/datapoint.png 885w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/c83ae/datapoint.png 1180w,
+/static/ac238eb1b7ab61a0f7f2463db59bb051/05428/datapoint.png 2541w&quot;
         title=&quot;datapoint&quot;
         alt=&quot;datapoint&quot;
         loading=&quot;lazy&quot;
@@ -1483,7 +1410,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 63.00669027941755%;
+        padding-bottom: 62.83783783783784%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -1502,21 +1429,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f8c3ca700bab95a2c5dd2607e5c5499a/cf440/newdatapoint.png 148w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/d2d38/newdatapoint.png 295w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/b9e4f/newdatapoint.png 590w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/f9b6a/newdatapoint.png 885w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/2d849/newdatapoint.png 1180w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/d371d/newdatapoint.png 2541w&quot;&gt;
+      &lt;source srcset=&quot;/static/f8c3ca700bab95a2c5dd2607e5c5499a/12f09/newdatapoint.png 148w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/e4a3f/newdatapoint.png 295w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/fcda8/newdatapoint.png 590w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/efc66/newdatapoint.png 885w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/c83ae/newdatapoint.png 1180w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/05428/newdatapoint.png 2541w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f8c3ca700bab95a2c5dd2607e5c5499a/b9e4f/newdatapoint.png&quot;
-        srcset=&quot;/static/f8c3ca700bab95a2c5dd2607e5c5499a/cf440/newdatapoint.png 148w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/d2d38/newdatapoint.png 295w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/b9e4f/newdatapoint.png 590w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/f9b6a/newdatapoint.png 885w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/2d849/newdatapoint.png 1180w,
-/static/f8c3ca700bab95a2c5dd2607e5c5499a/d371d/newdatapoint.png 2541w&quot;
+        src=&quot;/static/f8c3ca700bab95a2c5dd2607e5c5499a/fcda8/newdatapoint.png&quot;
+        srcset=&quot;/static/f8c3ca700bab95a2c5dd2607e5c5499a/12f09/newdatapoint.png 148w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/e4a3f/newdatapoint.png 295w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/fcda8/newdatapoint.png 590w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/efc66/newdatapoint.png 885w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/c83ae/newdatapoint.png 1180w,
+/static/f8c3ca700bab95a2c5dd2607e5c5499a/05428/newdatapoint.png 2541w&quot;
         title=&quot;new datapoint&quot;
         alt=&quot;new datapoint&quot;
         loading=&quot;lazy&quot;
@@ -1559,22 +1486,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDAgQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHuxXTWe8hOjALAf//EABoQAAICAwAAAAAAAAAAAAAAAAARAQIQITH/2gAIAQEAAQUCZFnJdm3jlj//xAAXEQEAAwAAAAAAAAAAAAAAAAABAhEg/9oACAEDAQE/AWVOP//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAECAQE/AQj/xAAWEAADAAAAAAAAAAAAAAAAAAAAETD/2gAIAQEABj8CFD//xAAaEAACAgMAAAAAAAAAAAAAAAABEQAQIUFR/9oACAEBAAE/IdmsQNAM+QBK7aAFuv/aAAwDAQACAAMAAAAQlMgA/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQEg/9oACAEDAQE/ELAY/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREg/9oACAECAQE/EBS4/8QAHxABAAEEAQUAAAAAAAAAAAAAASEAEBExUUFhcYGR/9oACAEBAAE/EBDGFHjFMeyHn1bOx3ne4qZEQMdXijU7pkmjEuAOT5b/2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDAgQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHuxXTWe8hOjALAf//EABoQAAICAwAAAAAAAAAAAAAAAAARAQIQITH/2gAIAQEAAQUCZFnJdm3jlj//xAAXEQEAAwAAAAAAAAAAAAAAAAABAhEg/9oACAEDAQE/AWVOP//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAECAQE/AQj/xAAWEAADAAAAAAAAAAAAAAAAAAAAETD/2gAIAQEABj8CFD//xAAaEAACAwEBAAAAAAAAAAAAAAABEQAQQVEh/9oACAEBAAE/IdNQNAPfIAldtAC2v//aAAwDAQACAAMAAAAQlMgA/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQEg/9oACAEDAQE/ELAY/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREg/9oACAECAQE/EBS4/8QAHxABAAEEAQUAAAAAAAAAAAAAASEAEBExUUFhcYGR/9oACAEBAAE/EBDGBjximPZDz6tnY7zvcVMiIGOrxRqd0yTRiXAHJ8t//9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/b06ebc757eb5b3db32071b04750708fd/8ee9c/plane.jpg 148w,
-/static/b06ebc757eb5b3db32071b04750708fd/ebbe7/plane.jpg 295w,
-/static/b06ebc757eb5b3db32071b04750708fd/c739e/plane.jpg 590w,
-/static/b06ebc757eb5b3db32071b04750708fd/a296c/plane.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/b06ebc757eb5b3db32071b04750708fd/a80bd/plane.jpg 148w,
+/static/b06ebc757eb5b3db32071b04750708fd/1c91a/plane.jpg 295w,
+/static/b06ebc757eb5b3db32071b04750708fd/1c72d/plane.jpg 590w,
+/static/b06ebc757eb5b3db32071b04750708fd/4b190/plane.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/b06ebc757eb5b3db32071b04750708fd/c739e/plane.jpg&quot;
-        srcset=&quot;/static/b06ebc757eb5b3db32071b04750708fd/8ee9c/plane.jpg 148w,
-/static/b06ebc757eb5b3db32071b04750708fd/ebbe7/plane.jpg 295w,
-/static/b06ebc757eb5b3db32071b04750708fd/c739e/plane.jpg 590w,
-/static/b06ebc757eb5b3db32071b04750708fd/a296c/plane.jpg 800w&quot;
+        src=&quot;/static/b06ebc757eb5b3db32071b04750708fd/1c72d/plane.jpg&quot;
+        srcset=&quot;/static/b06ebc757eb5b3db32071b04750708fd/a80bd/plane.jpg 148w,
+/static/b06ebc757eb5b3db32071b04750708fd/1c91a/plane.jpg 295w,
+/static/b06ebc757eb5b3db32071b04750708fd/1c72d/plane.jpg 590w,
+/static/b06ebc757eb5b3db32071b04750708fd/4b190/plane.jpg 800w&quot;
         title=&quot;hyperplaneplane&quot;
         alt=&quot;hyperplaneplane&quot;
         loading=&quot;lazy&quot;
@@ -1627,22 +1554,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBQEE/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHcq74QtUMxgZWjb//EABoQAQEAAwEBAAAAAAAAAAAAAAECAAMTEBL/2gAIAQEAAQUCuvknaV5uQmKeuMlZzgc//8QAFhEBAQEAAAAAAAAAAAAAAAAAESAh/9oACAEDAQE/ATGP/8QAGBEAAgMAAAAAAAAAAAAAAAAAEBEBAiH/2gAIAQIBAT8Bm2oIf//EABkQAAIDAQAAAAAAAAAAAAAAAAAhARARYf/aAAgBAQAGPwLRUyI7TNx1/8QAHBAAAgIDAQEAAAAAAAAAAAAAAREAECExUWFx/9oACAEBAAE/IemEX7apjF5wPY5V8cpQjRYgEji0a//aAAwDAQACAAMAAAAQR8j8/8QAGBEBAAMBAAAAAAAAAAAAAAAAARAR8SH/2gAIAQMBAT8QL8s1Itj/xAAXEQEBAQEAAAAAAAAAAAAAAAARARBR/9oACAECAQE/EAnvBamf/8QAHBABAQEAAgMBAAAAAAAAAAAAAREhABAxQYFh/9oACAEBAAE/ENCIWgV+c0ECj93x0dl+hbDDkhHDiDGfTeijktpE98Moe8Wdf//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBQEE/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHcq74QtUMxgZWjb//EABoQAAIDAQEAAAAAAAAAAAAAAAECAAMTEBL/2gAIAQEAAQUCdvIW0Ny4gLWx1hUNM0Bn/8QAFhEBAQEAAAAAAAAAAAAAAAAAESAh/9oACAEDAQE/ATGP/8QAGBEAAgMAAAAAAAAAAAAAAAAAEBEBAiH/2gAIAQIBAT8Bm2oIf//EABkQAAIDAQAAAAAAAAAAAAAAAAAhARARYf/aAAgBAQAGPwLRUyI7TNx1/8QAHBAAAgIDAQEAAAAAAAAAAAAAAREAECExYVFx/9oACAEBAAE/IeGi9nqmMXnA7GKvjylCNFiASOLRr//aAAwDAQACAAMAAAAQR8j8/8QAGBEBAAMBAAAAAAAAAAAAAAAAARAR8SH/2gAIAQMBAT8QL8s1Itj/xAAXEQEBAQEAAAAAAAAAAAAAAAARARBR/9oACAECAQE/EAnvBamf/8QAHBABAQEAAwADAAAAAAAAAAAAAREhABBBMWGB/9oACAEBAAE/EKDFFoFeYSCj7346Oy/BbDDkBHDiDGfpvRRyW0ie8Moe4s6//9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/b5b202697ba2915bed68d75bad0c7596/8ee9c/linesclear.jpg 148w,
-/static/b5b202697ba2915bed68d75bad0c7596/ebbe7/linesclear.jpg 295w,
-/static/b5b202697ba2915bed68d75bad0c7596/c739e/linesclear.jpg 590w,
-/static/b5b202697ba2915bed68d75bad0c7596/a296c/linesclear.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/b5b202697ba2915bed68d75bad0c7596/a80bd/linesclear.jpg 148w,
+/static/b5b202697ba2915bed68d75bad0c7596/1c91a/linesclear.jpg 295w,
+/static/b5b202697ba2915bed68d75bad0c7596/1c72d/linesclear.jpg 590w,
+/static/b5b202697ba2915bed68d75bad0c7596/4b190/linesclear.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/b5b202697ba2915bed68d75bad0c7596/c739e/linesclear.jpg&quot;
-        srcset=&quot;/static/b5b202697ba2915bed68d75bad0c7596/8ee9c/linesclear.jpg 148w,
-/static/b5b202697ba2915bed68d75bad0c7596/ebbe7/linesclear.jpg 295w,
-/static/b5b202697ba2915bed68d75bad0c7596/c739e/linesclear.jpg 590w,
-/static/b5b202697ba2915bed68d75bad0c7596/a296c/linesclear.jpg 800w&quot;
+        src=&quot;/static/b5b202697ba2915bed68d75bad0c7596/1c72d/linesclear.jpg&quot;
+        srcset=&quot;/static/b5b202697ba2915bed68d75bad0c7596/a80bd/linesclear.jpg 148w,
+/static/b5b202697ba2915bed68d75bad0c7596/1c91a/linesclear.jpg 295w,
+/static/b5b202697ba2915bed68d75bad0c7596/1c72d/linesclear.jpg 590w,
+/static/b5b202697ba2915bed68d75bad0c7596/4b190/linesclear.jpg 800w&quot;
         title=&quot;linescleared&quot;
         alt=&quot;linescleared&quot;
         loading=&quot;lazy&quot;
@@ -1685,22 +1612,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdutwhawZjAytG3/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADEBITI//aAAgBAQABBQJ21C2hsXEKlbesKhpzQGf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICH/2gAIAQMBAT8BMY//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEh/9oACAECAQE/ASdii//EABoQAAICAwAAAAAAAAAAAAAAAAARECEBEmH/2gAIAQEABj8CZUPJr2LGrj//xAAbEAACAgMBAAAAAAAAAAAAAAABEQAhEDFRcf/aAAgBAQABPyHQKnfawuLuh0wqkvGFCNFiASNWjj//2gAMAwEAAgADAAAAEPfI/P/EABoRAQABBQAAAAAAAAAAAAAAAAEQETFBsfH/2gAIAQMBAT8QMbltpFWP/8QAFxEBAQEBAAAAAAAAAAAAAAAAEQEQQf/aAAgBAgEBPxCpnuBTP//EABwQAQEBAAMAAwAAAAAAAAAAAAERIQAQQTFhcf/aAAgBAQABPxBXSRaBXkCykfe/HQiLiFwYchw5cQSYfpvRRyW0ie8Moe4s6//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdutwhawZjAytG3/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADEBITI//aAAgBAQABBQJ21C2hsXEKlbesKhpzQGf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICH/2gAIAQMBAT8BMY//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEh/9oACAECAQE/ASdii//EABoQAAICAwAAAAAAAAAAAAAAAAARECEBEmH/2gAIAQEABj8CZUPJr2LGrj//xAAbEAACAgMBAAAAAAAAAAAAAAABEQAhEDFRcf/aAAgBAQABPyHQKnfawuLuh0wqkvGFCNFiASNWjj//2gAMAwEAAgADAAAAEPfI/P/EABoRAQABBQAAAAAAAAAAAAAAAAEQETFBsfH/2gAIAQMBAT8QMbltpFWP/8QAFxEBAQEBAAAAAAAAAAAAAAAAAREQQf/aAAgBAgEBPxBZPchbM//EABwQAQEBAAMAAwAAAAAAAAAAAAERIQAQQTFhcf/aAAgBAQABPxBXSRaBXkCykfe/HQiLiFwYchw5cQSYfpvRRyW0ie8Moe4s6//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/ba095da270fa5c0e70f815fcd35a149c/8ee9c/height.jpg 148w,
-/static/ba095da270fa5c0e70f815fcd35a149c/ebbe7/height.jpg 295w,
-/static/ba095da270fa5c0e70f815fcd35a149c/c739e/height.jpg 590w,
-/static/ba095da270fa5c0e70f815fcd35a149c/a296c/height.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/ba095da270fa5c0e70f815fcd35a149c/a80bd/height.jpg 148w,
+/static/ba095da270fa5c0e70f815fcd35a149c/1c91a/height.jpg 295w,
+/static/ba095da270fa5c0e70f815fcd35a149c/1c72d/height.jpg 590w,
+/static/ba095da270fa5c0e70f815fcd35a149c/4b190/height.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/ba095da270fa5c0e70f815fcd35a149c/c739e/height.jpg&quot;
-        srcset=&quot;/static/ba095da270fa5c0e70f815fcd35a149c/8ee9c/height.jpg 148w,
-/static/ba095da270fa5c0e70f815fcd35a149c/ebbe7/height.jpg 295w,
-/static/ba095da270fa5c0e70f815fcd35a149c/c739e/height.jpg 590w,
-/static/ba095da270fa5c0e70f815fcd35a149c/a296c/height.jpg 800w&quot;
+        src=&quot;/static/ba095da270fa5c0e70f815fcd35a149c/1c72d/height.jpg&quot;
+        srcset=&quot;/static/ba095da270fa5c0e70f815fcd35a149c/a80bd/height.jpg 148w,
+/static/ba095da270fa5c0e70f815fcd35a149c/1c91a/height.jpg 295w,
+/static/ba095da270fa5c0e70f815fcd35a149c/1c72d/height.jpg 590w,
+/static/ba095da270fa5c0e70f815fcd35a149c/4b190/height.jpg 800w&quot;
         title=&quot;height&quot;
         alt=&quot;height&quot;
         loading=&quot;lazy&quot;
@@ -1743,22 +1670,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdypwhawZjAytG3/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADEBITI//aAAgBAQABBQJ21C2hsXEKlbe0KhpzQGf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICL/2gAIAQMBAT8BMsf/xAAXEQADAQAAAAAAAAAAAAAAAAABEBES/9oACAECAQE/ASTqKL//xAAZEAACAwEAAAAAAAAAAAAAAAAAEQEQIWH/2gAIAQEABj8CZlOSI7WjW1//xAAcEAACAgIDAAAAAAAAAAAAAAABEQAQIVExYXH/2gAIAQEAAT8h6JF+ypcXnA2YRleNUoRosQCRxcGv/9oADAMBAAIAAwAAABBnyPz/xAAaEQEAAQUAAAAAAAAAAAAAAAABEBEhMbHx/9oACAEDAQE/EA3DmNpFWP/EABcRAQEBAQAAAAAAAAAAAAAAABEQAUH/2gAIAQIBAT8QEz2BSf/EAB0QAQEBAAICAwAAAAAAAAAAAAERIQAQMUFhcYH/2gAIAQEAAT8QosUWgV/OaCND53x0Ii4hcGHIiLDiGMPs3oo5LaRPfDKHvFnX/9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdypwhawZjAytG3/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADEBITI//aAAgBAQABBQJ21C2hsXEKlbe0KhpzQGf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICH/2gAIAQMBAT8BMY//xAAXEQADAQAAAAAAAAAAAAAAAAABEBES/9oACAECAQE/ASTqKL//xAAZEAACAwEAAAAAAAAAAAAAAAAAEQEQIWH/2gAIAQEABj8CZlOSI7WjW1//xAAcEAACAgIDAAAAAAAAAAAAAAABEQAQIVExYXH/2gAIAQEAAT8h6JF+ypcXnA2YRleNUoRosQCRxcGv/9oADAMBAAIAAwAAABBnyPz/xAAaEQEAAQUAAAAAAAAAAAAAAAABEBEhMbHx/9oACAEDAQE/EA3jmNpFWP/EABcRAQEBAQAAAAAAAAAAAAAAABEBEEH/2gAIAQIBAT8QEnuC1M//xAAcEAEBAQADAAMAAAAAAAAAAAABESEAEEExYXH/2gAIAQEAAT8QosUVQK80kaH3vx0Ii4hcGHIiLDiGMP03oo5LaRPeGUPcWdf/2Q==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/2cc87472321eb3eb7805522ad7be660e/8ee9c/colheight.jpg 148w,
-/static/2cc87472321eb3eb7805522ad7be660e/ebbe7/colheight.jpg 295w,
-/static/2cc87472321eb3eb7805522ad7be660e/c739e/colheight.jpg 590w,
-/static/2cc87472321eb3eb7805522ad7be660e/a296c/colheight.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/2cc87472321eb3eb7805522ad7be660e/a80bd/colheight.jpg 148w,
+/static/2cc87472321eb3eb7805522ad7be660e/1c91a/colheight.jpg 295w,
+/static/2cc87472321eb3eb7805522ad7be660e/1c72d/colheight.jpg 590w,
+/static/2cc87472321eb3eb7805522ad7be660e/4b190/colheight.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/2cc87472321eb3eb7805522ad7be660e/c739e/colheight.jpg&quot;
-        srcset=&quot;/static/2cc87472321eb3eb7805522ad7be660e/8ee9c/colheight.jpg 148w,
-/static/2cc87472321eb3eb7805522ad7be660e/ebbe7/colheight.jpg 295w,
-/static/2cc87472321eb3eb7805522ad7be660e/c739e/colheight.jpg 590w,
-/static/2cc87472321eb3eb7805522ad7be660e/a296c/colheight.jpg 800w&quot;
+        src=&quot;/static/2cc87472321eb3eb7805522ad7be660e/1c72d/colheight.jpg&quot;
+        srcset=&quot;/static/2cc87472321eb3eb7805522ad7be660e/a80bd/colheight.jpg 148w,
+/static/2cc87472321eb3eb7805522ad7be660e/1c91a/colheight.jpg 295w,
+/static/2cc87472321eb3eb7805522ad7be660e/1c72d/colheight.jpg 590w,
+/static/2cc87472321eb3eb7805522ad7be660e/4b190/colheight.jpg 800w&quot;
         title=&quot;colheight&quot;
         alt=&quot;colheight&quot;
         loading=&quot;lazy&quot;
@@ -1801,22 +1728,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdypwhawZjAytG3/xAAbEAEBAAIDAQAAAAAAAAAAAAACAQADEBITI//aAAgBAQABBQJrrDti43WEhfXKZc8xLn//xAAWEQEBAQAAAAAAAAAAAAAAAAARICH/2gAIAQMBAT8BMY//xAAYEQACAwAAAAAAAAAAAAAAAAAQEQESIf/aAAgBAgEBPwG2oKB//8QAGhAAAgIDAAAAAAAAAAAAAAAAABEQIQESYf/aAAgBAQAGPwJlQ8mvYsauP//EABsQAAICAwEAAAAAAAAAAAAAAAERACEQMVFx/9oACAEBAAE/IemEX7awsrDodMOpLxBQilGixAJGrRx//9oADAMBAAIAAwAAABBXwHz/xAAaEQEAAQUAAAAAAAAAAAAAAAABEBExQbHw/9oACAEDAQE/EDti20irH//EABcRAAMBAAAAAAAAAAAAAAAAAAEQESH/2gAIAQIBAT8QJZhaWL//xAAdEAEBAAICAwEAAAAAAAAAAAABEQAhEEExUYFh/9oACAEBAAE/ENhELQK/M2CBR+78cGBaUKwYZIhodISa+mCAdYvd2rw+8Mod4s4//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAVAQEBAAAAAAAAAAAAAAAAAAACAP/aAAwDAQACEAMQAAAB3KnCFrBmMA1oV//EABsQAQEAAgMBAAAAAAAAAAAAAAIBAAMQEhMj/9oACAEBAAEFAmusO2LjdYSF9cplzzEuf//EABYRAQEBAAAAAAAAAAAAAAAAABEgIf/aAAgBAwEBPwExj//EABcRAAMBAAAAAAAAAAAAAAAAABAREiH/2gAIAQIBAT8BrUEP/8QAGhAAAgIDAAAAAAAAAAAAAAAAABEQIQESYf/aAAgBAQAGPwJlQ8mvYsauP//EABwQAAICAgMAAAAAAAAAAAAAAAERACEQMVFhcf/aAAgBAQABPyHo0Xs9YWVh0OTDqS8QUIpRosQCRq0cf//aAAwDAQACAAMAAAAQV8D8/8QAGREBAAIDAAAAAAAAAAAAAAAAARAxQbHw/9oACAEDAQE/EDtitpCsf//EABgRAQEAAwAAAAAAAAAAAAAAAAEQESEx/9oACAECAQE/EFayA7if/8QAHRABAQACAwADAAAAAAAAAAAAAREAIRAxQVFhgf/aAAgBAQABPxCgxRaBXNEgo+99cCBa0KwYZIhodISa/TBAPMXu9V0/OGUPcWcf/9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/b4f9d1896a761a1cd7acfb2667b239bd/8ee9c/holes.jpg 148w,
-/static/b4f9d1896a761a1cd7acfb2667b239bd/ebbe7/holes.jpg 295w,
-/static/b4f9d1896a761a1cd7acfb2667b239bd/c739e/holes.jpg 590w,
-/static/b4f9d1896a761a1cd7acfb2667b239bd/a296c/holes.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/b4f9d1896a761a1cd7acfb2667b239bd/a80bd/holes.jpg 148w,
+/static/b4f9d1896a761a1cd7acfb2667b239bd/1c91a/holes.jpg 295w,
+/static/b4f9d1896a761a1cd7acfb2667b239bd/1c72d/holes.jpg 590w,
+/static/b4f9d1896a761a1cd7acfb2667b239bd/4b190/holes.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/b4f9d1896a761a1cd7acfb2667b239bd/c739e/holes.jpg&quot;
-        srcset=&quot;/static/b4f9d1896a761a1cd7acfb2667b239bd/8ee9c/holes.jpg 148w,
-/static/b4f9d1896a761a1cd7acfb2667b239bd/ebbe7/holes.jpg 295w,
-/static/b4f9d1896a761a1cd7acfb2667b239bd/c739e/holes.jpg 590w,
-/static/b4f9d1896a761a1cd7acfb2667b239bd/a296c/holes.jpg 800w&quot;
+        src=&quot;/static/b4f9d1896a761a1cd7acfb2667b239bd/1c72d/holes.jpg&quot;
+        srcset=&quot;/static/b4f9d1896a761a1cd7acfb2667b239bd/a80bd/holes.jpg 148w,
+/static/b4f9d1896a761a1cd7acfb2667b239bd/1c91a/holes.jpg 295w,
+/static/b4f9d1896a761a1cd7acfb2667b239bd/1c72d/holes.jpg 590w,
+/static/b4f9d1896a761a1cd7acfb2667b239bd/4b190/holes.jpg 800w&quot;
         title=&quot;holes&quot;
         alt=&quot;holes&quot;
         loading=&quot;lazy&quot;
@@ -1859,22 +1786,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIFAwT/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAAHah4c71hpEwI6hn//EABsQAAICAwEAAAAAAAAAAAAAAAECAAMQEhMj/9oACAEBAAEFAmbWLaGxcQq1t6wqGnNAZ//EABYRAQEBAAAAAAAAAAAAAAAAABEgIf/aAAgBAwEBPwExj//EABYRAQEBAAAAAAAAAAAAAAAAABEQIf/aAAgBAgEBPwF0hP/EABoQAAICAwAAAAAAAAAAAAAAAAARECEBEmH/2gAIAQEABj8CZUPJr2LGrj//xAAbEAACAgMBAAAAAAAAAAAAAAABEQAxECFhcf/aAAgBAQABPyFU2EX2rC6vdQqkvEHYoRosQCR1Ucf/2gAMAwEAAgADAAAAENsI/P/EABoRAAICAwAAAAAAAAAAAAAAAAEQESExsfH/2gAIAQMBAT8QvVzGyFJX/8QAFxEBAQEBAAAAAAAAAAAAAAAAEQEQQf/aAAgBAgEBPxC3D7gUz//EAB4QAQEAAgICAwAAAAAAAAAAAAERACEQMUFhcYGR/9oACAEBAAE/EHcENoFfr8zYIFHvfXATSwRVYwyBCwwQSaPk3lTpfWFdZbJE84ZQ84s4/9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAAHbrcOd6w0iMBFoZ//EABsQAQADAAMBAAAAAAAAAAAAAAIAAQMQEhMj/9oACAEBAAEFAkusOtLjayTmvrLNKeYq5//EABYRAQEBAAAAAAAAAAAAAAAAABEgIf/aAAgBAwEBPwExj//EABYRAQEBAAAAAAAAAAAAAAAAABEQIf/aAAgBAgEBPwF0hP/EABoQAAICAwAAAAAAAAAAAAAAAAARECEBEmH/2gAIAQEABj8CZUPJr2LGrj//xAAbEAACAwEBAQAAAAAAAAAAAAABEQAhMRBhcf/aAAgBAQABPyFU6EXs84sruhCqS+IPYoRosQCRqw8//9oADAMBAAIAAwAAABBbCPz/xAAaEQACAgMAAAAAAAAAAAAAAAABEBEhMbHx/9oACAEDAQE/EL1cxshSV//EABcRAQEBAQAAAAAAAAAAAAAAABEBEEH/2gAIAQIBAT8Qtw+4FM//xAAeEAEBAAICAgMAAAAAAAAAAAABEQAhEDFBYXGBkf/aAAgBAQABPxB3BDaBX6/M0SCj3vrgBpYhVYwyBAwwQSaPk3lTpfWFdZbJE84ZQ84s4//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/5780c3d471812030d953998ea2c1733f/8ee9c/overhang.jpg 148w,
-/static/5780c3d471812030d953998ea2c1733f/ebbe7/overhang.jpg 295w,
-/static/5780c3d471812030d953998ea2c1733f/c739e/overhang.jpg 590w,
-/static/5780c3d471812030d953998ea2c1733f/a296c/overhang.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/5780c3d471812030d953998ea2c1733f/a80bd/overhang.jpg 148w,
+/static/5780c3d471812030d953998ea2c1733f/1c91a/overhang.jpg 295w,
+/static/5780c3d471812030d953998ea2c1733f/1c72d/overhang.jpg 590w,
+/static/5780c3d471812030d953998ea2c1733f/4b190/overhang.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/5780c3d471812030d953998ea2c1733f/c739e/overhang.jpg&quot;
-        srcset=&quot;/static/5780c3d471812030d953998ea2c1733f/8ee9c/overhang.jpg 148w,
-/static/5780c3d471812030d953998ea2c1733f/ebbe7/overhang.jpg 295w,
-/static/5780c3d471812030d953998ea2c1733f/c739e/overhang.jpg 590w,
-/static/5780c3d471812030d953998ea2c1733f/a296c/overhang.jpg 800w&quot;
+        src=&quot;/static/5780c3d471812030d953998ea2c1733f/1c72d/overhang.jpg&quot;
+        srcset=&quot;/static/5780c3d471812030d953998ea2c1733f/a80bd/overhang.jpg 148w,
+/static/5780c3d471812030d953998ea2c1733f/1c91a/overhang.jpg 295w,
+/static/5780c3d471812030d953998ea2c1733f/1c72d/overhang.jpg 590w,
+/static/5780c3d471812030d953998ea2c1733f/4b190/overhang.jpg 800w&quot;
         title=&quot;overhang&quot;
         alt=&quot;overhang&quot;
         loading=&quot;lazy&quot;
@@ -1917,22 +1844,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdutwhawZjAytG3/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADEBITI//aAAgBAQABBQJ21C2hsXEKlbesKhpzQGf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICL/2gAIAQMBAT8BMsf/xAAXEQADAQAAAAAAAAAAAAAAAAABEBEi/9oACAECAQE/ASdRRf/EABoQAAICAwAAAAAAAAAAAAAAAAARECEBEmH/2gAIAQEABj8CZUPJr2LGrj//xAAbEAACAgMBAAAAAAAAAAAAAAABEQAQITFhcf/aAAgBAQABPyHhovZ6pcWHgdhVJeKUI0WIBI4tGv/aAAwDAQACAAMAAAAQ98j8/8QAGhEBAAEFAAAAAAAAAAAAAAAAARARMUGx8f/aAAgBAwEBPxAxOW2kVY//xAAXEQEBAQEAAAAAAAAAAAAAAAARARBB/9oACAECAQE/EKie4FM//8QAHRABAQABBAMAAAAAAAAAAAAAAREhABAxQWFxgf/aAAgBAQABPxDiKi0CvzWIAUec8bCuEIWww1DhxcISYPZnYo4lmkTvRlDvFm3/2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAdutwhawZjAytG3/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADEBITI//aAAgBAQABBQJ21C2hsXEKlbesKhpzQGf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICL/2gAIAQMBAT8BMsf/xAAXEQADAQAAAAAAAAAAAAAAAAABEBEi/9oACAECAQE/ASdRRf/EABoQAAICAwAAAAAAAAAAAAAAAAARECEBEmH/2gAIAQEABj8CZUPJr2LGrj//xAAbEAACAgMBAAAAAAAAAAAAAAABEQAQITFhcf/aAAgBAQABPyHhovZ6pcWHgdhVJeKUI0WIBI4tGv/aAAwDAQACAAMAAAAQ98j8/8QAGhEBAAEFAAAAAAAAAAAAAAAAARARMUGx8f/aAAgBAwEBPxAxOW2kVY//xAAXEQEBAQEAAAAAAAAAAAAAAAABERBB/9oACAECAQE/EFg9yFsz/8QAHRABAQABBAMAAAAAAAAAAAAAAREhABAxQXGBkf/aAAgBAQABPxDiKi0CvrWIAUfeNhXCELYYahw4uEJMHkzsUcSzSJ3oyh3izb//2Q==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/2f51a4fccdefb0b72239ebc5ecff6e8d/8ee9c/bumpiness.jpg 148w,
-/static/2f51a4fccdefb0b72239ebc5ecff6e8d/ebbe7/bumpiness.jpg 295w,
-/static/2f51a4fccdefb0b72239ebc5ecff6e8d/c739e/bumpiness.jpg 590w,
-/static/2f51a4fccdefb0b72239ebc5ecff6e8d/a296c/bumpiness.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/2f51a4fccdefb0b72239ebc5ecff6e8d/a80bd/bumpiness.jpg 148w,
+/static/2f51a4fccdefb0b72239ebc5ecff6e8d/1c91a/bumpiness.jpg 295w,
+/static/2f51a4fccdefb0b72239ebc5ecff6e8d/1c72d/bumpiness.jpg 590w,
+/static/2f51a4fccdefb0b72239ebc5ecff6e8d/4b190/bumpiness.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/2f51a4fccdefb0b72239ebc5ecff6e8d/c739e/bumpiness.jpg&quot;
-        srcset=&quot;/static/2f51a4fccdefb0b72239ebc5ecff6e8d/8ee9c/bumpiness.jpg 148w,
-/static/2f51a4fccdefb0b72239ebc5ecff6e8d/ebbe7/bumpiness.jpg 295w,
-/static/2f51a4fccdefb0b72239ebc5ecff6e8d/c739e/bumpiness.jpg 590w,
-/static/2f51a4fccdefb0b72239ebc5ecff6e8d/a296c/bumpiness.jpg 800w&quot;
+        src=&quot;/static/2f51a4fccdefb0b72239ebc5ecff6e8d/1c72d/bumpiness.jpg&quot;
+        srcset=&quot;/static/2f51a4fccdefb0b72239ebc5ecff6e8d/a80bd/bumpiness.jpg 148w,
+/static/2f51a4fccdefb0b72239ebc5ecff6e8d/1c91a/bumpiness.jpg 295w,
+/static/2f51a4fccdefb0b72239ebc5ecff6e8d/1c72d/bumpiness.jpg 590w,
+/static/2f51a4fccdefb0b72239ebc5ecff6e8d/4b190/bumpiness.jpg 800w&quot;
         title=&quot;bumpiness&quot;
         alt=&quot;bumpiness&quot;
         loading=&quot;lazy&quot;
@@ -1975,22 +1902,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAAHcplwZ3rDSIwEWhn//xAAbEAEBAAIDAQAAAAAAAAAAAAACAQADEBITI//aAAgBAQABBQJrrDti43WE619cpizzEWf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICL/2gAIAQMBAT8BMsf/xAAXEQADAQAAAAAAAAAAAAAAAAABEBEi/9oACAECAQE/ASdRRf/EABoQAAIDAQEAAAAAAAAAAAAAAAARARAhEmH/2gAIAQEABj8CZk05Ofa0a2v/xAAcEAACAgMBAQAAAAAAAAAAAAABEQAQIVFxMUH/2gAIAQEAAT8h2DkV/al1YeBswqkuNUoRosQCBxeGv//aAAwDAQACAAMAAAAQE8j8/8QAGREBAAIDAAAAAAAAAAAAAAAAARAxEbHx/9oACAEDAQE/EAUcraRlj//EABgRAQADAQAAAAAAAAAAAAAAABEBECFB/9oACAECAQE/EJhHtBTa/8QAGxABAAIDAQEAAAAAAAAAAAAAAREhADGBEEH/2gAIAQEAAT8QSugmQS8ywCIDusNXgnSEE0MGQELFgQUrpfhRrV2k+4YQ+4sef//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQT/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAAHcplwZ3rDSIwEWhn//xAAbEAEBAAIDAQAAAAAAAAAAAAACAQADEBITI//aAAgBAQABBQJrrDti43WE619cpizzEWf/xAAWEQEBAQAAAAAAAAAAAAAAAAARICL/2gAIAQMBAT8BMsf/xAAXEQADAQAAAAAAAAAAAAAAAAABEBEi/9oACAECAQE/ASdRRf/EABoQAAIDAQEAAAAAAAAAAAAAAAARARAhEmH/2gAIAQEABj8CZk05Ofa0a2v/xAAdEAACAQQDAAAAAAAAAAAAAAABEQAQITFxQVFh/9oACAEBAAE/IcAeor5qLqw7D2FUlp1RQjRYgEDawaf/2gAMAwEAAgADAAAAEFPI/P/EABkRAQACAwAAAAAAAAAAAAAAAAEQMRGx8f/aAAgBAwEBPxAFHK2kZY//xAAXEQEBAQEAAAAAAAAAAAAAAAABERAh/9oACAECAQE/EGg5C2dz/8QAGxABAAIDAQEAAAAAAAAAAAAAAREhADGBEFH/2gAIAQEAAT8QS+BMgl5lgGQHdYavBOkIJmDBkBCxYEFK6X4Ua1dpNOGE+4sef//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/b3e97bff0c717846a1295184fc097d67/8ee9c/bends.jpg 148w,
-/static/b3e97bff0c717846a1295184fc097d67/ebbe7/bends.jpg 295w,
-/static/b3e97bff0c717846a1295184fc097d67/c739e/bends.jpg 590w,
-/static/b3e97bff0c717846a1295184fc097d67/a296c/bends.jpg 800w&quot;&gt;
+      &lt;source srcset=&quot;/static/b3e97bff0c717846a1295184fc097d67/a80bd/bends.jpg 148w,
+/static/b3e97bff0c717846a1295184fc097d67/1c91a/bends.jpg 295w,
+/static/b3e97bff0c717846a1295184fc097d67/1c72d/bends.jpg 590w,
+/static/b3e97bff0c717846a1295184fc097d67/4b190/bends.jpg 800w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/b3e97bff0c717846a1295184fc097d67/c739e/bends.jpg&quot;
-        srcset=&quot;/static/b3e97bff0c717846a1295184fc097d67/8ee9c/bends.jpg 148w,
-/static/b3e97bff0c717846a1295184fc097d67/ebbe7/bends.jpg 295w,
-/static/b3e97bff0c717846a1295184fc097d67/c739e/bends.jpg 590w,
-/static/b3e97bff0c717846a1295184fc097d67/a296c/bends.jpg 800w&quot;
+        src=&quot;/static/b3e97bff0c717846a1295184fc097d67/1c72d/bends.jpg&quot;
+        srcset=&quot;/static/b3e97bff0c717846a1295184fc097d67/a80bd/bends.jpg 148w,
+/static/b3e97bff0c717846a1295184fc097d67/1c91a/bends.jpg 295w,
+/static/b3e97bff0c717846a1295184fc097d67/1c72d/bends.jpg 590w,
+/static/b3e97bff0c717846a1295184fc097d67/4b190/bends.jpg 800w&quot;
         title=&quot;bends&quot;
         alt=&quot;bends&quot;
         loading=&quot;lazy&quot;
@@ -2026,7 +1953,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 181.64794007490636%;
+        padding-bottom: 181.75675675675677%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2045,15 +1972,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/493d544d615b06d81ba9320aa313b80e/cf440/2gram.png 148w,
-/static/493d544d615b06d81ba9320aa313b80e/d2d38/2gram.png 295w,
-/static/493d544d615b06d81ba9320aa313b80e/ef8bc/2gram.png 534w&quot;&gt;
+      &lt;source srcset=&quot;/static/493d544d615b06d81ba9320aa313b80e/12f09/2gram.png 148w,
+/static/493d544d615b06d81ba9320aa313b80e/e4a3f/2gram.png 295w,
+/static/493d544d615b06d81ba9320aa313b80e/a07a7/2gram.png 534w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/493d544d615b06d81ba9320aa313b80e/ef8bc/2gram.png&quot;
-        srcset=&quot;/static/493d544d615b06d81ba9320aa313b80e/cf440/2gram.png 148w,
-/static/493d544d615b06d81ba9320aa313b80e/d2d38/2gram.png 295w,
-/static/493d544d615b06d81ba9320aa313b80e/ef8bc/2gram.png 534w&quot;
+        src=&quot;/static/493d544d615b06d81ba9320aa313b80e/a07a7/2gram.png&quot;
+        srcset=&quot;/static/493d544d615b06d81ba9320aa313b80e/12f09/2gram.png 148w,
+/static/493d544d615b06d81ba9320aa313b80e/e4a3f/2gram.png 295w,
+/static/493d544d615b06d81ba9320aa313b80e/a07a7/2gram.png 534w&quot;
         title=&quot;bigram&quot;
         alt=&quot;bigram&quot;
         loading=&quot;lazy&quot;
@@ -2082,7 +2009,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 178.96678966789668%;
+        padding-bottom: 179.05405405405406%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2101,15 +2028,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f73270bd07bba4e4b81803120f474bcf/cf440/3gram.png 148w,
-/static/f73270bd07bba4e4b81803120f474bcf/d2d38/3gram.png 295w,
-/static/f73270bd07bba4e4b81803120f474bcf/67648/3gram.png 542w&quot;&gt;
+      &lt;source srcset=&quot;/static/f73270bd07bba4e4b81803120f474bcf/12f09/3gram.png 148w,
+/static/f73270bd07bba4e4b81803120f474bcf/e4a3f/3gram.png 295w,
+/static/f73270bd07bba4e4b81803120f474bcf/c0388/3gram.png 542w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f73270bd07bba4e4b81803120f474bcf/67648/3gram.png&quot;
-        srcset=&quot;/static/f73270bd07bba4e4b81803120f474bcf/cf440/3gram.png 148w,
-/static/f73270bd07bba4e4b81803120f474bcf/d2d38/3gram.png 295w,
-/static/f73270bd07bba4e4b81803120f474bcf/67648/3gram.png 542w&quot;
+        src=&quot;/static/f73270bd07bba4e4b81803120f474bcf/c0388/3gram.png&quot;
+        srcset=&quot;/static/f73270bd07bba4e4b81803120f474bcf/12f09/3gram.png 148w,
+/static/f73270bd07bba4e4b81803120f474bcf/e4a3f/3gram.png 295w,
+/static/f73270bd07bba4e4b81803120f474bcf/c0388/3gram.png 542w&quot;
         title=&quot;trigram&quot;
         alt=&quot;trigram&quot;
         loading=&quot;lazy&quot;
@@ -2138,7 +2065,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 195.55555555555557%;
+        padding-bottom: 195.2702702702703%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2157,15 +2084,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/2b8d20ea7d6509aeda829807440bb282/cf440/4gram.png 148w,
-/static/2b8d20ea7d6509aeda829807440bb282/d2d38/4gram.png 295w,
-/static/2b8d20ea7d6509aeda829807440bb282/22492/4gram.png 540w&quot;&gt;
+      &lt;source srcset=&quot;/static/2b8d20ea7d6509aeda829807440bb282/12f09/4gram.png 148w,
+/static/2b8d20ea7d6509aeda829807440bb282/e4a3f/4gram.png 295w,
+/static/2b8d20ea7d6509aeda829807440bb282/07484/4gram.png 540w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/2b8d20ea7d6509aeda829807440bb282/22492/4gram.png&quot;
-        srcset=&quot;/static/2b8d20ea7d6509aeda829807440bb282/cf440/4gram.png 148w,
-/static/2b8d20ea7d6509aeda829807440bb282/d2d38/4gram.png 295w,
-/static/2b8d20ea7d6509aeda829807440bb282/22492/4gram.png 540w&quot;
+        src=&quot;/static/2b8d20ea7d6509aeda829807440bb282/07484/4gram.png&quot;
+        srcset=&quot;/static/2b8d20ea7d6509aeda829807440bb282/12f09/4gram.png 148w,
+/static/2b8d20ea7d6509aeda829807440bb282/e4a3f/4gram.png 295w,
+/static/2b8d20ea7d6509aeda829807440bb282/07484/4gram.png 540w&quot;
         title=&quot;ngram&quot;
         alt=&quot;ngram&quot;
         loading=&quot;lazy&quot;
@@ -2193,7 +2120,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 167.19367588932806%;
+        padding-bottom: 166.8918918918919%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2212,15 +2139,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/56da2c78e8a0a94c2008364c859f63c1/cf440/5gram.png 148w,
-/static/56da2c78e8a0a94c2008364c859f63c1/d2d38/5gram.png 295w,
-/static/56da2c78e8a0a94c2008364c859f63c1/26532/5gram.png 506w&quot;&gt;
+      &lt;source srcset=&quot;/static/56da2c78e8a0a94c2008364c859f63c1/12f09/5gram.png 148w,
+/static/56da2c78e8a0a94c2008364c859f63c1/e4a3f/5gram.png 295w,
+/static/56da2c78e8a0a94c2008364c859f63c1/29f4e/5gram.png 506w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/56da2c78e8a0a94c2008364c859f63c1/26532/5gram.png&quot;
-        srcset=&quot;/static/56da2c78e8a0a94c2008364c859f63c1/cf440/5gram.png 148w,
-/static/56da2c78e8a0a94c2008364c859f63c1/d2d38/5gram.png 295w,
-/static/56da2c78e8a0a94c2008364c859f63c1/26532/5gram.png 506w&quot;
+        src=&quot;/static/56da2c78e8a0a94c2008364c859f63c1/29f4e/5gram.png&quot;
+        srcset=&quot;/static/56da2c78e8a0a94c2008364c859f63c1/12f09/5gram.png 148w,
+/static/56da2c78e8a0a94c2008364c859f63c1/e4a3f/5gram.png 295w,
+/static/56da2c78e8a0a94c2008364c859f63c1/29f4e/5gram.png 506w&quot;
         title=&quot;ngram&quot;
         alt=&quot;ngram&quot;
         loading=&quot;lazy&quot;
@@ -2248,7 +2175,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 188.64468864468864%;
+        padding-bottom: 188.51351351351352%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2267,15 +2194,15 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/66c7aab144b3ab93b80b8514581923b4/cf440/6gram.png 148w,
-/static/66c7aab144b3ab93b80b8514581923b4/d2d38/6gram.png 295w,
-/static/66c7aab144b3ab93b80b8514581923b4/ab8e7/6gram.png 546w&quot;&gt;
+      &lt;source srcset=&quot;/static/66c7aab144b3ab93b80b8514581923b4/12f09/6gram.png 148w,
+/static/66c7aab144b3ab93b80b8514581923b4/e4a3f/6gram.png 295w,
+/static/66c7aab144b3ab93b80b8514581923b4/76aed/6gram.png 546w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/66c7aab144b3ab93b80b8514581923b4/ab8e7/6gram.png&quot;
-        srcset=&quot;/static/66c7aab144b3ab93b80b8514581923b4/cf440/6gram.png 148w,
-/static/66c7aab144b3ab93b80b8514581923b4/d2d38/6gram.png 295w,
-/static/66c7aab144b3ab93b80b8514581923b4/ab8e7/6gram.png 546w&quot;
+        src=&quot;/static/66c7aab144b3ab93b80b8514581923b4/76aed/6gram.png&quot;
+        srcset=&quot;/static/66c7aab144b3ab93b80b8514581923b4/12f09/6gram.png 148w,
+/static/66c7aab144b3ab93b80b8514581923b4/e4a3f/6gram.png 295w,
+/static/66c7aab144b3ab93b80b8514581923b4/76aed/6gram.png 546w&quot;
         title=&quot;ngram&quot;
         alt=&quot;ngram&quot;
         loading=&quot;lazy&quot;
@@ -2304,7 +2231,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 15.261958997722095%;
+        padding-bottom: 15.54054054054054%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2323,21 +2250,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/cf440/corpus.png 148w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/d2d38/corpus.png 295w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/b9e4f/corpus.png 590w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/f9b6a/corpus.png 885w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/2d849/corpus.png 1180w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/1ebe0/corpus.png 1756w&quot;&gt;
+      &lt;source srcset=&quot;/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/12f09/corpus.png 148w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/e4a3f/corpus.png 295w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/fcda8/corpus.png 590w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/efc66/corpus.png 885w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/c83ae/corpus.png 1180w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/49b61/corpus.png 1756w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/b9e4f/corpus.png&quot;
-        srcset=&quot;/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/cf440/corpus.png 148w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/d2d38/corpus.png 295w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/b9e4f/corpus.png 590w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/f9b6a/corpus.png 885w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/2d849/corpus.png 1180w,
-/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/1ebe0/corpus.png 1756w&quot;
+        src=&quot;/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/fcda8/corpus.png&quot;
+        srcset=&quot;/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/12f09/corpus.png 148w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/e4a3f/corpus.png 295w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/fcda8/corpus.png 590w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/efc66/corpus.png 885w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/c83ae/corpus.png 1180w,
+/static/f9c9fdd09306e8d0b8efe0ccf6d8b99b/49b61/corpus.png 1756w&quot;
         title=&quot;corpus extract&quot;
         alt=&quot;corpus extract&quot;
         loading=&quot;lazy&quot;
@@ -2380,7 +2307,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 61.43572621035058%;
+        padding-bottom: 61.486486486486484%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2399,21 +2326,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/cf440/tweet.png 148w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/d2d38/tweet.png 295w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/b9e4f/tweet.png 590w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/f9b6a/tweet.png 885w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2d849/tweet.png 1180w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2b6f6/tweet.png 1198w&quot;&gt;
+      &lt;source srcset=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/12f09/tweet.png 148w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/e4a3f/tweet.png 295w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/fcda8/tweet.png 590w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/efc66/tweet.png 885w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/c83ae/tweet.png 1180w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/e72de/tweet.png 1198w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/b9e4f/tweet.png&quot;
-        srcset=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/cf440/tweet.png 148w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/d2d38/tweet.png 295w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/b9e4f/tweet.png 590w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/f9b6a/tweet.png 885w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2d849/tweet.png 1180w,
-/static/7321e9c0a3a2fecec39c39b1b8deb8c1/2b6f6/tweet.png 1198w&quot;
+        src=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/fcda8/tweet.png&quot;
+        srcset=&quot;/static/7321e9c0a3a2fecec39c39b1b8deb8c1/12f09/tweet.png 148w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/e4a3f/tweet.png 295w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/fcda8/tweet.png 590w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/efc66/tweet.png 885w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/c83ae/tweet.png 1180w,
+/static/7321e9c0a3a2fecec39c39b1b8deb8c1/e72de/tweet.png 1198w&quot;
         title=&quot;tweet i totally don&apos;t regret&quot;
         alt=&quot;tweet i totally don&apos;t regret&quot;
         loading=&quot;lazy&quot;
@@ -2500,7 +2427,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 66.74164042585096%;
+        padding-bottom: 66.89189189189189%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2519,21 +2446,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/8ee9c/hackathon.jpg 148w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/ebbe7/hackathon.jpg 295w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/c739e/hackathon.jpg 590w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/5413e/hackathon.jpg 885w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/4efde/hackathon.jpg 1180w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/0a597/hackathon.jpg 6669w&quot;&gt;
+      &lt;source srcset=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/a80bd/hackathon.jpg 148w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/1c91a/hackathon.jpg 295w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/1c72d/hackathon.jpg 590w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/a8a14/hackathon.jpg 885w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/fbd2c/hackathon.jpg 1180w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/127b0/hackathon.jpg 6669w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/c739e/hackathon.jpg&quot;
-        srcset=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/8ee9c/hackathon.jpg 148w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/ebbe7/hackathon.jpg 295w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/c739e/hackathon.jpg 590w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/5413e/hackathon.jpg 885w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/4efde/hackathon.jpg 1180w,
-/static/97ad3ab868c16f75cc43c07e2597d0e4/0a597/hackathon.jpg 6669w&quot;
+        src=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/1c72d/hackathon.jpg&quot;
+        srcset=&quot;/static/97ad3ab868c16f75cc43c07e2597d0e4/a80bd/hackathon.jpg 148w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/1c91a/hackathon.jpg 295w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/1c72d/hackathon.jpg 590w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/a8a14/hackathon.jpg 885w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/fbd2c/hackathon.jpg 1180w,
+/static/97ad3ab868c16f75cc43c07e2597d0e4/127b0/hackathon.jpg 6669w&quot;
         title=&quot;image&quot;
         alt=&quot;image&quot;
         loading=&quot;lazy&quot;
@@ -2555,7 +2482,8 @@ function stopNote() {
 &lt;p&gt;Now apart from the incredible luck of having 1) a good idea delivered right to my team and 2) the really sicko teams were out of topic there’s some really good thing we can take from here.&lt;/p&gt;
 &lt;p&gt;Firstly the fact that our idea was presentable. I think the problem with my 2019 idea was that unless we had a flawless implementation, we couldn’t demonstrate the idea properly. Our 2018 demonstration sucked ass but the idea was very obvious, the presentation itself was also very easy to understand what was going on at the end.&lt;/p&gt;
 &lt;p&gt;Secondly, the project was an incredibly small scope. using a deterministic solution is really the key here. Having something that wasn’t up to chance means debugging is really do-able.&lt;/p&gt;
-&lt;p&gt;Finally I think complexity of UI made this project take just a little bit too much time. UI has to look good, but it has also have to be simple.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Midichlorians]]></title><description><![CDATA[A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-midichlorians/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-midichlorians/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done over a period of 6 weeks, in a team of 4 people. Features include audio synch to dropbox, customised animations, recording playback, and multiple music profiles.&lt;/p&gt;
+&lt;p&gt;Finally I think complexity of UI made this project take just a little bit too much time. UI has to look good, but it has also have to be simple.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[@sg_carparks_bot]]></title><description><![CDATA[Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.&lt;/p&gt;
+&lt;h3&gt;bot is now down due to lack of maintenance and changes in api&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Midichlorians]]></title><description><![CDATA[A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-midichlorians/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-midichlorians/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done over a period of 6 weeks, in a team of 4 people. Features include audio synch to dropbox, customised animations, recording playback, and multiple music profiles.&lt;/p&gt;
 &lt;p&gt;
       &lt;div class=&quot;gria-image-wrapper&quot; style=&quot;
         position: relative;
@@ -2566,7 +2494,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 66.66666666666667%;
+        padding-bottom: 66.89189189189189%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2580,26 +2508,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAEqmaEo0TX/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADEhMi/9oACAEBAAEFAkv6LTIPNCljUItYVf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPwFsf//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAgEBPwHZHb//xAAdEAABAwUBAAAAAAAAAAAAAAAAAQIRAxIhMTNx/9oACAEBAAY/AnNqP8Oil2yRckH/xAAYEAEAAwEAAAAAAAAAAAAAAAABABEhMf/aAAgBAQABPyFBDZWCtig5oWlEQgUJizs9ilW2Au6n/9oADAMBAAIAAwAAABATz//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxBCCMv/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EB52Um//xAAaEAEBAAMBAQAAAAAAAAAAAAABEQAhMUGh/9oACAEBAAE/EERhW8+I462JKpPOZoUkEYayk3SPMUNjHWW2my89z//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAEqmaEo0TX/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADEhMi/9oACAEBAAEFAkv6LTIPNCljSItYVf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPwFsf//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAgEBPwHZHb//xAAdEAABAwUBAAAAAAAAAAAAAAAAAQIRAxIhMTNx/9oACAEBAAY/AnNqP8Oil2yRckH/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhMUH/2gAIAQEAAT8hQQ2Vg9ig5oWlEQgUJizs9iFW2Au6n//aAAwDAQACAAMAAAAQE8//xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAwEBPxBCCL//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EB52Um//xAAaEAEBAAMBAQAAAAAAAAAAAAABEQAhMUGh/9oACAEBAAE/EERhWs/EccbElUnnM0KSCMNZSbpHmIGxjrLbTZee5//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/8ee9c/midi.jpg 148w,
-/static/43006f58db6e792f3af6cb58b0630e5a/ebbe7/midi.jpg 295w,
-/static/43006f58db6e792f3af6cb58b0630e5a/c739e/midi.jpg 590w,
-/static/43006f58db6e792f3af6cb58b0630e5a/5413e/midi.jpg 885w,
-/static/43006f58db6e792f3af6cb58b0630e5a/4efde/midi.jpg 1180w,
-/static/43006f58db6e792f3af6cb58b0630e5a/45751/midi.jpg 1500w&quot;&gt;
+      &lt;source srcset=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/a80bd/midi.jpg 148w,
+/static/43006f58db6e792f3af6cb58b0630e5a/1c91a/midi.jpg 295w,
+/static/43006f58db6e792f3af6cb58b0630e5a/1c72d/midi.jpg 590w,
+/static/43006f58db6e792f3af6cb58b0630e5a/a8a14/midi.jpg 885w,
+/static/43006f58db6e792f3af6cb58b0630e5a/fbd2c/midi.jpg 1180w,
+/static/43006f58db6e792f3af6cb58b0630e5a/c58a3/midi.jpg 1500w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/c739e/midi.jpg&quot;
-        srcset=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/8ee9c/midi.jpg 148w,
-/static/43006f58db6e792f3af6cb58b0630e5a/ebbe7/midi.jpg 295w,
-/static/43006f58db6e792f3af6cb58b0630e5a/c739e/midi.jpg 590w,
-/static/43006f58db6e792f3af6cb58b0630e5a/5413e/midi.jpg 885w,
-/static/43006f58db6e792f3af6cb58b0630e5a/4efde/midi.jpg 1180w,
-/static/43006f58db6e792f3af6cb58b0630e5a/45751/midi.jpg 1500w&quot;
+        src=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/1c72d/midi.jpg&quot;
+        srcset=&quot;/static/43006f58db6e792f3af6cb58b0630e5a/a80bd/midi.jpg 148w,
+/static/43006f58db6e792f3af6cb58b0630e5a/1c91a/midi.jpg 295w,
+/static/43006f58db6e792f3af6cb58b0630e5a/1c72d/midi.jpg 590w,
+/static/43006f58db6e792f3af6cb58b0630e5a/a8a14/midi.jpg 885w,
+/static/43006f58db6e792f3af6cb58b0630e5a/fbd2c/midi.jpg 1180w,
+/static/43006f58db6e792f3af6cb58b0630e5a/c58a3/midi.jpg 1500w&quot;
         title=&quot;steps&quot;
         alt=&quot;steps&quot;
         loading=&quot;lazy&quot;
@@ -2643,20 +2571,20 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABjOvZEs0r/8QAGhAAAgIDAAAAAAAAAAAAAAAAAgMAEwEEEP/aAAgBAQABBQJS7DcnKiiW1GW6Rc//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAABBQEAAAAAAAAAAAAAAAABAAIQEVEy/9oACAEBAAY/Ag3VUB2LkR//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEQITFhkf/aAAgBAQABPyFDNWq5yA91hBS2CN+0W1Z//9oADAMBAAIAAwAAABBfD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPxCsf//EABsQAAIDAQEBAAAAAAAAAAAAAAERACExYVFx/9oACAEBAAE/EDjtgNRo060A/PR2LkAjMYBzFCgEOrIypEy1P//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABjOvZEs0r/8QAGhAAAgIDAAAAAAAAAAAAAAAAAgMAEwEEEP/aAAgBAQABBQJS7DcnKiiW1GW6Rc//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAABAAIQURExMv/aAAgBAQAGPwINtY3AdS5Ef//EABsQAQACAgMAAAAAAAAAAAAAAAEAERAhMWGR/9oACAEBAAE/IUM1arnIHasIKWwRv2i2rP/aAAwDAQACAAMAAAAQXw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAWEQADAAAAAAAAAAAAAAAAAAAQESH/2gAIAQIBAT8QrH//xAAbEAADAAMBAQAAAAAAAAAAAAAAAREhMVFhcf/aAAgBAQABPxB49aCwqODqk/nV6QQjcqT1oaExcVszEkrsP//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/87e2b38172b1c51fbe639187da26b5fa/8ee9c/0.jpg 148w,
-/static/87e2b38172b1c51fbe639187da26b5fa/ebbe7/0.jpg 295w,
-/static/87e2b38172b1c51fbe639187da26b5fa/98431/0.jpg 480w&quot;&gt;
+      &lt;source srcset=&quot;/static/87e2b38172b1c51fbe639187da26b5fa/a80bd/0.jpg 148w,
+/static/87e2b38172b1c51fbe639187da26b5fa/1c91a/0.jpg 295w,
+/static/87e2b38172b1c51fbe639187da26b5fa/7cc5e/0.jpg 480w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/87e2b38172b1c51fbe639187da26b5fa/98431/0.jpg&quot;
-        srcset=&quot;/static/87e2b38172b1c51fbe639187da26b5fa/8ee9c/0.jpg 148w,
-/static/87e2b38172b1c51fbe639187da26b5fa/ebbe7/0.jpg 295w,
-/static/87e2b38172b1c51fbe639187da26b5fa/98431/0.jpg 480w&quot;
+        src=&quot;/static/87e2b38172b1c51fbe639187da26b5fa/7cc5e/0.jpg&quot;
+        srcset=&quot;/static/87e2b38172b1c51fbe639187da26b5fa/a80bd/0.jpg 148w,
+/static/87e2b38172b1c51fbe639187da26b5fa/1c91a/0.jpg 295w,
+/static/87e2b38172b1c51fbe639187da26b5fa/7cc5e/0.jpg 480w&quot;
         title=&quot;midichlorians&quot;
         alt=&quot;midichlorians&quot;
         loading=&quot;lazy&quot;
@@ -2674,8 +2602,7 @@ function stopNote() {
   
       &lt;/div&gt;
     &lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/ca/app/midichlorians/id1229585861?mt=8&quot;&gt;Download here&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[@sg_carparks_bot]]></title><description><![CDATA[Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.&lt;/p&gt;
-&lt;h3&gt;bot is now down due to lack of maintenance and changes in api&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[F450 Programmable Drone]]></title><description><![CDATA[This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and…]]></description><link>https://blog.tenzhiyang.com/2017-10-15-f450-drone/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-15-f450-drone/</guid><pubDate>Sun, 15 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and changed the circuitry with 3DR’s pixhawk flight controller, and connected it to a Futaba transmitter and receiver kit.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/ca/app/midichlorians/id1229585861?mt=8&quot;&gt;Download here&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[F450 Programmable Drone]]></title><description><![CDATA[This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and…]]></description><link>https://blog.tenzhiyang.com/2017-10-15-f450-drone/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-15-f450-drone/</guid><pubDate>Sun, 15 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and changed the circuitry with 3DR’s pixhawk flight controller, and connected it to a Futaba transmitter and receiver kit.&lt;/p&gt;
 &lt;p&gt;
       &lt;div class=&quot;gria-image-wrapper&quot; style=&quot;
         position: relative;
@@ -2700,24 +2627,24 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAYlWRO0v/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAECEBES/9oACAEBAAEFAuZCemViQ5I//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxABAAMAAAAAAAAAAAAAAAAAEQAgMf/aAAgBAQAGPwJ2Ff/EABoQAAMBAQEBAAAAAAAAAAAAAAABESFBUWH/2gAIAQEAAT8h6G59KYl78HsWrCV7r1lJ/9oADAMBAAIAAwAAABCMz//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EKr/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxAn/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITEQcf/aAAgBAQABPxDA6xTqYoi4BKeAtKq4LMJZTrOyi/J//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAYlWRO0v/8QAGRABAQEAAwAAAAAAAAAAAAAAAQARAhAS/9oACAEBAAEFAvPKHbOsCUv/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAXEAEAAwAAAAAAAAAAAAAAAAARACAx/9oACAEBAAY/AnYV/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERIUFRYf/aAAgBAQABPyHobn0piXvwexasJXuvWVn/2gAMAwEAAgADAAAAEIzP/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qp//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ECf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMRBx/9oACAEBAAE/EMDrFOpiiLgEp4CiKrgs6LKdZ3UX5P/Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/f7db16470fa99f5b3a89472888d6e377/8ee9c/f450.jpg 148w,
-/static/f7db16470fa99f5b3a89472888d6e377/ebbe7/f450.jpg 295w,
-/static/f7db16470fa99f5b3a89472888d6e377/c739e/f450.jpg 590w,
-/static/f7db16470fa99f5b3a89472888d6e377/5413e/f450.jpg 885w,
-/static/f7db16470fa99f5b3a89472888d6e377/b3ee8/f450.jpg 960w&quot;&gt;
+      &lt;source srcset=&quot;/static/f7db16470fa99f5b3a89472888d6e377/a80bd/f450.jpg 148w,
+/static/f7db16470fa99f5b3a89472888d6e377/1c91a/f450.jpg 295w,
+/static/f7db16470fa99f5b3a89472888d6e377/1c72d/f450.jpg 590w,
+/static/f7db16470fa99f5b3a89472888d6e377/a8a14/f450.jpg 885w,
+/static/f7db16470fa99f5b3a89472888d6e377/6a068/f450.jpg 960w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/f7db16470fa99f5b3a89472888d6e377/c739e/f450.jpg&quot;
-        srcset=&quot;/static/f7db16470fa99f5b3a89472888d6e377/8ee9c/f450.jpg 148w,
-/static/f7db16470fa99f5b3a89472888d6e377/ebbe7/f450.jpg 295w,
-/static/f7db16470fa99f5b3a89472888d6e377/c739e/f450.jpg 590w,
-/static/f7db16470fa99f5b3a89472888d6e377/5413e/f450.jpg 885w,
-/static/f7db16470fa99f5b3a89472888d6e377/b3ee8/f450.jpg 960w&quot;
+        src=&quot;/static/f7db16470fa99f5b3a89472888d6e377/1c72d/f450.jpg&quot;
+        srcset=&quot;/static/f7db16470fa99f5b3a89472888d6e377/a80bd/f450.jpg 148w,
+/static/f7db16470fa99f5b3a89472888d6e377/1c91a/f450.jpg 295w,
+/static/f7db16470fa99f5b3a89472888d6e377/1c72d/f450.jpg 590w,
+/static/f7db16470fa99f5b3a89472888d6e377/a8a14/f450.jpg 885w,
+/static/f7db16470fa99f5b3a89472888d6e377/6a068/f450.jpg 960w&quot;
         title=&quot;f450&quot;
         alt=&quot;f450&quot;
         loading=&quot;lazy&quot;
@@ -2760,24 +2687,24 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAGiNdMVoaH/xAAcEAACAgIDAAAAAAAAAAAAAAABAgADBBIREyL/2gAIAQEAAQUCddWBLP2SzI9VPzBXsP/EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oACAEDAQE/AVf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQIBAT8BjH//xAAbEAACAgMBAAAAAAAAAAAAAAAAAQIhERIxIv/aAAgBAQAGPwJJEfJwqyLZtnp//8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERITFBUf/aAAgBAQABPyHUbbTZ8O9Q2rlwlfblFQJnhqKej//aAAwDAQACAAMAAAAQKy//xAAWEQADAAAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QbpD/AP/EABYRAAMAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxAQn//EABoQAQADAQEBAAAAAAAAAAAAAAEAESFBUTH/2gAIAQEAAT8QvCKNKK4seVCgR97BA5SWPZg4qOhkMtiqPS/IZK0rCf/Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAGiNdMVoaH/xAAcEAACAgIDAAAAAAAAAAAAAAABAgADBBIREyL/2gAIAQEAAQUCddWBLP2SzI9VPzBXsP/EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oACAEDAQE/AVf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQIBAT8BjH//xAAbEAACAgMBAAAAAAAAAAAAAAAAAQIhERIxIv/aAAgBAQAGPwJJEfJwqyLZtnp//8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERITFBUf/aAAgBAQABPyHUbbTZ8O9Q9OXCV9uUVAmeGop6P//aAAwDAQACAAMAAAAQKy//xAAVEQEBAAAAAAAAAAAAAAAAAAAREP/aAAgBAwEBPxBZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EBCf/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARIUFRMf/aAAgBAQABPxC8Io0orix5UKBH3sUCuksekw8VHQyGWxVHpfkMlaVhP//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/c69aa4e071f329eb83601e0673afdddf/8ee9c/gff.jpg 148w,
-/static/c69aa4e071f329eb83601e0673afdddf/ebbe7/gff.jpg 295w,
-/static/c69aa4e071f329eb83601e0673afdddf/c739e/gff.jpg 590w,
-/static/c69aa4e071f329eb83601e0673afdddf/5413e/gff.jpg 885w,
-/static/c69aa4e071f329eb83601e0673afdddf/b3ee8/gff.jpg 960w&quot;&gt;
+      &lt;source srcset=&quot;/static/c69aa4e071f329eb83601e0673afdddf/a80bd/gff.jpg 148w,
+/static/c69aa4e071f329eb83601e0673afdddf/1c91a/gff.jpg 295w,
+/static/c69aa4e071f329eb83601e0673afdddf/1c72d/gff.jpg 590w,
+/static/c69aa4e071f329eb83601e0673afdddf/a8a14/gff.jpg 885w,
+/static/c69aa4e071f329eb83601e0673afdddf/6a068/gff.jpg 960w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/c69aa4e071f329eb83601e0673afdddf/c739e/gff.jpg&quot;
-        srcset=&quot;/static/c69aa4e071f329eb83601e0673afdddf/8ee9c/gff.jpg 148w,
-/static/c69aa4e071f329eb83601e0673afdddf/ebbe7/gff.jpg 295w,
-/static/c69aa4e071f329eb83601e0673afdddf/c739e/gff.jpg 590w,
-/static/c69aa4e071f329eb83601e0673afdddf/5413e/gff.jpg 885w,
-/static/c69aa4e071f329eb83601e0673afdddf/b3ee8/gff.jpg 960w&quot;
+        src=&quot;/static/c69aa4e071f329eb83601e0673afdddf/1c72d/gff.jpg&quot;
+        srcset=&quot;/static/c69aa4e071f329eb83601e0673afdddf/a80bd/gff.jpg 148w,
+/static/c69aa4e071f329eb83601e0673afdddf/1c91a/gff.jpg 295w,
+/static/c69aa4e071f329eb83601e0673afdddf/1c72d/gff.jpg 590w,
+/static/c69aa4e071f329eb83601e0673afdddf/a8a14/gff.jpg 885w,
+/static/c69aa4e071f329eb83601e0673afdddf/6a068/gff.jpg 960w&quot;
         title=&quot;gff&quot;
         alt=&quot;gff&quot;
         loading=&quot;lazy&quot;
@@ -2805,7 +2732,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 56.22263914946842%;
+        padding-bottom: 56.08108108108108%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2819,26 +2746,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABWthuXKGQ/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAAxETIjH/2gAIAQEAAQUC1plVQw4Mr9Q9WDv/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPwGH/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECERAhcf/aAAgBAQAGPwKm61IyZfp2iuGf/8QAGhABAAIDAQAAAAAAAAAAAAAAAQAhETFhcf/aAAgBAQABPyFBVpJDb3GRahSweMNfkQINMIIJ/9oADAMBAAIAAwAAABBbL//EABcRAAMBAAAAAAAAAAAAAAAAAAABIRH/2gAIAQMBAT8QVWlP/8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QSCX/xAAbEAEBAQADAQEAAAAAAAAAAAABEQAhMUGBof/aAAgBAQABPxCdC/S1zxFvoCclPbqEITtP3FwiRz66fzgQwSAHf//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABWthuXKGQ/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAAxETIjH/2gAIAQEAAQUC1plVQw4Mr9Q9WDv/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPwGH/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAECERAhcf/aAAgBAQAGPwKm61IyZfp2iuGf/8QAGhABAAIDAQAAAAAAAAAAAAAAAQAhETFhcf/aAAgBAQABPyFBVpJDb3GRahSweMNfkQINMIIJ/9oADAMBAAIAAwAAABBbL//EABcRAAMBAAAAAAAAAAAAAAAAAAABIRH/2gAIAQMBAT8QVWlP/8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QYJf/xAAbEAEBAQADAQEAAAAAAAAAAAABEQAhMUGBof/aAAgBAQABPxCdC/S1zxFvoCclPbqEITtP3FwiRz66fzgQwSAHf//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/2994a5cb3bff99c5b2b517068345e137/8ee9c/contro1.jpg 148w,
-/static/2994a5cb3bff99c5b2b517068345e137/ebbe7/contro1.jpg 295w,
-/static/2994a5cb3bff99c5b2b517068345e137/c739e/contro1.jpg 590w,
-/static/2994a5cb3bff99c5b2b517068345e137/5413e/contro1.jpg 885w,
-/static/2994a5cb3bff99c5b2b517068345e137/4efde/contro1.jpg 1180w,
-/static/2994a5cb3bff99c5b2b517068345e137/d6728/contro1.jpg 1599w&quot;&gt;
+      &lt;source srcset=&quot;/static/2994a5cb3bff99c5b2b517068345e137/a80bd/contro1.jpg 148w,
+/static/2994a5cb3bff99c5b2b517068345e137/1c91a/contro1.jpg 295w,
+/static/2994a5cb3bff99c5b2b517068345e137/1c72d/contro1.jpg 590w,
+/static/2994a5cb3bff99c5b2b517068345e137/a8a14/contro1.jpg 885w,
+/static/2994a5cb3bff99c5b2b517068345e137/fbd2c/contro1.jpg 1180w,
+/static/2994a5cb3bff99c5b2b517068345e137/3fe84/contro1.jpg 1599w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/2994a5cb3bff99c5b2b517068345e137/c739e/contro1.jpg&quot;
-        srcset=&quot;/static/2994a5cb3bff99c5b2b517068345e137/8ee9c/contro1.jpg 148w,
-/static/2994a5cb3bff99c5b2b517068345e137/ebbe7/contro1.jpg 295w,
-/static/2994a5cb3bff99c5b2b517068345e137/c739e/contro1.jpg 590w,
-/static/2994a5cb3bff99c5b2b517068345e137/5413e/contro1.jpg 885w,
-/static/2994a5cb3bff99c5b2b517068345e137/4efde/contro1.jpg 1180w,
-/static/2994a5cb3bff99c5b2b517068345e137/d6728/contro1.jpg 1599w&quot;
+        src=&quot;/static/2994a5cb3bff99c5b2b517068345e137/1c72d/contro1.jpg&quot;
+        srcset=&quot;/static/2994a5cb3bff99c5b2b517068345e137/a80bd/contro1.jpg 148w,
+/static/2994a5cb3bff99c5b2b517068345e137/1c91a/contro1.jpg 295w,
+/static/2994a5cb3bff99c5b2b517068345e137/1c72d/contro1.jpg 590w,
+/static/2994a5cb3bff99c5b2b517068345e137/a8a14/contro1.jpg 885w,
+/static/2994a5cb3bff99c5b2b517068345e137/fbd2c/contro1.jpg 1180w,
+/static/2994a5cb3bff99c5b2b517068345e137/3fe84/contro1.jpg 1599w&quot;
         title=&quot;usb&quot;
         alt=&quot;usb&quot;
         loading=&quot;lazy&quot;
@@ -2866,7 +2793,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 56.22263914946842%;
+        padding-bottom: 56.08108108108108%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2880,26 +2807,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAA//aAAwDAQACEAMQAAABjskzMcQn/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBAxESIf/aAAgBAQABBQKtRkiFF4btk//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABAxAP/aAAgBAQAGPwLVp//EABkQAAMBAQEAAAAAAAAAAAAAAAABETFRgf/aAAgBAQABPyG2souD0Z4KQ2Kf/9oADAMBAAIAAwAAABCXz//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxBtf//EABcRAAMBAAAAAAAAAAAAAAAAAAEQMRH/2gAIAQIBAT8QGG1f/8QAGBABAQEBAQAAAAAAAAAAAAAAAREAITH/2gAIAQEAAT8Q7zp6syApSomWPI0xUXjlNI8mUvd//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAA//aAAwDAQACEAMQAAABjskzMcQn/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAECEQMS/9oACAEBAAEFAuclQlJLw91p/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAEDEA/9oACAEBAAY/AtWn/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMYH/2gAIAQEAAT8htrKIdGYKQ2Kf/9oADAMBAAIAAwAAABCXz//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxBtf//EABcRAAMBAAAAAAAAAAAAAAAAAAEQMRH/2gAIAQIBAT8QGG1f/8QAGBABAQEBAQAAAAAAAAAAAAAAAREAITH/2gAIAQEAAT8QvTp6syApQsTLHkaQqLxymkeTKeu//9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/8ee9c/contro2.jpg 148w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/ebbe7/contro2.jpg 295w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/c739e/contro2.jpg 590w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/5413e/contro2.jpg 885w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/4efde/contro2.jpg 1180w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/d6728/contro2.jpg 1599w&quot;&gt;
+      &lt;source srcset=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/a80bd/contro2.jpg 148w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/1c91a/contro2.jpg 295w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/1c72d/contro2.jpg 590w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/a8a14/contro2.jpg 885w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/fbd2c/contro2.jpg 1180w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/3fe84/contro2.jpg 1599w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/c739e/contro2.jpg&quot;
-        srcset=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/8ee9c/contro2.jpg 148w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/ebbe7/contro2.jpg 295w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/c739e/contro2.jpg 590w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/5413e/contro2.jpg 885w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/4efde/contro2.jpg 1180w,
-/static/2e4820bef3ea9cab44f4ea7cc96450d9/d6728/contro2.jpg 1599w&quot;
+        src=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/1c72d/contro2.jpg&quot;
+        srcset=&quot;/static/2e4820bef3ea9cab44f4ea7cc96450d9/a80bd/contro2.jpg 148w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/1c91a/contro2.jpg 295w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/1c72d/contro2.jpg 590w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/a8a14/contro2.jpg 885w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/fbd2c/contro2.jpg 1180w,
+/static/2e4820bef3ea9cab44f4ea7cc96450d9/3fe84/contro2.jpg 1599w&quot;
         title=&quot;usb&quot;
         alt=&quot;usb&quot;
         loading=&quot;lazy&quot;
@@ -2927,7 +2854,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 56.22263914946842%;
+        padding-bottom: 56.08108108108108%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -2946,21 +2873,21 @@ function stopNote() {
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/8ee9c/contro3.jpg 148w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/ebbe7/contro3.jpg 295w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/c739e/contro3.jpg 590w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/5413e/contro3.jpg 885w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/4efde/contro3.jpg 1180w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/d6728/contro3.jpg 1599w&quot;&gt;
+      &lt;source srcset=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/a80bd/contro3.jpg 148w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/1c91a/contro3.jpg 295w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/1c72d/contro3.jpg 590w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/a8a14/contro3.jpg 885w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/fbd2c/contro3.jpg 1180w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/3fe84/contro3.jpg 1599w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/c739e/contro3.jpg&quot;
-        srcset=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/8ee9c/contro3.jpg 148w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/ebbe7/contro3.jpg 295w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/c739e/contro3.jpg 590w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/5413e/contro3.jpg 885w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/4efde/contro3.jpg 1180w,
-/static/b19253aa15dcd686a9b2ce73bcdb5f26/d6728/contro3.jpg 1599w&quot;
+        src=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/1c72d/contro3.jpg&quot;
+        srcset=&quot;/static/b19253aa15dcd686a9b2ce73bcdb5f26/a80bd/contro3.jpg 148w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/1c91a/contro3.jpg 295w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/1c72d/contro3.jpg 590w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/a8a14/contro3.jpg 885w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/fbd2c/contro3.jpg 1180w,
+/static/b19253aa15dcd686a9b2ce73bcdb5f26/3fe84/contro3.jpg 1599w&quot;
         title=&quot;usb&quot;
         alt=&quot;usb&quot;
         loading=&quot;lazy&quot;
@@ -2988,7 +2915,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 56.22263914946842%;
+        padding-bottom: 56.08108108108108%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -3002,26 +2929,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAABrkQUMxP/xAAZEAACAwEAAAAAAAAAAAAAAAABAgADIjP/2gAIAQEAAQUCrClXyumlPK0mCf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEv/aAAgBAwEBPwFm1//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPwFsf//EABoQAAICAwAAAAAAAAAAAAAAAAABEBEiUXH/2gAIAQEABj8C2Ylpi7P/xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhUWExQf/aAAgBAQABPyEaVQ3K/IaiZCcnn6gihmZmf//aAAwDAQACAAMAAAAQCz//xAAYEQEBAAMAAAAAAAAAAAAAAAABABEhMf/aAAgBAwEBPxAMbuwb/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/ELqD/8QAHBABAAIDAAMAAAAAAAAAAAAAAQARITFBUWFx/9oACAEBAAE/ECM7WfrsBAWteDHQim2KY15G33TLiQdhBctUUtZ//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAABrkQUMxP/xAAaEAACAgMAAAAAAAAAAAAAAAABAgADISIz/9oACAEBAAEFAqwpV9Vy0p42kwT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQMBAT8BZtf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8BbH//xAAaEAACAgMAAAAAAAAAAAAAAAAAARARIlFx/9oACAEBAAY/AtmJaYuz/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARIVFhMUH/2gAIAQEAAT8hGlUNyvyGomYnJ5eoIoZmZn//2gAMAwEAAgADAAAAEAs//8QAGBEBAQADAAAAAAAAAAAAAAAAAQARITH/2gAIAQMBAT8QDG7sG//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/EKg//8QAHBABAAIDAAMAAAAAAAAAAAAAAQARITFBUWFx/9oACAEBAAE/ECM7WfrsBAWteDHwim2KY14G33SS4kHYQXLVFLWf/9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/aac4692f482b300d11086c64feeb68d2/8ee9c/contro4.jpg 148w,
-/static/aac4692f482b300d11086c64feeb68d2/ebbe7/contro4.jpg 295w,
-/static/aac4692f482b300d11086c64feeb68d2/c739e/contro4.jpg 590w,
-/static/aac4692f482b300d11086c64feeb68d2/5413e/contro4.jpg 885w,
-/static/aac4692f482b300d11086c64feeb68d2/4efde/contro4.jpg 1180w,
-/static/aac4692f482b300d11086c64feeb68d2/d6728/contro4.jpg 1599w&quot;&gt;
+      &lt;source srcset=&quot;/static/aac4692f482b300d11086c64feeb68d2/a80bd/contro4.jpg 148w,
+/static/aac4692f482b300d11086c64feeb68d2/1c91a/contro4.jpg 295w,
+/static/aac4692f482b300d11086c64feeb68d2/1c72d/contro4.jpg 590w,
+/static/aac4692f482b300d11086c64feeb68d2/a8a14/contro4.jpg 885w,
+/static/aac4692f482b300d11086c64feeb68d2/fbd2c/contro4.jpg 1180w,
+/static/aac4692f482b300d11086c64feeb68d2/3fe84/contro4.jpg 1599w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/aac4692f482b300d11086c64feeb68d2/c739e/contro4.jpg&quot;
-        srcset=&quot;/static/aac4692f482b300d11086c64feeb68d2/8ee9c/contro4.jpg 148w,
-/static/aac4692f482b300d11086c64feeb68d2/ebbe7/contro4.jpg 295w,
-/static/aac4692f482b300d11086c64feeb68d2/c739e/contro4.jpg 590w,
-/static/aac4692f482b300d11086c64feeb68d2/5413e/contro4.jpg 885w,
-/static/aac4692f482b300d11086c64feeb68d2/4efde/contro4.jpg 1180w,
-/static/aac4692f482b300d11086c64feeb68d2/d6728/contro4.jpg 1599w&quot;
+        src=&quot;/static/aac4692f482b300d11086c64feeb68d2/1c72d/contro4.jpg&quot;
+        srcset=&quot;/static/aac4692f482b300d11086c64feeb68d2/a80bd/contro4.jpg 148w,
+/static/aac4692f482b300d11086c64feeb68d2/1c91a/contro4.jpg 295w,
+/static/aac4692f482b300d11086c64feeb68d2/1c72d/contro4.jpg 590w,
+/static/aac4692f482b300d11086c64feeb68d2/a8a14/contro4.jpg 885w,
+/static/aac4692f482b300d11086c64feeb68d2/fbd2c/contro4.jpg 1180w,
+/static/aac4692f482b300d11086c64feeb68d2/3fe84/contro4.jpg 1599w&quot;
         title=&quot;usb&quot;
         alt=&quot;usb&quot;
         loading=&quot;lazy&quot;
@@ -3067,26 +2994,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAGPVTslI8H/xAAaEAADAAMBAAAAAAAAAAAAAAABAgMAEiIR/9oACAEBAAEFAh00rEKvWRTR0CLTT0//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPwGH/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BWf/EABoQAAMBAAMAAAAAAAAAAAAAAAABEQISMVH/2gAIAQEABj8CiXZxwmO+kebo0pC5Z//EABoQAAMBAQEBAAAAAAAAAAAAAAABESExUWH/2gAIAQEAAT8hqCXg5Gvo2ixhaMjbeFKUiaGrMTe30//aAAwDAQACAAMAAAAQA+//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEx/9oACAEDAQE/EBGr/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERQf/aAAgBAgEBPxDCFv/EABwQAQADAAIDAAAAAAAAAAAAAAEAESExUUFxof/aAAgBAQABPxBguAKbUFkBtWtveTJooS7gWmXBH49wiAbN0Jw96czdVH6J/9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAGPVTslI8H/xAAaEAADAAMBAAAAAAAAAAAAAAABAgMAEiIR/9oACAEBAAEFAh00rEKvWRTR0CLTT0//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPwGH/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BWf/EABoQAAMBAAMAAAAAAAAAAAAAAAABEQISMVH/2gAIAQEABj8CiXZxwmO+kebo0pC5Z//EABoQAAMBAQEBAAAAAAAAAAAAAAABESExUWH/2gAIAQEAAT8hqCXg5Gvo2ixhaMjbeGFKJoasxN7fT//aAAwDAQACAAMAAAAQA+//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEx/9oACAEDAQE/EBGr/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQBB/9oACAECAQE/EMCG/8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFRQXGh/9oACAEBAAE/EGC4AptQWQG1a295MmihLuBbZcEfj3CMg2boTh705m6qP0T/2Q==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8ee9c/dawn1.jpg 148w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/ebbe7/dawn1.jpg 295w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/c739e/dawn1.jpg 590w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/5413e/dawn1.jpg 885w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/4efde/dawn1.jpg 1180w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8f868/dawn1.jpg 3264w&quot;&gt;
+      &lt;source srcset=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/a80bd/dawn1.jpg 148w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/1c91a/dawn1.jpg 295w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/1c72d/dawn1.jpg 590w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/a8a14/dawn1.jpg 885w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/fbd2c/dawn1.jpg 1180w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/768c6/dawn1.jpg 3264w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/c739e/dawn1.jpg&quot;
-        srcset=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8ee9c/dawn1.jpg 148w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/ebbe7/dawn1.jpg 295w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/c739e/dawn1.jpg 590w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/5413e/dawn1.jpg 885w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/4efde/dawn1.jpg 1180w,
-/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/8f868/dawn1.jpg 3264w&quot;
+        src=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/1c72d/dawn1.jpg&quot;
+        srcset=&quot;/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/a80bd/dawn1.jpg 148w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/1c91a/dawn1.jpg 295w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/1c72d/dawn1.jpg 590w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/a8a14/dawn1.jpg 885w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/fbd2c/dawn1.jpg 1180w,
+/static/3c0c5d8e0f0704f6b3da1e74ab0eac0c/768c6/dawn1.jpg 3264w&quot;
         title=&quot;dawn&quot;
         alt=&quot;dawn&quot;
         loading=&quot;lazy&quot;
@@ -3128,26 +3055,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABVmpbFpigh//EABoQAAMBAAMAAAAAAAAAAAAAAAECAxEAEjH/2gAIAQEAAQUCodKhlLzcGftK7btz/8QAFREBAQAAAAAAAAAAAAAAAAAAACL/2gAIAQMBAT8BU//EABYRAQEBAAAAAAAAAAAAAAAAAAARIf/aAAgBAgEBPwGRj//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEhMUFx/9oACAEBAAY/AlFMjjZhWL0vhbWz/8QAGxABAAMBAAMAAAAAAAAAAAAAAQARITFBgeH/2gAIAQEAAT8hbBnWGb36ym+hEtXaTWctVAoI8sfs/9oADAMBAAIAAwAAABArH//EABcRAQEBAQAAAAAAAAAAAAAAAAEAIRH/2gAIAQMBAT8QyTvEv//EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAgEBPxBpLhz/xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhMVGRof/aAAgBAQABPxAcASoW2OSsQVGF859lZBDXgfNgugwem9uUNrSrwYtOiimnD8T/2Q==) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABVmpaVpigx//EABoQAAMBAAMAAAAAAAAAAAAAAAECAxEAEjH/2gAIAQEAAQUCodKhlLzcGftK7btz/8QAFREBAQAAAAAAAAAAAAAAAAAAACL/2gAIAQMBAT8BU//EABYRAQEBAAAAAAAAAAAAAAAAAAARIf/aAAgBAgEBPwGRj//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEhMUFx/9oACAEBAAY/AlFMjjZhWL0vhbWz/8QAGxABAAMBAAMAAAAAAAAAAAAAAQARMSFBgeH/2gAIAQEAAT8hahh6wzd9ZTfQiuraTrMtVAoI8uP2f//aAAwDAQACAAMAAAAQKz//xAAXEQADAQAAAAAAAAAAAAAAAAAAASER/9oACAEDAQE/EINajP/EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAgEBPxBpLhz/xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhMVGRof/aAAgBAQABPxAcAlQtsclYgqML5z7KyCGvA+bFOgwem9uUNrSrwYtOiimnD8T/2Q==) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/ab7de6bec45778f99398a68f58a48470/8ee9c/dawn2.jpg 148w,
-/static/ab7de6bec45778f99398a68f58a48470/ebbe7/dawn2.jpg 295w,
-/static/ab7de6bec45778f99398a68f58a48470/c739e/dawn2.jpg 590w,
-/static/ab7de6bec45778f99398a68f58a48470/5413e/dawn2.jpg 885w,
-/static/ab7de6bec45778f99398a68f58a48470/4efde/dawn2.jpg 1180w,
-/static/ab7de6bec45778f99398a68f58a48470/8f868/dawn2.jpg 3264w&quot;&gt;
+      &lt;source srcset=&quot;/static/ab7de6bec45778f99398a68f58a48470/a80bd/dawn2.jpg 148w,
+/static/ab7de6bec45778f99398a68f58a48470/1c91a/dawn2.jpg 295w,
+/static/ab7de6bec45778f99398a68f58a48470/1c72d/dawn2.jpg 590w,
+/static/ab7de6bec45778f99398a68f58a48470/a8a14/dawn2.jpg 885w,
+/static/ab7de6bec45778f99398a68f58a48470/fbd2c/dawn2.jpg 1180w,
+/static/ab7de6bec45778f99398a68f58a48470/768c6/dawn2.jpg 3264w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/ab7de6bec45778f99398a68f58a48470/c739e/dawn2.jpg&quot;
-        srcset=&quot;/static/ab7de6bec45778f99398a68f58a48470/8ee9c/dawn2.jpg 148w,
-/static/ab7de6bec45778f99398a68f58a48470/ebbe7/dawn2.jpg 295w,
-/static/ab7de6bec45778f99398a68f58a48470/c739e/dawn2.jpg 590w,
-/static/ab7de6bec45778f99398a68f58a48470/5413e/dawn2.jpg 885w,
-/static/ab7de6bec45778f99398a68f58a48470/4efde/dawn2.jpg 1180w,
-/static/ab7de6bec45778f99398a68f58a48470/8f868/dawn2.jpg 3264w&quot;
+        src=&quot;/static/ab7de6bec45778f99398a68f58a48470/1c72d/dawn2.jpg&quot;
+        srcset=&quot;/static/ab7de6bec45778f99398a68f58a48470/a80bd/dawn2.jpg 148w,
+/static/ab7de6bec45778f99398a68f58a48470/1c91a/dawn2.jpg 295w,
+/static/ab7de6bec45778f99398a68f58a48470/1c72d/dawn2.jpg 590w,
+/static/ab7de6bec45778f99398a68f58a48470/a8a14/dawn2.jpg 885w,
+/static/ab7de6bec45778f99398a68f58a48470/fbd2c/dawn2.jpg 1180w,
+/static/ab7de6bec45778f99398a68f58a48470/768c6/dawn2.jpg 3264w&quot;
         title=&quot;dawn&quot;
         alt=&quot;dawn&quot;
         loading=&quot;lazy&quot;
@@ -3190,20 +3117,20 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB5tSUYlBX/8QAGhAAAwEBAQEAAAAAAAAAAAAAAQIDAAQSFP/aAAgBAQABBQJpBQs4+CswV6ZjHplvqQb/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwEn/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBMTKh/9oACAEBAAY/AmiJXSipMMzw/8QAHBABAAICAwEAAAAAAAAAAAAAAQARITFRYXGB/9oACAEBAAE/Ic6ElrG0zFeu8QHb7Eu/ZgaivxP/2gAMAwEAAgADAAAAENgv/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAB/9oACAEDAQE/EEnb/8QAFhEBAQEAAAAAAAAAAAAAAAAAERAh/9oACAECAQE/EEbP/8QAHRABAAICAgMAAAAAAAAAAAAAAQARIXExUdHh8P/aAAgBAQABPxAkmMc+4rKuSsOriCgVUC4vcWDb6DWsxAqn4q5dEejyT//Z) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB5tSUYlBX/8QAGhAAAwEBAQEAAAAAAAAAAAAAAQIDAAQSFP/aAAgBAQABBQJpBQs4+CswV6ZjHplvqQb/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwEn/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBMTKh/9oACAEBAAY/AmiJXSipMMzw/8QAGxABAAICAwAAAAAAAAAAAAAAAQARITFRYXH/2gAIAQEAAT8hzoSWsbTMV67xAdvsQ79mBqKx/9oADAMBAAIAAwAAABDYL//EABYRAQEBAAAAAAAAAAAAAAAAABEAAf/aAAgBAwEBPxBNnb//xAAWEQEBAQAAAAAAAAAAAAAAAAARECH/2gAIAQIBAT8QRs//xAAeEAEAAgIBBQAAAAAAAAAAAAABABEhUXExodHh8P/aAAgBAQABPxAkmMdfcVlXJWHi4goFVAuL5iwbeg13iRVPxVy6I6B5n//Z) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/1b0de777c1f9139a95794ec0c0de1c2f/8ee9c/0.jpg 148w,
-/static/1b0de777c1f9139a95794ec0c0de1c2f/ebbe7/0.jpg 295w,
-/static/1b0de777c1f9139a95794ec0c0de1c2f/98431/0.jpg 480w&quot;&gt;
+      &lt;source srcset=&quot;/static/1b0de777c1f9139a95794ec0c0de1c2f/a80bd/0.jpg 148w,
+/static/1b0de777c1f9139a95794ec0c0de1c2f/1c91a/0.jpg 295w,
+/static/1b0de777c1f9139a95794ec0c0de1c2f/7cc5e/0.jpg 480w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/1b0de777c1f9139a95794ec0c0de1c2f/98431/0.jpg&quot;
-        srcset=&quot;/static/1b0de777c1f9139a95794ec0c0de1c2f/8ee9c/0.jpg 148w,
-/static/1b0de777c1f9139a95794ec0c0de1c2f/ebbe7/0.jpg 295w,
-/static/1b0de777c1f9139a95794ec0c0de1c2f/98431/0.jpg 480w&quot;
+        src=&quot;/static/1b0de777c1f9139a95794ec0c0de1c2f/7cc5e/0.jpg&quot;
+        srcset=&quot;/static/1b0de777c1f9139a95794ec0c0de1c2f/a80bd/0.jpg 148w,
+/static/1b0de777c1f9139a95794ec0c0de1c2f/1c91a/0.jpg 295w,
+/static/1b0de777c1f9139a95794ec0c0de1c2f/7cc5e/0.jpg 480w&quot;
         title=&quot;IoT Scale&quot;
         alt=&quot;IoT Scale&quot;
         loading=&quot;lazy&quot;
@@ -3231,7 +3158,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 56.22263914946842%;
+        padding-bottom: 56.08108108108108%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -3245,26 +3172,26 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBf/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAELgdUtlmM//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAMBAhEhIjL/2gAIAQEAAQUC6qVq4VkTEWP/xAAXEQADAQAAAAAAAAAAAAAAAAACEBES/9oACAEDAQE/ARmV/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BZ//EABgQAAIDAAAAAAAAAAAAAAAAAAAQESGB/9oACAEBAAY/AjFZK//EABsQAAMAAgMAAAAAAAAAAAAAAAABERAhMUGB/9oACAEBAAE/IYvWCyWo4GhL7bZQhVPnH//aAAwDAQACAAMAAAAQv+//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EEpdIf/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAgEBPxDcV//EABoQAQEBAQEBAQAAAAAAAAAAAAERACExQZH/2gAIAQEAAT8QFL+vw5o3XQ8fMNxUFUuclmhHQ1d//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBf/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAELgdUtlmM//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAMBAhEhIjL/2gAIAQEAAQUC6qVq4VkTEWP/xAAXEQADAQAAAAAAAAAAAAAAAAACEBES/9oACAEDAQE/ARmV/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BZ//EABgQAAIDAAAAAAAAAAAAAAAAAAAQESGB/9oACAEBAAY/AjFZK//EABsQAAMAAgMAAAAAAAAAAAAAAAABERAhMUGB/9oACAEBAAE/IYvWCyWo4GhL7bZQhVPnH//aAAwDAQACAAMAAAAQr+//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EEpdIf/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAgEBPxDcV//EABoQAAMBAQEBAAAAAAAAAAAAAAABESExQZH/2gAIAQEAAT8QTS/XxYRutDj4JoqiVSjzNqlGpFZ//9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/8298575e0b879741c17850d516abac1b/8ee9c/lipo.jpg 148w,
-/static/8298575e0b879741c17850d516abac1b/ebbe7/lipo.jpg 295w,
-/static/8298575e0b879741c17850d516abac1b/c739e/lipo.jpg 590w,
-/static/8298575e0b879741c17850d516abac1b/5413e/lipo.jpg 885w,
-/static/8298575e0b879741c17850d516abac1b/4efde/lipo.jpg 1180w,
-/static/8298575e0b879741c17850d516abac1b/d6728/lipo.jpg 1599w&quot;&gt;
+      &lt;source srcset=&quot;/static/8298575e0b879741c17850d516abac1b/a80bd/lipo.jpg 148w,
+/static/8298575e0b879741c17850d516abac1b/1c91a/lipo.jpg 295w,
+/static/8298575e0b879741c17850d516abac1b/1c72d/lipo.jpg 590w,
+/static/8298575e0b879741c17850d516abac1b/a8a14/lipo.jpg 885w,
+/static/8298575e0b879741c17850d516abac1b/fbd2c/lipo.jpg 1180w,
+/static/8298575e0b879741c17850d516abac1b/3fe84/lipo.jpg 1599w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/8298575e0b879741c17850d516abac1b/c739e/lipo.jpg&quot;
-        srcset=&quot;/static/8298575e0b879741c17850d516abac1b/8ee9c/lipo.jpg 148w,
-/static/8298575e0b879741c17850d516abac1b/ebbe7/lipo.jpg 295w,
-/static/8298575e0b879741c17850d516abac1b/c739e/lipo.jpg 590w,
-/static/8298575e0b879741c17850d516abac1b/5413e/lipo.jpg 885w,
-/static/8298575e0b879741c17850d516abac1b/4efde/lipo.jpg 1180w,
-/static/8298575e0b879741c17850d516abac1b/d6728/lipo.jpg 1599w&quot;
+        src=&quot;/static/8298575e0b879741c17850d516abac1b/1c72d/lipo.jpg&quot;
+        srcset=&quot;/static/8298575e0b879741c17850d516abac1b/a80bd/lipo.jpg 148w,
+/static/8298575e0b879741c17850d516abac1b/1c91a/lipo.jpg 295w,
+/static/8298575e0b879741c17850d516abac1b/1c72d/lipo.jpg 590w,
+/static/8298575e0b879741c17850d516abac1b/a8a14/lipo.jpg 885w,
+/static/8298575e0b879741c17850d516abac1b/fbd2c/lipo.jpg 1180w,
+/static/8298575e0b879741c17850d516abac1b/3fe84/lipo.jpg 1599w&quot;
         title=&quot;lipo&quot;
         alt=&quot;lipo&quot;
         loading=&quot;lazy&quot;
@@ -3292,7 +3219,7 @@ function stopNote() {
         
           &lt;div class=&quot;gria-image-padding&quot; style=&quot;
         width: 100%;
-        padding-bottom: 177.77777777777777%;
+        padding-bottom: 177.70270270270268%;
       &quot;&gt;&lt;/div&gt;
         
         
@@ -3306,22 +3233,22 @@ function stopNote() {
   width: 100%;
   height: 100%;
 
-          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQCBQP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABs5fRhSVSjecXLh7COoTQX//EABwQAAIBBQEAAAAAAAAAAAAAAAABAgMQERIhIv/aAAgBAQABBQKt0kjUmVEaE8xFGTEuSErY82//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwEr/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAGxAAAgIDAQAAAAAAAAAAAAAAARAAEQIgIUH/2gAIAQEABj8C0oerhMtW84F//8QAHRAAAwACAgMAAAAAAAAAAAAAAAERITEQUUFhcf/aAAgBAQABPyGc0hZBl5ERMyEiUOkvbpIfZPJtstvKKmjrhpSdi188f//aAAwDAQACAAMAAAAQi/qNDC//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEg/9oACAEDAQE/EBWRx//EABcRAQEBAQAAAAAAAAAAAAAAAAEAESD/2gAIAQIBAT8QW2eP/8QAHhABAQEBAQABBQAAAAAAAAAAAREAITFBYXGBkaH/2gAIAQEAAT8QTLD7kyFuabj6mewXkfgwj1CVMerI6WZlMmC9/OgnzBq9ylXMU9e9/RMAmReaBybhij3u0+h/mVu//9k=) center / cover no-repeat;
+          background: #fff url(data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQCBQP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABs5fRhSVSjecXLh7COoTQX//EABwQAAIBBQEAAAAAAAAAAAAAAAABAgMQERIhIv/aAAgBAQABBQKt0kjUmVEaE8xFGTEuSErY82//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwEr/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAGxAAAgIDAQAAAAAAAAAAAAAAARAAEQIgIUH/2gAIAQEABj8C0oerhMtW84F//8QAHRAAAwACAgMAAAAAAAAAAAAAAAERITEQUUFhcf/aAAgBAQABPyGc0hZBl5ERMyEiUOkvbpIfZPJtstvKKmjrhpSdi188f//aAAwDAQACAAMAAAAQi/qNDC//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEg/9oACAEDAQE/EBWRx//EABcRAQEBAQAAAAAAAAAAAAAAAAEAESD/2gAIAQIBAT8QW2eP/8QAHhABAQEBAQABBQAAAAAAAAAAAREAITFBYXGBkaH/2gAIAQEAAT8QTLD7kyFuabj6mewXkfgwj1CVMerI6WZlMmC9/OgnzBq9ylXMU9e9/RMAkIvNA5NwxR73afQ/zK3f/9k=) center / cover no-repeat;
         &quot;
       &gt;&lt;/div&gt;
     
     &lt;picture&gt;
-      &lt;source srcset=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/8ee9c/bike.jpg 148w,
-/static/8adb2ad86bcbfdd71ed69df8e345517f/ebbe7/bike.jpg 295w,
-/static/8adb2ad86bcbfdd71ed69df8e345517f/c739e/bike.jpg 590w,
-/static/8adb2ad86bcbfdd71ed69df8e345517f/cad07/bike.jpg 720w&quot;&gt;
+      &lt;source srcset=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/a80bd/bike.jpg 148w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/1c91a/bike.jpg 295w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/1c72d/bike.jpg 590w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/80e3c/bike.jpg 720w&quot;&gt;
       &lt;img
         class=&quot;gria-image&quot;
-        src=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/c739e/bike.jpg&quot;
-        srcset=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/8ee9c/bike.jpg 148w,
-/static/8adb2ad86bcbfdd71ed69df8e345517f/ebbe7/bike.jpg 295w,
-/static/8adb2ad86bcbfdd71ed69df8e345517f/c739e/bike.jpg 590w,
-/static/8adb2ad86bcbfdd71ed69df8e345517f/cad07/bike.jpg 720w&quot;
+        src=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/1c72d/bike.jpg&quot;
+        srcset=&quot;/static/8adb2ad86bcbfdd71ed69df8e345517f/a80bd/bike.jpg 148w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/1c91a/bike.jpg 295w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/1c72d/bike.jpg 590w,
+/static/8adb2ad86bcbfdd71ed69df8e345517f/80e3c/bike.jpg 720w&quot;
         title=&quot;BottleDynamo&quot;
         alt=&quot;BottleDynamo&quot;
         loading=&quot;lazy&quot;
