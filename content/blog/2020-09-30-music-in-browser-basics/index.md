@@ -2,7 +2,7 @@
 layout: posts
 title: "Music in browser basics"
 date: "2020-09-30"
-type: "baked"
+type: "post"
 ---
 
 I've recently started a tech in music interest group within Shopee that will run for 8 weeks, and I want to have some content out for the first week as we will be doing mostly introductions. So this shall be my welcome and beginner starting kit to my 3 amigos Adriel, Stanley and James.
