@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A starter for a blog powered by Gatsby and Markdown from Kyle Mathews <mathews.kyle@gmail.com>",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ten Zhi Yang <hi@tenzhiyang.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
