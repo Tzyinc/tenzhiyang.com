@@ -1,4 +1,353 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Feb 2021 07:26:01 GMT</lastBuildDate><item><title><![CDATA[Hacking together auto posting to dev.to from my blog]]></title><description><![CDATA[In order to increase my online presence, I decided to create a dev.to account. I’ve never posted on medium before so I can’t compare the…]]></description><link>https://blog.tenzhiyang.com/2021-02-10-blog-auto-post/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-02-10-blog-auto-post/</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In order to increase my online presence, I decided to create a dev.to account. I’ve never posted on medium before so I can’t compare the experience from one platform to another, but dev.to was pretty intuitive. However, I already have somewhat of a content creation flow right here on my blog, and I tried manually cross posting, but I didn’t really like the whole doing one thing twice. Hence I decided to hack up some auto posting script. With some luck, you’ll be reading this post itself on dev.to!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 21 Feb 2021 10:07:38 GMT</lastBuildDate><item><title><![CDATA[Weekly solutions: PPAP wildcard matching]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions Another one of Cassidy’s weekly newsletter. I did a…]]></description><link>https://blog.tenzhiyang.com/2021-02-21-wildcard-matching/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-02-21-wildcard-matching/</guid><pubDate>Sun, 21 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Another one of &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/31041425-e593-454a-b0a5-13dfb94966a7&quot;&gt;newsletter&lt;/a&gt;. I did a cursory google search and it seems like it’s a leet code hard, so I’m not intending to get the optimal solution, at least on first try.&lt;/p&gt;
+&lt;p&gt;Target audience: beginners in js (please feedback!)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This week’s question:
+Given a string str and a dictionary dict containing a list of non-empty words, add spaces in str to construct a “sentence” where each word is a valid word in dict. Return all possible sentences. You are allowed to reuse the words in dict.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;str = “penpineapplepenapple”
+dict = [“apple”, “pen”, “applepen”, “pine”, “pineapple”]
+
+$ makeSentence(str, dict)
+$ [
+    “pen pine apple pen apple”,
+    “pen pineapple pen apple”,
+    “pen pine applepen apple”
+  ]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here’s where my mind is at from the start, I can make use of a global replace to match words to a symbol. I can reconstruct the sentence by replacing the symbol back into the words, with spaces. To get the different variations of sentences, I can change the order of the dictionary such that we replace matched strings in different order.&lt;/p&gt;
+&lt;p&gt;This seems like it would be difficult to reason about as there are many loose parts, but using the same idea, let’s try to use a recursive solution.&lt;/p&gt;
+&lt;p&gt;We can start by breaking up the first match-able strings of the sentence, adding a space and then throwing the output back into the function again.&lt;/p&gt;
+&lt;p&gt;We want this function to exit. For now, we can clone the input array, and then check if the new array and the original input have the same length, that can be our exit condition.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; str &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;penpineapplepenapple&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; dict &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;apple&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;applepen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pine&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pineapple&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;makeSentence&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;str&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;breakFirstWord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;str&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;breakFirstWord&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;strArr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newStrArr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; newStrArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; strArr
+    &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;breakFirstWord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newStrArr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeSentence&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;str&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now to attack the breaking up problem. In the first loop, it’s straight forward, we will just break the word from index 0, that is, with input &lt;code class=&quot;language-text&quot;&gt;penpineapplepenapple&lt;/code&gt; we will break into &lt;code class=&quot;language-text&quot;&gt;pen pineapplepenapple&lt;/code&gt;. following which, we will want to break from the most recent space.&lt;/p&gt;
+&lt;p&gt;Keep in mind if it started with &lt;code class=&quot;language-text&quot;&gt;applepen&lt;/code&gt; it could be either &lt;code class=&quot;language-text&quot;&gt;applepen&lt;/code&gt; itself or &lt;code class=&quot;language-text&quot;&gt;apple pen&lt;/code&gt;, so there could be one or more most recent space.&lt;/p&gt;
+&lt;p&gt;breakFirstWord now looks like this.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;breakFirstWord&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;strArr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newStrArr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; strArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currTestStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; strArr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lastIndexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// TODO: do something with mostRecentspace and currTestStr here&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; newStrArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; strArr
+    &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;breakFirstWord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newStrArr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We want to match with every word in the dictionary, at where we left the TODO, let’s write something that takes a substring of the same length as the dictionary words&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currDictTest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; testSubStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    mostRecentSpace&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;testSubStr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// first iter returns&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// &quot;penpi&quot;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// &quot;pen&quot;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// &quot;penpinea&quot;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// &quot;penp&quot;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// &quot;penpineap&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This looks correct, but at the back of my mind, we might need to handle the fact that the first input of the substring function may not work like expected due to us taking the index of the space, when we might need the index of the first character after the space. We will cross that bridge when it comes back.&lt;/p&gt;
+&lt;p&gt;For now, we want to break the word if there’s a match and then push it into the next newStrArr.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currDictTest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; testSubStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    mostRecentSpace&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;testSubStr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;testSubStr &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+      currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mostRecentSpace&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+      testSubStr &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+      currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    newStrArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newStr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;sure enough, in our second iteration, testSubStr is messing up, let’s increment mostRecentSpace by 1, consequently, this also means a no-match of spaces is also 0.&lt;/p&gt;
+&lt;p&gt;so let’s change&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lastIndexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;into&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lastIndexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;we’re very close! the final output only returns a single element of &lt;code class=&quot;language-text&quot;&gt;[&amp;quot;pen pine apple pen apple &amp;quot;]&lt;/code&gt;. Looking at this result, I can see that the last word has a space to it, this leads me to guess that this array is running one time more than it needs to. console logging before every return confirms my assumption.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[&amp;quot;pen pine apple pen apple&amp;quot;, &amp;quot;pen pine applepen apple &amp;quot;, &amp;quot;pen pineapple pen apple &amp;quot;] [&amp;quot;pen pine apple penapple&amp;quot;, &amp;quot;pen pine applepen apple&amp;quot;, &amp;quot;pen pineapple pen apple&amp;quot;]
+
+[&amp;quot;pen pine apple pen apple &amp;quot;] [&amp;quot;pen pine apple pen apple&amp;quot;, &amp;quot;pen pine applepen apple &amp;quot;, &amp;quot;pen pineapple pen apple &amp;quot;]
+
+[] [&amp;quot;pen pine apple pen apple &amp;quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The idea that comes straight to mind is, before pushing into the new array, I can trim the string, therefore the last iteration will not include the last space. However, this results in an infinite loop at the last step.&lt;/p&gt;
+&lt;p&gt;Alternatively having a space at the end also guarantees that I’ve gone through the dictionary down to the last word, this means that something like &lt;code class=&quot;language-text&quot;&gt;penasdf&lt;/code&gt; should not have any output. I think a way we can handle this is to automatically push all input where there’s an empty space at the end to &lt;code class=&quot;language-text&quot;&gt;newStrArr&lt;/code&gt;, so that we will not lose any results that are computed early, (eg. &lt;code class=&quot;language-text&quot;&gt;pen applepen&lt;/code&gt; will always resolve one loop earlier than &lt;code class=&quot;language-text&quot;&gt;pen apple pen&lt;/code&gt;) but we can also check that all elements in &lt;code class=&quot;language-text&quot;&gt;newStrArr&lt;/code&gt; contains a space at the end, this can be our new break condition. Let’s also trim the results in the &lt;code class=&quot;language-text&quot;&gt;makeSentence&lt;/code&gt; function&lt;/p&gt;
+&lt;p&gt;Here’s the full code:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; str &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;penpineapplepenapple&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; dict &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;apple&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;applepen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pine&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pineapple&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;makeSentence&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;str&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;breakFirstWord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;str&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;trim&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;breakFirstWord&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;strArr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newStrArr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; strArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currTestStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; strArr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;lastIndexOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      newStrArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currTestStr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; currDictTest &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; testSubStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          mostRecentSpace&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;testSubStr &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+            currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mostRecentSpace&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+            testSubStr &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;
+            currTestStr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;mostRecentSpace &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; currDictTest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          newStrArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newStr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; newStrArr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; newStrArr
+    &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;breakFirstWord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;newStrArr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;makeSentence&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;str&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dict&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;codepen:&lt;/p&gt;
+&lt;iframe height=&quot;265&quot; style=&quot;width: 100%;&quot; scrolling=&quot;no&quot; title=&quot;cassidoo newsletter 2021/7&quot; src=&quot;https://codepen.io/Tzyinc/embed/VwmzORx?height=265&amp;theme-id=light&amp;default-tab=js,result&quot; frameborder=&quot;no&quot; loading=&quot;lazy&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+  See the Pen &lt;a href=&apos;https://codepen.io/Tzyinc/pen/VwmzORx&apos;&gt;cassidoo newsletter 2021/7&lt;/a&gt; by Ten Zhi Yang
+  (&lt;a href=&apos;https://codepen.io/Tzyinc&apos;&gt;@Tzyinc&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;</content:encoded><content:raw>
+**This may or may not be the optimal solution, DO NOT blindly memorize my solutions**
+
+Another one of [Cassidy&apos;s](https://twitter.com/cassidoo) weekly [newsletter](https://buttondown.email/cassidoo/archive/31041425-e593-454a-b0a5-13dfb94966a7). I did a cursory google search and it seems like it&apos;s a leet code hard, so I&apos;m not intending to get the optimal solution, at least on first try.
+
+Target audience: beginners in js (please feedback!)
+
+&gt; This week’s question:
+Given a string str and a dictionary dict containing a list of non-empty words, add spaces in str to construct a “sentence” where each word is a valid word in dict. Return all possible sentences. You are allowed to reuse the words in dict.
+
+&gt; Example:
+
+```
+str = “penpineapplepenapple”
+dict = [“apple”, “pen”, “applepen”, “pine”, “pineapple”]
+
+$ makeSentence(str, dict)
+$ [
+    “pen pine apple pen apple”,
+    “pen pineapple pen apple”,
+    “pen pine applepen apple”
+  ]
+```
+
+Here&apos;s where my mind is at from the start, I can make use of a global replace to match words to a symbol. I can reconstruct the sentence by replacing the symbol back into the words, with spaces. To get the different variations of sentences, I can change the order of the dictionary such that we replace matched strings in different order.
+
+This seems like it would be difficult to reason about as there are many loose parts, but using the same idea, let&apos;s try to use a recursive solution.
+
+We can start by breaking up the first match-able strings of the sentence, adding a space and then throwing the output back into the function again.
+
+We want this function to exit. For now, we can clone the input array, and then check if the new array and the original input have the same length, that can be our exit condition.
+
+```js
+const str = &quot;penpineapplepenapple&quot;;
+const dict = [&quot;apple&quot;, &quot;pen&quot;, &quot;applepen&quot;, &quot;pine&quot;, &quot;pineapple&quot;];
+
+const makeSentence = (str, dict) =&gt; {
+  return breakFirstWord([str], dict);
+};
+
+const breakFirstWord = (strArr, dict) =&gt; {
+  const newStrArr = new Array();
+  return newStrArr.length === 0
+    ? strArr
+    : breakFirstWord(newStrArr, dict);
+};
+
+console.log(makeSentence(str, dict));
+```
+
+Now to attack the breaking up problem. In the first loop, it&apos;s straight forward, we will just break the word from index 0, that is, with input `penpineapplepenapple` we will break into `pen pineapplepenapple`. following which, we will want to break from the most recent space.
+
+Keep in mind if it started with `applepen` it could be either `applepen` itself or `apple pen`, so there could be one or more most recent space.
+
+breakFirstWord now looks like this.
+
+```js
+const breakFirstWord = (strArr, dict) =&gt; {
+  const newStrArr = new Array();
+  for (let i = 0; i &lt; strArr.length; i++) {
+    const currTestStr = strArr[i];
+    let mostRecentSpace = currTestStr.lastIndexOf(&quot; &quot;);
+    if (mostRecentSpace === -1) {
+      mostRecentSpace = 0;
+    }
+    // TODO: do something with mostRecentspace and currTestStr here
+  }
+  return newStrArr.length === 0
+    ? strArr
+    : breakFirstWord(newStrArr, dict);
+};
+```
+
+We want to match with every word in the dictionary, at where we left the TODO, let&apos;s write something that takes a substring of the same length as the dictionary words
+
+```js
+for (let j = 0; j &lt; dict.length; j++) {
+  const currDictTest = dict[j];
+  const testSubStr = currTestStr.substring(
+    mostRecentSpace,
+    mostRecentSpace + currDictTest.length
+  );
+  console.log(testSubStr);
+}
+
+// first iter returns
+// &quot;penpi&quot;
+// &quot;pen&quot;
+// &quot;penpinea&quot;
+// &quot;penp&quot;
+// &quot;penpineap&quot;
+```
+
+This looks correct, but at the back of my mind, we might need to handle the fact that the first input of the substring function may not work like expected due to us taking the index of the space, when we might need the index of the first character after the space. We will cross that bridge when it comes back.
+
+For now, we want to break the word if there&apos;s a match and then push it into the next newStrArr.
+
+
+```js
+for (let j = 0; j &lt; dict.length; j++) {
+  const currDictTest = dict[j];
+  const testSubStr = currTestStr.substring(
+    mostRecentSpace,
+    mostRecentSpace + currDictTest.length
+  );
+
+  console.log(testSubStr);
+  if (testSubStr === currDictTest) {
+    const newStr =
+      currTestStr.substring(0, mostRecentSpace) +
+      testSubStr +
+      &quot; &quot; +
+      currTestStr.substring(mostRecentSpace + currDictTest.length);
+    newStrArr.push(newStr);
+  }
+}
+```
+
+sure enough, in our second iteration, testSubStr is messing up, let&apos;s increment mostRecentSpace by 1, consequently, this also means a no-match of spaces is also 0.
+
+so let&apos;s change
+
+```js
+let mostRecentSpace = currTestStr.lastIndexOf(&quot; &quot;);
+if (mostRecentSpace === -1) {
+  mostRecentSpace = 0;
+}
+```
+
+into
+
+```js
+let mostRecentSpace = currTestStr.lastIndexOf(&quot; &quot;) + 1;
+```
+
+we&apos;re very close! the final output only returns a single element of `[&quot;pen pine apple pen apple &quot;]`. Looking at this result, I can see that the last word has a space to it, this leads me to guess that this array is running one time more than it needs to. console logging before every return confirms my assumption.
+
+```
+[&quot;pen pine apple pen apple&quot;, &quot;pen pine applepen apple &quot;, &quot;pen pineapple pen apple &quot;] [&quot;pen pine apple penapple&quot;, &quot;pen pine applepen apple&quot;, &quot;pen pineapple pen apple&quot;]
+
+[&quot;pen pine apple pen apple &quot;] [&quot;pen pine apple pen apple&quot;, &quot;pen pine applepen apple &quot;, &quot;pen pineapple pen apple &quot;]
+
+[] [&quot;pen pine apple pen apple &quot;]
+```
+
+The idea that comes straight to mind is, before pushing into the new array, I can trim the string, therefore the last iteration will not include the last space. However, this results in an infinite loop at the last step.
+
+Alternatively having a space at the end also guarantees that I&apos;ve gone through the dictionary down to the last word, this means that something like `penasdf` should not have any output. I think a way we can handle this is to automatically push all input where there&apos;s an empty space at the end to `newStrArr`, so that we will not lose any results that are computed early, (eg. `pen applepen ` will always resolve one loop earlier than `pen apple pen `) but we can also check that all elements in `newStrArr` contains a space at the end, this can be our new break condition. Let&apos;s also trim the results in the `makeSentence` function
+
+Here&apos;s the full code:
+
+```js
+const str = &quot;penpineapplepenapple&quot;;
+const dict = [&quot;apple&quot;, &quot;pen&quot;, &quot;applepen&quot;, &quot;pine&quot;, &quot;pineapple&quot;];
+
+const makeSentence = (str, dict) =&gt; {
+  return breakFirstWord([str], dict).map((item) =&gt; item.trim());
+};
+
+const breakFirstWord = (strArr, dict) =&gt; {
+  const newStrArr = new Array();
+  for (let i = 0; i &lt; strArr.length; i++) {
+    const currTestStr = strArr[i];
+    let mostRecentSpace = currTestStr.lastIndexOf(&quot; &quot;) + 1;
+    if (mostRecentSpace === currTestStr.length) {
+      newStrArr.push(currTestStr);
+    } else {
+      for (let j = 0; j &lt; dict.length; j++) {
+        const currDictTest = dict[j];
+        const testSubStr = currTestStr.substring(
+          mostRecentSpace,
+          mostRecentSpace + currDictTest.length
+        );
+
+        if (testSubStr === currDictTest) {
+          const newStr =
+            currTestStr.substring(0, mostRecentSpace) +
+            testSubStr +
+            &quot; &quot; +
+            currTestStr.substring(mostRecentSpace + currDictTest.length);
+          newStrArr.push(newStr);
+        }
+      }
+    }
+  }
+  return newStrArr.every((item) =&gt; item[item.length - 1] === &quot; &quot;)
+    ? newStrArr
+    : breakFirstWord(newStrArr, dict);
+};
+
+console.log(makeSentence(str, dict));
+```
+
+codepen:
+
+&lt;iframe height=&quot;265&quot; style=&quot;width: 100%;&quot; scrolling=&quot;no&quot; title=&quot;cassidoo newsletter 2021/7&quot; src=&quot;https://codepen.io/Tzyinc/embed/VwmzORx?height=265&amp;theme-id=light&amp;default-tab=js,result&quot; frameborder=&quot;no&quot; loading=&quot;lazy&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+  See the Pen &lt;a href=&apos;https://codepen.io/Tzyinc/pen/VwmzORx&apos;&gt;cassidoo newsletter 2021/7&lt;/a&gt; by Ten Zhi Yang
+  (&lt;a href=&apos;https://codepen.io/Tzyinc&apos;&gt;@Tzyinc&lt;/a&gt;) on &lt;a href=&apos;https://codepen.io&apos;&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+</content:raw></item><item><title><![CDATA[Hacking together auto posting to dev.to from my blog]]></title><description><![CDATA[In order to increase my online presence, I decided to create a dev.to account. I’ve never posted on medium before so I can’t compare the…]]></description><link>https://blog.tenzhiyang.com/2021-02-10-blog-auto-post/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-02-10-blog-auto-post/</guid><pubDate>Wed, 10 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In order to increase my online presence, I decided to create a dev.to account. I’ve never posted on medium before so I can’t compare the experience from one platform to another, but dev.to was pretty intuitive. However, I already have somewhat of a content creation flow right here on my blog, and I tried manually cross posting, but I didn’t really like the whole doing one thing twice. Hence I decided to hack up some auto posting script. With some luck, you’ll be reading this post itself on dev.to!&lt;/p&gt;
 &lt;h2&gt;Existing blog setup&lt;/h2&gt;
 &lt;p&gt;I’m a very very lazy dev, and my blog really is for me to throw things together, so don’t expect a production ready system here. I’ve tinkered around with it a bit, so I don’t fully remember what came out of the box when I started this gatsby blog, but I’ll list out things that are relevant to this task.&lt;/p&gt;
 &lt;ul&gt;
@@ -649,9 +998,9 @@ Of course I would have liked to write some solution that identifies chords, but 
 
 Playing around with it, I found that when playing a note on a guitar, it was fairly consistent in pitch, although the attack and decay might be messed up. My solution to remove noise from deliberate notes is to have a queue that I constantly check. If the entire queue is of that same note, I can assume that that&apos;s a deliberate note. The next thing is generating scales. For this I wrote a [helper function](https://codepen.io/Tzyinc/pen/QWweQXa) to generate scales from a root note and a step pattern like `4-H-W-4-H` where W is a whole step and H is a half step (and numbers are just the number of steps).
 
-Here&apos;s my [scale practicing prototype](https://app.tenzhiyang.com/tuner/)</content:raw></item><item><title><![CDATA[Adding a bot to post updates to twitter]]></title><description><![CDATA[Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?&lt;/p&gt;</content:encoded><content:raw>
-Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?</content:raw></item><item><title><![CDATA[Adding twitter feed to my blog]]></title><description><![CDATA[Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for…]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here’s to a better blog layout!&lt;/p&gt;</content:encoded><content:raw>
-Last year I wrote down my telegram ramblings as a blog post, but it&apos;s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here&apos;s to a better blog layout!</content:raw></item><item><title><![CDATA[New section here!]]></title><description><![CDATA[Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!]]></description><link>https://blog.tenzhiyang.com/2020-01-28-half-baked/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-28-half-baked/</guid><pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!&lt;/p&gt;</content:encoded><content:raw>
+Here&apos;s my [scale practicing prototype](https://app.tenzhiyang.com/tuner/)</content:raw></item><item><title><![CDATA[Adding twitter feed to my blog]]></title><description><![CDATA[Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for…]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-feed/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Last year I wrote down my telegram ramblings as a blog post, but it’s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here’s to a better blog layout!&lt;/p&gt;</content:encoded><content:raw>
+Last year I wrote down my telegram ramblings as a blog post, but it&apos;s too much of a hassle to create a post every time I have some idea for a pet project. This year I will write them down in a tweet so that it can be easily catalogued and quickly referenced. Here&apos;s to a better blog layout!</content:raw></item><item><title><![CDATA[Adding a bot to post updates to twitter]]></title><description><![CDATA[Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?]]></description><link>https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-29-twitter-upgrade-again/</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?&lt;/p&gt;</content:encoded><content:raw>
+Since I had to write a middleware for twitter anyway, why not just create a bot that updates my twitter for me?</content:raw></item><item><title><![CDATA[New section here!]]></title><description><![CDATA[Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!]]></description><link>https://blog.tenzhiyang.com/2020-01-28-half-baked/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2020-01-28-half-baked/</guid><pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!&lt;/p&gt;</content:encoded><content:raw>
 Adding a new section for my half baked ideas so that I can post anything that pops into my mind without it being a full article!
 </content:raw></item><item><title><![CDATA[Five months into Lip]]></title><link>https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-12-13-five-months-into-lip/</guid><pubDate>Fri, 13 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-resp-iframe-wrapper&quot; style=&quot;padding-bottom: 56.25%; position: relative; height: 0; overflow: hidden; margin-bottom: 1.0725rem&quot; &gt; &lt;iframe src=&quot;https://www.youtube.com/embed/0TUP5qEBYhQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen style=&quot; position: absolute; top: 0; left: 0; width: 100%; height: 100%; &quot;&gt;&lt;/iframe&gt; &lt;/div&gt;</content:encoded><content:raw>
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0TUP5qEBYhQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</content:raw></item><item><title><![CDATA[Synth til it hertz]]></title><description><![CDATA[This article is a complement to my presentation in React Knowledgable. Before we go into the specifics, I’d like to disclose that I am no…]]></description><link>https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2019-11-15-synth-til-it-hertz/</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This article is a complement to my presentation in React Knowledgable.&lt;/strong&gt;&lt;/p&gt;
