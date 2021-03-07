@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: "No matching adjacent chars"
+title: "Paint can for room"
 date: "2021-03-07"
 type: "baked"
 ---
@@ -120,3 +120,5 @@ const numberOfCans = (room, canCoverage) => {
   return calcCanCoverage(length, width, height, canCoverage);
 };
 ```
+
+So that's our validation! There's probably some things I missed, but we've made our solution a little bit more "safe". If we want to go on to write libraries, and tools that are used by many people we should practice input validation where necessary. What other things did I leave out? You can tweet @ me or respond to the dev.to article!
