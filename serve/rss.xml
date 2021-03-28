@@ -1,4 +1,217 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 07 Mar 2021 11:00:55 GMT</lastBuildDate><item><title><![CDATA[Paint can for room]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience…]]></description><link>https://blog.tenzhiyang.com/2021-03-07-paint-can-for-room/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-03-07-paint-can-for-room/</guid><pubDate>Sun, 07 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 28 Mar 2021 16:27:59 GMT</lastBuildDate><item><title><![CDATA[Largest number from two array]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience: people…]]></description><link>https://blog.tenzhiyang.com/2021-03-28-largest-number-from-two-arr/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-03-28-largest-number-from-two-arr/</guid><pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/014db43a-d6dd-4e4c-b495-e23a779639ac&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Target audience: people comfortable in js (please feedback!)&lt;/p&gt;
+&lt;h1&gt;This week’s question:&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You’re given two integer arrays (n and m), and an integer k. Using the digits from n and m, return the largest number you can of length k.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Example:&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;n = [3,4,6,5]
+m = [9,0,2,5,8,3]
+k = 5
+$ maxNum(n, m, k)
+$ 98655&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When I first read this question, the most obvious solution was to combine the arrays then sort them, the first k numbers will be the answer. We can chain some functional functions together like so:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;maxNum&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; m&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; k&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; b &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; a&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;_&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; i&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; k&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What this does is to spread n and m (O(n+m)) followed by sorting them by descending order, O(n+m log n+m) and then filtering (O(n+m)) and joining (O(k)) this gives us a complexity of O(n+m log n+m). There are many ways to implement this same logic more efficiently, but the bottle neck is the sorting.&lt;/p&gt;
+&lt;p&gt;My next idea came to me by identifying that I only needed the biggest K values, and sorting wasn’t necessary. This means that we can make use of some data structure which has a better amortised cost, such as a heap. Here’s my array implementation of a heap:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MaxHeap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;heap &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getChildrenIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; curr &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; curr &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getParentIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;curr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; curr &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;curr &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;curr &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    heap&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;heap&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function-variable function&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; heap &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      heap&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; currIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; parentIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getParentIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;parentIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;parentIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;parentIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tmp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        currIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; parentIndex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        parentIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getParentIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function-variable function&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; heap &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; lastItem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; currIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;l&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getChildrenIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; returnVal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; lastItem&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;l&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;r&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;r&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;l&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;r&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;r&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tmp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          currIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;l&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          heap&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;l&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tmp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          currIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; l&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;l&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; r&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getChildrenIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currIndex&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; returnVal&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and then the driver function will just iteratively add n and m into the heap, with an average O(1) of insertion (O(n+m)) then removing k items (O(k)) and this gives us an average case of O(n+m) but worst case no better than the previous solution.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;maxNum&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; m&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; k&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; h &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MaxHeap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  n&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; h&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  m&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; h&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;k&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; h&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finally my thought went to the problem itself. Since the input are digits, we know that there can be at most 10 different input values, this allows us to do some non-comparison sorting, but we didn’t need anything as complex as radix sort, when just counting the digits would do. This solution basically counts all the digits (O(n+m)) and then goes through the count (O(10) = O(1)) and then reassembles the string. Giving us O(n+m) time complexity and a virtually constant space.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;linearMaxNum&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; m&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; k&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; all &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;m&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  all&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      count&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    count&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    res &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; k&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded><content:raw>
+**This may or may not be the optimal solution, DO NOT blindly memorize my solutions**
+
+From [Cassidy&apos;s](https://twitter.com/cassidoo) weekly [newsletter](https://buttondown.email/cassidoo/archive/014db43a-d6dd-4e4c-b495-e23a779639ac).
+
+Target audience: people comfortable in js (please feedback!)
+
+# This week’s question:
+&gt; You’re given two integer arrays (n and m), and an integer k. Using the digits from n and m, return the largest number you can of length k.
+
+## Example:
+
+```
+n = [3,4,6,5]
+m = [9,0,2,5,8,3]
+k = 5
+$ maxNum(n, m, k)
+$ 98655
+```
+
+When I first read this question, the most obvious solution was to combine the arrays then sort them, the first k numbers will be the answer. We can chain some functional functions together like so:
+
+```js
+const maxNum = (n, m, k) =&gt;
+  [...n, ...m]
+    .sort((a, b) =&gt; b - a)
+    .filter((_, i) =&gt; i &lt; k)
+    .join(&quot;&quot;);
+```
+
+What this does is to spread n and m (O(n+m)) followed by sorting them by descending order, O(n+m log n+m) and then filtering (O(n+m)) and joining (O(k)) this gives us a complexity of O(n+m log n+m). There are many ways to implement this same logic more efficiently, but the bottle neck is the sorting.
+
+My next idea came to me by identifying that I only needed the biggest K values, and sorting wasn&apos;t necessary. This means that we can make use of some data structure which has a better amortised cost, such as a heap. Here&apos;s my array implementation of a heap:
+
+```js
+function MaxHeap() {
+  this.heap = [];
+  function getChildrenIndex(curr) {
+    return [2 * curr + 1, 2 * curr + 2];
+  }
+  function getParentIndex(curr) {
+    return curr % 2 === 0 ? (curr - 2) / 2 : (curr - 1) / 2;
+  }
+
+  return {
+    heap: this.heap,
+    insert: function (value) {
+      let { heap } = this;
+      heap.push(value);
+      let currIndex = heap.length - 1;
+      let parentIndex = getParentIndex(currIndex);
+      while (heap[currIndex] &gt; heap[parentIndex]) {
+        const tmp = heap[parentIndex];
+        heap[parentIndex] = heap[currIndex];
+        heap[currIndex] = tmp;
+        currIndex = parentIndex;
+        parentIndex = getParentIndex(currIndex);
+      }
+    },
+    remove: function () {
+      let { heap } = this;
+      const lastItem = heap.pop();
+      let currIndex = 0;
+      let [l, r] = getChildrenIndex(currIndex);
+      const returnVal = heap[0];
+      heap[0] = lastItem;
+      while (heap[currIndex] &lt; heap[l] || heap[currIndex] &lt; heap[r]) {
+        const tmp = heap[currIndex];
+        if (heap[r] &gt; heap[l]) {
+          heap[currIndex] = heap[r];
+          heap[r] = tmp;
+          currIndex = r;
+        } else {
+          heap[currIndex] = heap[l];
+          heap[l] = tmp;
+          currIndex = l;
+        }
+        [l, r] = getChildrenIndex(currIndex);
+      }
+      return returnVal;
+    }
+  };
+}
+```
+
+and then the driver function will just iteratively add n and m into the heap, with an average O(1) of insertion (O(n+m)) then removing k items (O(k)) and this gives us an average case of O(n+m) but worst case no better than the previous solution.
+
+```js
+const maxNum = (n, m, k) =&gt; {
+  let h = new MaxHeap();
+  n.forEach((item) =&gt; h.insert(item));
+  m.forEach((item) =&gt; h.insert(item));
+  return Array(k)
+    .fill(0)
+    .map((_) =&gt; h.remove())
+    .join(&quot;&quot;);
+};
+
+```
+
+Finally my thought went to the problem itself. Since the input are digits, we know that there can be at most 10 different input values, this allows us to do some non-comparison sorting, but we didn&apos;t need anything as complex as radix sort, when just counting the digits would do. This solution basically counts all the digits (O(n+m)) and then goes through the count (O(10) = O(1)) and then reassembles the string. Giving us O(n+m) time complexity and a virtually constant space.
+
+```js
+const linearMaxNum = (n, m, k) =&gt; {
+  const count = {};
+  let res = &quot;&quot;;
+  let all = [...n, ...m];
+  all.forEach((item) =&gt; {
+    if (!count[item]) {
+      count[item] = 0;
+    }
+    count[item]++;
+  });
+  for (let i = 9; i &gt;= 0; i--) {
+    res += new Array(count[i]).fill(i).join(&quot;&quot;);
+  }
+  return res.substr(0, k);
+};
+```
+</content:raw></item><item><title><![CDATA[Paint can for room]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience…]]></description><link>https://blog.tenzhiyang.com/2021-03-07-paint-can-for-room/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-03-07-paint-can-for-room/</guid><pubDate>Sun, 07 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/03337905-32a8-4c6c-b9e5-4ffa3f592d50&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Target audience: beginners in js (please feedback!)&lt;/p&gt;
 &lt;h1&gt;This week’s question:&lt;/h1&gt;
@@ -4261,6 +4474,11 @@ Firstly the fact that our idea was presentable. I think the problem with my 2019
 Secondly, the project was an incredibly small scope. using a deterministic solution is really the key here. Having something that wasn&apos;t up to chance means debugging is really do-able.
 
 Finally I think complexity of UI made this project take just a little bit too much time. UI has to look good, but it has also have to be simple.
+</content:raw></item><item><title><![CDATA[@sg_carparks_bot]]></title><description><![CDATA[Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.&lt;/p&gt;
+&lt;h3&gt;bot is now down due to lack of maintenance and changes in api&lt;/h3&gt;</content:encoded><content:raw>
+Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.
+
+### bot is now down due to lack of maintenance and changes in api
 </content:raw></item><item><title><![CDATA[Midichlorians]]></title><description><![CDATA[A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-midichlorians/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-midichlorians/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A project developed for a module, Midichlorians is an iPad app implementation of the famous Midi-controller Launchpad. This project was done over a period of 6 weeks, in a team of 4 people. Features include audio synch to dropbox, customised animations, recording playback, and multiple music profiles.&lt;/p&gt;
 &lt;p&gt;
       &lt;div class=&quot;gria-image-wrapper&quot; style=&quot;
@@ -4391,11 +4609,6 @@ We won first place in our module (of 10 groups) during NUS&apos;s
 [![midichlorians](https://img.youtube.com/vi/_LfiVj5-uJ4/0.jpg)](https://www.youtube.com/watch?v=_LfiVj5-uJ4)
 
 [Download here](https://itunes.apple.com/ca/app/midichlorians/id1229585861?mt=8)
-</content:raw></item><item><title><![CDATA[@sg_carparks_bot]]></title><description><![CDATA[Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up…]]></description><link>https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-16-sg-carparks/</guid><pubDate>Mon, 16 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.&lt;/p&gt;
-&lt;h3&gt;bot is now down due to lack of maintenance and changes in api&lt;/h3&gt;</content:encoded><content:raw>
-Sg carparks is a telegram bot that I developed to help find nearby parking lots. You send the bot your current location, and it brings up the five nearest carparks from that location and lists out the carparks rate. You can also click on the carpark names returned to you and it will redirect you to google maps for you to find your current location.
-
-### bot is now down due to lack of maintenance and changes in api
 </content:raw></item><item><title><![CDATA[F450 Programmable Drone]]></title><description><![CDATA[This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and…]]></description><link>https://blog.tenzhiyang.com/2017-10-15-f450-drone/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2017-10-15-f450-drone/</guid><pubDate>Sun, 15 Oct 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This was my first self-assembled quadcopter. Under the guidance of an NUS lecturer, Dr Colin Tan, I assembled the 450 frame drone and changed the circuitry with 3DR’s pixhawk flight controller, and connected it to a Futaba transmitter and receiver kit.&lt;/p&gt;
 &lt;p&gt;
       &lt;div class=&quot;gria-image-wrapper&quot; style=&quot;
