@@ -1,4 +1,225 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 28 Mar 2021 16:27:59 GMT</lastBuildDate><item><title><![CDATA[Largest number from two array]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience: people…]]></description><link>https://blog.tenzhiyang.com/2021-03-28-largest-number-from-two-arr/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-03-28-largest-number-from-two-arr/</guid><pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Apr 2021 13:57:08 GMT</lastBuildDate><item><title><![CDATA[Super ugly number]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience: people…]]></description><link>https://blog.tenzhiyang.com/2021-04-11-super-ugly-number/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-04-11-super-ugly-number/</guid><pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/8db4e69f-1ffd-40ef-8f35-1d327eb63ddf&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Target audience: people comfortable in js (please feedback!)&lt;/p&gt;
+&lt;h1&gt;This week’s question:&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an integer n and a sorted array of prime integers called primes, return the nth “super ugly number”. A “super ugly number” is a positive number whose all prime factors are in the array primes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Example:&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ superUgly(1, [2,3,5])
+$ 1
+$ superUgly(11, [2,7,13,19])
+$ 28&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I haven’t seen this problem before and it was a bit confusing why the first example returned a 1 when 1’s prime was not in the list, but after looking it up, I found that 1 is the first result by convention. Now the first thing that came to mind is why we needed 1 by convention, I think this led me to think that maybe we can build up the list of super ugly numbers starting from 1, and then using the primes given.&lt;/p&gt;
+&lt;p&gt;Let’s work out the second example on paper&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;super ugg nums = [1]
+
+super ugg nums = [1, 1*2]
+
+super ugg nums = [1, 1*2, 1*2*2]
+// [1,2,4]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2]
+// [1,2,4,7,8]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2]
+// [1,2,4,7,8,13,14,16]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2, 1*19]
+// [1,2,4,7,8,13,14,16,19]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2, 1*19, 1*2*13]
+// [1,2,4,7,8,13,14,16,19,26]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2, 1*19, 1*2*13, 1*2*2*7]
+// [1,2,4,7,8,13,14,16,19,26,28]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looking at how we calculated this, I felt that there’s 2 things I had to keep note of. I always need to know when to start using the next prime, and I also need to check where’s the last time I used the previous prime, i.e when calculating 1&lt;em&gt;2&lt;/em&gt;2&lt;em&gt;7, I need to use the 7 prime with the last time I calculated 2&lt;/em&gt;2.&lt;/p&gt;
+&lt;p&gt;Thus to build the next, number, all I have to do is to loop through the list of primes, multiply then by some past super ugly number and then pick the smallest one. Let’s figure out the past ugly number later, and write something down first&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;superUgly&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; primes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; ugly &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;ugly&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ugly&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This gives us &lt;code class=&quot;language-text&quot;&gt;[1,2,4,8,16,32,64,128,256,512,1024,2048]&lt;/code&gt; what’s happening here is that we will &lt;strong&gt;always&lt;/strong&gt; reference the previous time we used the 2 prime, and we will always use the 2 prime for the next iteration as it always gives us the small number. This solution looks extremely wrong, but it actually gives us a few things that work towards the final answer. We are calculating the next number by using the min of all of the primes * some previous iteration. We just haven’t figured out which previous iteration to use. 1,2,4 makes sense but we didn’t start using the 7, as by the time we were ready to use 7, we were returning min(1&lt;em&gt;2&lt;/em&gt;2&lt;em&gt;2, 1&lt;/em&gt;2&lt;em&gt;2&lt;/em&gt;7) and inserted an 8 instead.&lt;/p&gt;
+&lt;p&gt;So maybe what we can do is to reference in the ugly list, some number that 7 needs to multiply by. let’s keep track of the index of the previous iteration, by using an array, since we only need to keep track of one index per prime.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;superUgly&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; primes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; ugly &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; prevIndices &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;prevIndices&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ugly&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This gives us &lt;code class=&quot;language-text&quot;&gt;[1,2,2,2,2,2,2,2,2,2,2,2]&lt;/code&gt;, which makes sense, because we never moved the prevIndices when we select the min, so let’s increment the prevIndices every time we pick that result for our next&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;superUgly&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; primes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; ugly &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; prevIndices &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;prevIndices&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; updateIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    prevIndices&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;updateIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ugly&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// console.log(&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//   prevIndices,&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//   prevIndices.map((num) =&gt; ugly[num])&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// );&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At this point, if you’re lost you can un-comment the console log to see what the prevIndices is doing, basically it lets us know when was the previous time we used this particular prime to insert into ugly. Our return value for this function is &lt;code class=&quot;language-text&quot;&gt;[1,2,4,7,8,13,14,14,16,19,26,26]&lt;/code&gt; which is really, really close to what we want! However, it seems like we cut off early, due to having multiple branches to calculate 14 and 26, this stops our loop prematurely. We could insert the ugly values into the set, but then we’d lose the use of our &lt;code class=&quot;language-text&quot;&gt;prevIndices&lt;/code&gt;, what we &lt;strong&gt;could&lt;/strong&gt; do is to write a different terminating condition, one where we terminate once we reach n unique solutions, giving us this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;superUgly&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; primes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; ugly &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; prevIndices &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ugly&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;size &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; primes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;prevIndices&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; updateIndex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findIndex&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; item &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    prevIndices&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;updateIndex&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    ugly&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; ugly&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This gives us the correct answer with &lt;code class=&quot;language-text&quot;&gt;[1,2,4,7,8,13,14,14,16,19,26,26,28]&lt;/code&gt; ! now change &lt;code class=&quot;language-text&quot;&gt;return ugly&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;return ugly.pop()&lt;/code&gt; and we’re done!&lt;/p&gt;
+&lt;p&gt;This question is not particularly easy, I think I happened to figure out the answer while finding out more information about the question itself,  since I wasn’t too familiar with primes and factors, let alone prime factors, so I probably had a spark of inspiration from other problem descriptions and would not have come to the answer so quickly if I didn’t look up this question from other places.&lt;/p&gt;
+&lt;p&gt;Don’t falter if you can’t figure it out on your own, mathematical problems like this that require some kind of trick doesn’t usually come intuitively, so it’s just a matter of practice and knowing other questions like this that can help solve future similar questions!&lt;/p&gt;</content:encoded><content:raw>
+**This may or may not be the optimal solution, DO NOT blindly memorize my solutions**
+
+From [Cassidy&apos;s](https://twitter.com/cassidoo) weekly [newsletter](https://buttondown.email/cassidoo/archive/8db4e69f-1ffd-40ef-8f35-1d327eb63ddf).
+
+Target audience: people comfortable in js (please feedback!)
+
+# This week’s question:
+&gt; Given an integer n and a sorted array of prime integers called primes, return the nth “super ugly number”. A “super ugly number” is a positive number whose all prime factors are in the array primes.
+
+## Example:
+
+```
+$ superUgly(1, [2,3,5])
+$ 1
+$ superUgly(11, [2,7,13,19])
+$ 28
+```
+
+I haven&apos;t seen this problem before and it was a bit confusing why the first example returned a 1 when 1&apos;s prime was not in the list, but after looking it up, I found that 1 is the first result by convention. Now the first thing that came to mind is why we needed 1 by convention, I think this led me to think that maybe we can build up the list of super ugly numbers starting from 1, and then using the primes given.
+
+Let&apos;s work out the second example on paper
+
+```
+super ugg nums = [1]
+
+super ugg nums = [1, 1*2]
+
+super ugg nums = [1, 1*2, 1*2*2]
+// [1,2,4]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2]
+// [1,2,4,7,8]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2]
+// [1,2,4,7,8,13,14,16]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2, 1*19]
+// [1,2,4,7,8,13,14,16,19]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2, 1*19, 1*2*13]
+// [1,2,4,7,8,13,14,16,19,26]
+
+super ugg nums = [1, 1*2, 1*2*2, 1*7, 1*2*2*2, 1*13, 1*2*7, 1*2*2*2*2, 1*19, 1*2*13, 1*2*2*7]
+// [1,2,4,7,8,13,14,16,19,26,28]
+```
+
+Looking at how we calculated this, I felt that there&apos;s 2 things I had to keep note of. I always need to know when to start using the next prime, and I also need to check where&apos;s the last time I used the previous prime, i.e when calculating 1*2*2*7, I need to use the 7 prime with the last time I calculated 2*2.
+
+Thus to build the next, number, all I have to do is to loop through the list of primes, multiply then by some past super ugly number and then pick the smallest one. Let&apos;s figure out the past ugly number later, and write something down first
+
+```js
+const superUgly = (n, primes) =&gt; {
+  let ugly = [1];
+  for (let i = 0; i &lt; n; i++) {
+    const options = primes.map((item) =&gt; item * ugly[ugly.length - 1]);
+    const next = Math.min(...options);
+    ugly.push(next);
+  }
+  return ugly;
+};
+```
+
+This gives us `[1,2,4,8,16,32,64,128,256,512,1024,2048]` what&apos;s happening here is that we will **always** reference the previous time we used the 2 prime, and we will always use the 2 prime for the next iteration as it always gives us the small number. This solution looks extremely wrong, but it actually gives us a few things that work towards the final answer. We are calculating the next number by using the min of all of the primes * some previous iteration. We just haven&apos;t figured out which previous iteration to use. 1,2,4 makes sense but we didn&apos;t start using the 7, as by the time we were ready to use 7, we were returning min(1*2*2*2, 1*2*2*7) and inserted an 8 instead.
+
+So maybe what we can do is to reference in the ugly list, some number that 7 needs to multiply by. let&apos;s keep track of the index of the previous iteration, by using an array, since we only need to keep track of one index per prime.
+
+```js
+const superUgly = (n, primes) =&gt; {
+  let ugly = [1];
+  let prevIndices = new Array(primes.length).fill(0);
+  for (let i = 0; i &lt; n; i++) {
+    const options = primes.map((item, index) =&gt; item * ugly[prevIndices[index]]);
+    const next = Math.min(...options);
+    ugly.push(next);
+  }
+  return ugly;
+};
+```
+
+This gives us `[1,2,2,2,2,2,2,2,2,2,2,2]`, which makes sense, because we never moved the prevIndices when we select the min, so let&apos;s increment the prevIndices every time we pick that result for our next
+
+```js
+const superUgly = (n, primes) =&gt; {
+  let ugly = [1];
+  let prevIndices = new Array(primes.length).fill(0);
+  for (let i = 0; i &lt; n; i++) {
+    const options = primes.map(
+      (item, index) =&gt; item * ugly[prevIndices[index]]
+    );
+    const next = Math.min(...options);
+    const updateIndex = options.findIndex((item) =&gt; item === next);
+    prevIndices[updateIndex]++;
+    ugly.push(next);
+    // console.log(
+    //   prevIndices,
+    //   prevIndices.map((num) =&gt; ugly[num])
+    // );
+  }
+  return ugly;
+};
+```
+
+At this point, if you&apos;re lost you can un-comment the console log to see what the prevIndices is doing, basically it lets us know when was the previous time we used this particular prime to insert into ugly. Our return value for this function is `[1,2,4,7,8,13,14,14,16,19,26,26]` which is really, really close to what we want! However, it seems like we cut off early, due to having multiple branches to calculate 14 and 26, this stops our loop prematurely. We could insert the ugly values into the set, but then we&apos;d lose the use of our `prevIndices`, what we **could** do is to write a different terminating condition, one where we terminate once we reach n unique solutions, giving us this:
+
+```js
+const superUgly = (n, primes) =&gt; {
+  let ugly = [1];
+  let prevIndices = new Array(primes.length).fill(0);
+  while (new Set(ugly).size &lt; n) {
+    const options = primes.map(
+      (item, index) =&gt; item * ugly[prevIndices[index]]
+    );
+    const next = Math.min(...options);
+    const updateIndex = options.findIndex((item) =&gt; item === next);
+    prevIndices[updateIndex]++;
+    ugly.push(next);
+  }
+  return ugly;
+};
+```
+
+This gives us the correct answer with `[1,2,4,7,8,13,14,14,16,19,26,26,28]` ! now change `return ugly` to `return ugly.pop()` and we&apos;re done!
+
+This question is not particularly easy, I think I happened to figure out the answer while finding out more information about the question itself,  since I wasn&apos;t too familiar with primes and factors, let alone prime factors, so I probably had a spark of inspiration from other problem descriptions and would not have come to the answer so quickly if I didn&apos;t look up this question from other places.
+
+Don&apos;t falter if you can&apos;t figure it out on your own, mathematical problems like this that require some kind of trick doesn&apos;t usually come intuitively, so it&apos;s just a matter of practice and knowing other questions like this that can help solve future similar questions!
+</content:raw></item><item><title><![CDATA[Largest number from two array]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience: people…]]></description><link>https://blog.tenzhiyang.com/2021-03-28-largest-number-from-two-arr/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-03-28-largest-number-from-two-arr/</guid><pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/014db43a-d6dd-4e4c-b495-e23a779639ac&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Target audience: people comfortable in js (please feedback!)&lt;/p&gt;
 &lt;h1&gt;This week’s question:&lt;/h1&gt;
@@ -92,7 +313,8 @@ $ 98655&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     res &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; k&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded><content:raw>
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This question was quite interesting as I kept finding different ways to solve it, and each of them tested different part of my CS knowledge, and also some good practice in implementing a binary heap from scratch! I don’t think I can get anything better than linear, but do @ me on twitter if you find any better solutions!&lt;/p&gt;</content:encoded><content:raw>
 **This may or may not be the optimal solution, DO NOT blindly memorize my solutions**
 
 From [Cassidy&apos;s](https://twitter.com/cassidoo) weekly [newsletter](https://buttondown.email/cassidoo/archive/014db43a-d6dd-4e4c-b495-e23a779639ac).
@@ -211,6 +433,8 @@ const linearMaxNum = (n, m, k) =&gt; {
   return res.substr(0, k);
 };
 ```
+
+This question was quite interesting as I kept finding different ways to solve it, and each of them tested different part of my CS knowledge, and also some good practice in implementing a binary heap from scratch! I don&apos;t think I can get anything better than linear, but do @ me on twitter if you find any better solutions!
 </content:raw></item><item><title><![CDATA[Paint can for room]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience…]]></description><link>https://blog.tenzhiyang.com/2021-03-07-paint-can-for-room/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-03-07-paint-can-for-room/</guid><pubDate>Sun, 07 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/03337905-32a8-4c6c-b9e5-4ffa3f592d50&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Target audience: beginners in js (please feedback!)&lt;/p&gt;

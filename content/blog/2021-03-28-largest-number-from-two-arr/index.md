@@ -123,3 +123,5 @@ const linearMaxNum = (n, m, k) => {
   return res.substr(0, k);
 };
 ```
+
+This question was quite interesting as I kept finding different ways to solve it, and each of them tested different part of my CS knowledge, and also some good practice in implementing a binary heap from scratch! I don't think I can get anything better than linear, but do @ me on twitter if you find any better solutions!
