@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Apr 2021 13:57:08 GMT</lastBuildDate><item><title><![CDATA[Super ugly number]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience: people…]]></description><link>https://blog.tenzhiyang.com/2021-04-11-super-ugly-number/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-04-11-super-ugly-number/</guid><pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Ten's Thoughts]]></title><description><![CDATA[Just another Dev blog]]></description><link>https://blog.tenzhiyang.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 25 Apr 2021 15:14:05 GMT</lastBuildDate><item><title><![CDATA[Move Zeroes To End]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience…]]></description><link>https://blog.tenzhiyang.com/2021-04-25-move-zeroes-to-end/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-04-25-move-zeroes-to-end/</guid><pubDate>Sun, 25 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/531c577f-2e0a-4220-9bba-fd70d8fb482b&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Target audience: Beginners in js (please feedback!)&lt;/p&gt;
+&lt;h1&gt;This week’s question:&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an integer array, move all 0s to the end of it while maintaining the relative order of the non-zeroes. Bonus: do this without making a copy of the array!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Example:&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ moveZeroes([0,2,0,3,8])
+$ [2,3,8,0,0]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Filtering zeroes and adding at the end&lt;/h2&gt;
+&lt;p&gt;One of the first solution that comes to mind for this question is to remove the zeroes, and append it to the end of the array.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;moveZeroesNaive&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; noZeroes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; num &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;noZeroes&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; noZeroes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This solution works, and there are probably other ways to code this such that we wont make another copy of an array. Filter makes a copy, and spreading also copies by value in js.&lt;/p&gt;
+&lt;h2&gt;Bubbling&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;moveZeroesBubble&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        arr&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;moveZeroesBubble&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This solution is similar to what we expect of bubble sort. Every time we face a zero, we bubble a zero to the end. This has a complexity of &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt; and takes no extra space.&lt;/p&gt;
+&lt;h2&gt;Abusing sort&lt;/h2&gt;
+&lt;p&gt;One thing we can try is to make use of tools already available to us. In js, we have an in-place sort, and can rely on the js engine to have a decent sort algorithm, of &lt;code class=&quot;language-text&quot;&gt;O(n log n)&lt;/code&gt; complexity (probably &lt;a href=&quot;https://en.wikipedia.org/wiki/Timsort&quot;&gt;timsort&lt;/a&gt;)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;moveZeroes&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;b &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;moveZeroes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;arr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What we can do is to &lt;strong&gt;not&lt;/strong&gt; sort according to both values, but put in a comparison result that checks if one of the array is a zero or not! (if we did &lt;code class=&quot;language-text&quot;&gt;a === 0&lt;/code&gt; instead, we get the 0s at the front)&lt;/p&gt;</content:encoded><content:raw>
+**This may or may not be the optimal solution, DO NOT blindly memorize my solutions**
+
+From [Cassidy&apos;s](https://twitter.com/cassidoo) weekly [newsletter](https://buttondown.email/cassidoo/archive/531c577f-2e0a-4220-9bba-fd70d8fb482b).
+
+Target audience: Beginners in js (please feedback!)
+
+# This week’s question:
+&gt; Given an integer array, move all 0s to the end of it while maintaining the relative order of the non-zeroes. Bonus: do this without making a copy of the array!
+
+## Example:
+
+```
+$ moveZeroes([0,2,0,3,8])
+$ [2,3,8,0,0]
+```
+
+## Filtering zeroes and adding at the end
+
+One of the first solution that comes to mind for this question is to remove the zeroes, and append it to the end of the array.
+
+```js
+const moveZeroesNaive = (arr) =&gt; {
+  let noZeroes = arr.filter((num) =&gt; num !== 0);
+  return [...noZeroes, ...new Array(arr.length - noZeroes.length).fill(0)];
+};
+```
+
+This solution works, and there are probably other ways to code this such that we wont make another copy of an array. Filter makes a copy, and spreading also copies by value in js.
+
+## Bubbling
+```js
+const moveZeroesBubble = (arr) =&gt; {
+  for (let i = 0; i &lt; arr.length; i++) {
+    if (arr[i] === 0) {
+      for (let j = i; j &lt; arr.length - 1; j++) {
+        arr[j] = arr[j + 1];
+        arr[j + 1] = 0;
+      }
+    }
+  }
+  return arr;
+};
+
+const arr = [0, 2, 0, 3, 8];
+moveZeroesBubble(arr);
+console.log(arr);
+```
+
+This solution is similar to what we expect of bubble sort. Every time we face a zero, we bubble a zero to the end. This has a complexity of `O(n^2)` and takes no extra space.
+
+## Abusing sort
+
+One thing we can try is to make use of tools already available to us. In js, we have an in-place sort, and can rely on the js engine to have a decent sort algorithm, of `O(n log n)` complexity (probably [timsort](https://en.wikipedia.org/wiki/Timsort))
+
+```js
+const moveZeroes = (arr) =&gt; arr.sort((a, b) =&gt; (b === 0 ? -1 : 0));
+
+const arr = [0, 2, 0, 3, 8];
+moveZeroes(arr);
+console.log(arr);
+```
+
+What we can do is to **not** sort according to both values, but put in a comparison result that checks if one of the array is a zero or not! (if we did `a === 0` instead, we get the 0s at the front)
+</content:raw></item><item><title><![CDATA[Super ugly number]]></title><description><![CDATA[This may or may not be the optimal solution, DO NOT blindly memorize my solutions From Cassidy’s weekly newsletter. Target audience: people…]]></description><link>https://blog.tenzhiyang.com/2021-04-11-super-ugly-number/</link><guid isPermaLink="false">https://blog.tenzhiyang.com/2021-04-11-super-ugly-number/</guid><pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;This may or may not be the optimal solution, DO NOT blindly memorize my solutions&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;From &lt;a href=&quot;https://twitter.com/cassidoo&quot;&gt;Cassidy’s&lt;/a&gt; weekly &lt;a href=&quot;https://buttondown.email/cassidoo/archive/8db4e69f-1ffd-40ef-8f35-1d327eb63ddf&quot;&gt;newsletter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Target audience: people comfortable in js (please feedback!)&lt;/p&gt;
 &lt;h1&gt;This week’s question:&lt;/h1&gt;
