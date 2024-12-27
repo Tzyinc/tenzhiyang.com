@@ -79,14 +79,7 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    >
-      <script
-        type="text/javascript"
-        defer
-        src="https://umami.home.tenzhiyang.com/script.js"
-        data-website-id="d677054a-6f42-47b4-b918-022228169086"
-      ></script>
-    </Helmet>
+    ></Helmet>
   )
 }
 
