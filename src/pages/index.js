@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -11,9 +11,7 @@ function BlogIndex(props) {
   const { data } = props
   const [blogCount, setBlogCount] = useState(1)
   const [bakedCount, setBakedCount] = useState(1)
-  const [tweetCount, setTweetCount] = useState(1)
   const [talkCount, setTalkCount] = useState(1)
-  const [tweetList, setTweetList] = useState([])
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges.filter(
     item => item.node.frontmatter.type === "post"
@@ -24,21 +22,6 @@ function BlogIndex(props) {
   const talks = data.allMarkdownRemark.edges.filter(
     item => item.node.frontmatter.type === "talk"
   )
-  const tweets = tweetList.filter(
-    item =>
-      !item.in_reply_to_status_id &&
-      !item.quoted_status &&
-      !item.retweeted_status
-  )
-
-  useEffect(() => {
-    // get data from GitHub api
-    fetch(`https://blogbackend.tenzhiyang.com/tweets`)
-      .then(response => response.json()) // parse JSON from request
-      .then(result => {
-        setTweetList(result)
-      }) // set data for the number of stars
-  }, [])
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -85,118 +68,8 @@ function BlogIndex(props) {
           })}
         </React.Fragment>
       )}
-      {tweets.length > 0 && (
-        <React.Fragment>
-          <h2>
-            Brain farts{" "}
-            <span role="img" aria-label="brain and wind">
-              🧠💨
-            </span>
-          </h2>
-          {Tweets({
-            posts: tweets,
-            blogCount: tweetCount,
-            setBlogCount: setTweetCount,
-          })}
-        </React.Fragment>
-      )}
     </Layout>
   )
-}
-
-function Tweets({ posts, blogCount, setBlogCount }) {
-  return (
-    <React.Fragment>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        {blogCount - 1 > 0 ? (
-          <button
-            onClick={() =>
-              blogCount - 1 > 0
-                ? setBlogCount(blogCount - 1)
-                : setBlogCount(Math.floor(posts.length / 5))
-            }
-          >{`< prev`}</button>
-        ) : (
-          <div />
-        )}
-        {(blogCount + 1) * 5 - 5 < posts.length ? (
-          <button
-            onClick={() =>
-              (blogCount + 1) * 5 - 5 < posts.length
-                ? setBlogCount(blogCount + 1)
-                : setBlogCount(1)
-            }
-          >{`next >`}</button>
-        ) : (
-          <div />
-        )}
-      </div>
-      {posts
-        .filter(
-          (_, index) => index >= blogCount * 5 - 5 && index < blogCount * 5
-        )
-        .map((node, index) => {
-          return (
-            <div
-              key={node.id}
-              style={
-                index !== 0
-                  ? {
-                      paddingTop: "20px",
-                      borderTop: "1px solid var(--alt)",
-                      marginTop: "20px",
-                    }
-                  : {}
-              }
-              className="tweetSection"
-            >
-              <small>{generateDate(node.created_at)}</small>
-              <p>
-                <a
-                  style={{ boxShadow: `none`, textDecoration: `none` }}
-                  href={generateUrl(node.id_str)}
-                >
-                  {node.text}
-                </a>
-              </p>
-            </div>
-          )
-        })}
-    </React.Fragment>
-  )
-}
-
-function generateUrl(id) {
-  return `https://twitter.com/tzyinc/status/${id}`
-}
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-]
-
-function generateDate(dateStr) {
-  const date = new Date(dateStr)
-  const month = months[date.getMonth()]
-  const dd = date.getDate()
-  const yyyy = date.getFullYear()
-  return `${month} ${dd}, ${yyyy}`
 }
 
 function BlogList({ posts, blogCount, setBlogCount }) {
