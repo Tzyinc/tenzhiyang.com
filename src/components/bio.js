@@ -55,7 +55,11 @@ const Bio = () => {
         }}
       />
       <div>
-        <div>{author} is a dev in Singapore. Disagree with me? <a href={`https://twitter.com/tzyinc`}>@ me on twitter</a>. Like my post? <a href={`https://twitter.com/tzyinc`}>@ me on twitter too</a>! </div>
+        <div>
+          {author} is a dev in Singapore. Disagree with me?{" "}
+          <a href={`https://twitter.com/tzyinc`}>@ me on twitter</a>. Like my
+          post? <a href={`https://twitter.com/tzyinc`}>@ me on twitter too</a>!{" "}
+        </div>
       </div>
     </div>
   )

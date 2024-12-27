@@ -16,17 +16,17 @@ class Layout extends React.Component {
             ...scale(1.5),
             marginBottom: rhythm(1.5),
             marginTop: 0,
-            width: '100%',
+            width: "100%",
             padding: 20,
-            backgroundColor: 'var(--alt)',
+            backgroundColor: "var(--alt)",
             // backgroundImage: `linear-gradient(#eee .1em, transparent .1em)`,
             // backgroundSize: `100% 0.5em`
-            color: 'white',
+            color: "white",
             textShadow: `-1px -1px 0 #1D3557,
               1px -1px 0 #1D3557,
               -1px 1px 0 #1D3557,
                1px 1px 0 #1D3557`,
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
             zIndex: 1000,
@@ -74,16 +74,19 @@ class Layout extends React.Component {
         }}
       >
         <header>{header}</header>
-        {location.pathname === rootPath ?
-        <main style={{ marginTop: 100 }}>{children}</main>
-      :
-      <main>{children}</main>}
+        {location.pathname === rootPath ? (
+          <main style={{ marginTop: 100 }}>{children}</main>
+        ) : (
+          <main>{children}</main>
+        )}
         <footer>
-          <a href={`https://twitter.com/tzyinc`}>
-            Twitter
-          </a>
+          <a href={`https://twitter.com/tzyinc`}>Twitter</a>
           {" • "}
-          <a href={"https://drive.google.com/open?id=1iVoWXxYpAlL2QG3O9bFFXqX6lJw-JbdcX9gfYw7gIzU"}>
+          <a
+            href={
+              "https://drive.google.com/open?id=1iVoWXxYpAlL2QG3O9bFFXqX6lJw-JbdcX9gfYw7gIzU"
+            }
+          >
             CV
           </a>
           {" • "}
