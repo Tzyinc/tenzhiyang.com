@@ -5,6 +5,7 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
+        <script defer src="https://umami.home.tenzhiyang.com/script.js" data-website-id="d677054a-6f42-47b4-b918-022228169086"></script>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
